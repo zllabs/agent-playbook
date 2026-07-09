@@ -36,6 +36,7 @@ class TestPackage(unittest.TestCase):
         self.assertIn("I write sloppy requests", content)
         self.assertIn("removes ambiguity between developers and coding agents", content)
         self.assertIn("Design goals", content)
+        self.assertIn("Contract tests", content)
 
     def test_rule_and_skill_reference_examples(self) -> None:
         for rel_path in (
