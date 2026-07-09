@@ -7,16 +7,16 @@ import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-CONFIG = ROOT / "agent-brief.yaml"
-CURSOR_RULE = (ROOT / "cursor" / "rules" / "agent-brief.md").read_text()
-CLAUDE_SKILL = (ROOT / "claude" / "skills" / "agent-brief" / "SKILL.md").read_text()
+CONFIG = ROOT / "prompt-refiner.yaml"
+CURSOR_RULE = (ROOT / "cursor" / "rules" / "prompt-refiner.md").read_text()
+CLAUDE_SKILL = (ROOT / "claude" / "skills" / "prompt-refiner" / "SKILL.md").read_text()
 VALID_MODES = frozenset({"auto", "review"})
 
 
 def parse_mode_from_config(content: str) -> str:
     match = re.search(r"^mode:\s*(\w+)\s*$", content, re.MULTILINE)
     if not match:
-        raise ValueError("missing mode in agent-brief.yaml")
+        raise ValueError("missing mode in prompt-refiner.yaml")
     mode = match.group(1)
     if mode not in VALID_MODES:
         raise ValueError(f"invalid mode: {mode}")
@@ -32,7 +32,7 @@ def parse_debug_from_config(content: str) -> bool | None:
 
 class TestConfig(unittest.TestCase):
     def test_config_file_exists(self) -> None:
-        self.assertTrue(CONFIG.is_file(), "agent-brief.yaml must exist at project root")
+        self.assertTrue(CONFIG.is_file(), "prompt-refiner.yaml must exist at project root")
 
     def test_config_has_valid_mode(self) -> None:
         mode = parse_mode_from_config(CONFIG.read_text())

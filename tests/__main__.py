@@ -1,4 +1,4 @@
-"""Run Agent Brief contract tests: python -m tests"""
+"""Run Prompt Refiner contract tests: python -m tests"""
 
 from __future__ import annotations
 

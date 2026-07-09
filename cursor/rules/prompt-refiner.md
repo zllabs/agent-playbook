@@ -1,17 +1,17 @@
 ---
-description: Compile underspecified coding requests into concise agent briefs (Task, Context, Requirements, Verification). Apply only when the request lacks enough detail to act on directly.
+description: Compile underspecified coding requests into concise refined prompts (Task, Context, Requirements, Verification). Apply only when the request lacks enough detail to act on directly.
 alwaysApply: true
 ---
 
-# Agent Brief
+# Prompt Refiner
 
-Transforms vague developer requests into concise coding-agent briefs. Agent Brief does not make prompts longer. It makes developer intent clearer for coding agents.
+Transforms vague developer requests into concise refined prompts. Prompt Refiner does not make prompts longer. It makes developer intent clearer for coding agents.
 
-This is intent compilation: request → agent brief. Add structure only — never role-play, generic advice, or invented project details.
+This is intent compilation: request → refined prompt. Add structure only — never role-play, generic advice, or invented project details.
 
 ## Configuration
 
-Read `agent-brief.yaml` in the project root if present. Defaults:
+Read `prompt-refiner.yaml` in the project root if present. Defaults:
 
 ```yaml
 mode: auto
@@ -52,7 +52,7 @@ If the request is already specific, skip this rule entirely.
 For everyday use. Transform internally, then execute immediately.
 
 ```
-User request → Agent Brief (internal) → Coding agent executes
+User request → Prompt Refiner (internal) → Coding agent executes
 ```
 
 - Apply only to vague or underspecified requests.
@@ -75,7 +75,7 @@ User request → Generate brief → Display brief → Wait for user → Execute
 
 ## Workflow
 
-1. Read `agent-brief.yaml` if present. Default `mode: auto`.
+1. Read `prompt-refiner.yaml` if present. Default `mode: auto`.
 2. Decide if the request is underspecified. If not, proceed normally.
 3. If critical information is missing (e.g. "fix the payment issue" with no error or flow), ask **one** concise question and stop. Do not generate a fake brief.
 4. If underspecified but actionable, compile developer intent into a brief.
@@ -120,10 +120,10 @@ Requirements should be agent-useful only:
 
 ## Examples
 
-See [examples.md](https://github.com/zllabs/agent-brief/blob/main/examples.md) for 15+ request → brief transformations.
+See [examples.md](https://github.com/zllabs/prompt-refiner/blob/main/examples.md) for 15+ request → brief transformations.
 
 **Request:** fix login bug → compile brief, then act (auto) or show brief and wait (review).
 
-**Request:** rename function foo to bar → execute directly, skip Agent Brief.
+**Request:** rename function foo to bar → execute directly, skip Prompt Refiner.
 
 **Request:** fix the payment issue → ask one question, do not generate a fake brief.

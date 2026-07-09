@@ -1,19 +1,19 @@
 ---
-name: agent-brief
-description: Compile vague coding requests into concise agent briefs (Task, Context, Requirements, Verification). Use when the user runs /agent-brief or asks to structure developer intent for a coding agent.
+name: prompt-refiner
+description: Compile vague coding requests into concise refined prompts (Task, Context, Requirements, Verification). Use when the user runs /prompt-refiner or asks to structure developer intent for a coding agent.
 disable-model-invocation: true
 argument-hint: [coding request]
 ---
 
-# Agent Brief
+# Prompt Refiner
 
-Transforms vague developer requests into concise coding-agent briefs. Agent Brief does not make prompts longer. It makes developer intent clearer for coding agents.
+Transforms vague developer requests into concise refined prompts. Prompt Refiner does not make prompts longer. It makes developer intent clearer for coding agents.
 
-This is intent compilation: request → agent brief. Add structure only — never role-play, generic advice, or invented project details.
+This is intent compilation: request → refined prompt. Add structure only — never role-play, generic advice, or invented project details.
 
 ## Configuration
 
-Read `agent-brief.yaml` in the project root if present. Defaults:
+Read `prompt-refiner.yaml` in the project root if present. Defaults:
 
 ```yaml
 mode: auto
@@ -29,7 +29,7 @@ debug: false
 
 When `debug: true`, surface the generated brief before continuing (Cursor rule only).
 
-`/agent-brief` is always an explicit review step: output only the brief and stop, regardless of `mode`.
+`/prompt-refiner` is always an explicit review step: output only the brief and stop, regardless of `mode`.
 
 ## Modes
 
@@ -40,7 +40,7 @@ For passive use via the Cursor rule. Transform internally, then execute immediat
 - Do not expose the generated brief unless `debug: true`.
 - Continue execution immediately after internal transformation.
 
-For `/agent-brief`, output only the brief and stop. Do not execute the task in the same turn.
+For `/prompt-refiner`, output only the brief and stop. Do not execute the task in the same turn.
 
 ### Review
 
@@ -57,8 +57,8 @@ User request → Generate brief → Display brief → Wait for user → Execute
 
 ## Workflow
 
-1. Read the request from `$ARGUMENTS` (text after `/agent-brief`) or from the user's message.
-2. Read `agent-brief.yaml` if present. Default `mode: auto`.
+1. Read the request from `$ARGUMENTS` (text after `/prompt-refiner`) or from the user's message.
+2. Read `prompt-refiner.yaml` if present. Default `mode: auto`.
 3. If critical information is missing (e.g. "fix the payment issue" with no error or flow), ask **one** concise question and stop. Do not generate a fake brief.
 4. Otherwise, compile the brief.
 5. Output **only** the brief and stop. Do not execute the task or add meta-commentary.
@@ -102,4 +102,4 @@ Requirements should be agent-useful only:
 
 ## Examples
 
-See [examples.md](https://github.com/zllabs/agent-brief/blob/main/examples.md) for 15+ request → brief transformations.
+See [examples.md](https://github.com/zllabs/prompt-refiner/blob/main/examples.md) for 15+ request → brief transformations.

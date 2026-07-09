@@ -1,4 +1,4 @@
-# Agent Brief
+# Prompt Refiner
 
 **Turn vague coding requests into concise, structured briefs for coding agents.**
 
@@ -7,7 +7,7 @@ Works with:
 - Cursor Project Rules
 - Claude Code Skills
 
-Agent Brief turns vague coding requests into concise, structured briefs that reduce ambiguity for coding agents.
+Prompt Refiner turns vague coding requests into concise, structured briefs that reduce ambiguity for coding agents.
 
 It doesn't replace your prompt—it compiles it into a clearer brief.
 
@@ -48,11 +48,11 @@ Instead of adding hundreds of words of generic prompt engineering advice, it onl
 - What constraints matter?
 - How should success be verified?
 
-Agent Brief only adds missing execution details. Everything else comes from the coding agent, repository context, and project instructions.
+Prompt Refiner only adds missing execution details. Everything else comes from the coding agent, repository context, and project instructions.
 
-## When Agent Brief activates
+## When Prompt Refiner activates
 
-Agent Brief is triggered by the **quality of the request**, not by matching example phrases. It activates when a request lacks sufficient structure for reliable execution.
+Prompt Refiner is triggered by the **quality of the request**, not by matching example phrases. It activates when a request lacks sufficient structure for reliable execution.
 
 **Typical requests:**
 
@@ -71,15 +71,15 @@ Agent Brief is triggered by the **quality of the request**, not by matching exam
 ## Installation
 
 ```bash
-git clone https://github.com/zllabs/agent-brief.git
-cd agent-brief
+git clone https://github.com/zllabs/prompt-refiner.git
+cd prompt-refiner
 ```
 
 **Cursor** — copy the rule and examples into your project (`.mdc` is the Cursor project-rule format):
 
 ```bash
 mkdir -p /path/to/your/project/.cursor/rules
-cp cursor/rules/agent-brief.md /path/to/your/project/.cursor/rules/agent-brief.mdc
+cp cursor/rules/prompt-refiner.md /path/to/your/project/.cursor/rules/prompt-refiner.mdc
 cp examples.md /path/to/your/project/
 ```
 
@@ -89,19 +89,19 @@ The default rule uses `alwaysApply: true` and self-filters: it applies only when
 
 ```bash
 mkdir -p ~/.claude/skills
-cp -r claude/skills/agent-brief ~/.claude/skills/
-# usage: /agent-brief make API faster
+cp -r claude/skills/prompt-refiner ~/.claude/skills/
+# usage: /prompt-refiner make API faster
 ```
 
 **Configuration** (optional):
 
 ```bash
-cp agent-brief.yaml /path/to/your/project/
+cp prompt-refiner.yaml /path/to/your/project/
 ```
 
 ## Configuration
 
-Create `agent-brief.yaml` in your project root:
+Create `prompt-refiner.yaml` in your project root:
 
 ```yaml
 mode: auto
@@ -122,7 +122,7 @@ debug: true
 
 When `debug: true`, the generated brief is shown before execution.
 
-**How configuration works:** Agent Brief has no runtime. When present, the rule or skill asks the coding agent to read `agent-brief.yaml` from the project root. If the file is unavailable or ignored by the host platform, the default behavior is used.
+**How configuration works:** Prompt Refiner has no runtime. When present, the rule or skill asks the coding agent to read `prompt-refiner.yaml` from the project root. If the file is unavailable or ignored by the host platform, the default behavior is used.
 
 ## Modes
 
@@ -136,7 +136,7 @@ The generated brief is used internally. It is not shown unless you enable `debug
 
 Displays the generated brief before execution. Users can review and edit the generated brief before asking the coding agent to continue.
 
-Cursor and Claude Code do not provide native Send, Edit, or Copy actions for a pre-send review step. In review mode, Agent Brief outputs only the brief and waits for your next message — that is the closest available behavior on these platforms.
+Cursor and Claude Code do not provide native Send, Edit, or Copy actions for a pre-send review step. In review mode, Prompt Refiner outputs only the brief and waits for your next message — that is the closest available behavior on these platforms.
 
 ## Design goals
 

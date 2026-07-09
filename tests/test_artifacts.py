@@ -12,9 +12,9 @@ from tests.validate_brief import (
 )
 
 ROOT = Path(__file__).resolve().parents[1]
-CURSOR_RULE = ROOT / "cursor" / "rules" / "agent-brief.md"
-INSTALLED_RULE = ROOT / ".cursor" / "rules" / "agent-brief.mdc"
-CLAUDE_SKILL = ROOT / "claude" / "skills" / "agent-brief" / "SKILL.md"
+CURSOR_RULE = ROOT / "cursor" / "rules" / "prompt-refiner.md"
+INSTALLED_RULE = ROOT / ".cursor" / "rules" / "prompt-refiner.mdc"
+CLAUDE_SKILL = ROOT / "claude" / "skills" / "prompt-refiner" / "SKILL.md"
 EXAMPLES = ROOT / "examples.md"
 
 
@@ -23,7 +23,7 @@ class TestArtifactSync(unittest.TestCase):
         self.assertEqual(
             CURSOR_RULE.read_text(),
             INSTALLED_RULE.read_text(),
-            ".cursor/rules/agent-brief.mdc must match cursor/rules/agent-brief.md",
+            ".cursor/rules/prompt-refiner.mdc must match cursor/rules/prompt-refiner.md",
         )
 
     def test_word_target_documented_consistently(self) -> None:

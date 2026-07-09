@@ -1,4 +1,4 @@
-"""Agent Brief structure compliance and brief quality checks."""
+"""Prompt Refiner structure compliance and brief quality checks."""
 
 from __future__ import annotations
 

@@ -288,7 +288,7 @@ No brief — missing information.
 
 ## Skipped — already specific
 
-These requests are clear enough. Agent Brief does not apply.
+These requests are clear enough. Prompt Refiner does not apply.
 
 | Request | Why skipped |
 |---------|-------------|

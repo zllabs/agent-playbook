@@ -1,4 +1,4 @@
-# Agent Brief configuration
+# Prompt Refiner configuration
 # mode: auto | review (default: auto)
 mode: auto
 
