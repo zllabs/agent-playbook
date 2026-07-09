@@ -1,0 +1,6 @@
+# Agent Brief configuration
+# mode: auto | review (default: auto)
+mode: auto
+
+# Optional: expose generated briefs in auto mode (default: false)
+# debug: false

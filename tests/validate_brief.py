@@ -15,8 +15,9 @@ FORBIDDEN_PHRASES = (
     "carefully analyze",
 )
 WORD_TARGET_MIN = 20
-WORD_TARGET_MAX = 150
+WORD_TARGET_MAX = 50
 WORD_HARD_LIMIT = 200
+WORD_TARGET_LABEL = "20–50"
 FILE_PATH_PATTERN = re.compile(r"[\w./-]+\.(?:ts|tsx|py|js|go|rb|java)")
 
 
@@ -59,7 +60,11 @@ def check_word_limit(body: str) -> list[str]:
 
 
 def check_no_invented_context(request: str, body: str) -> list[str]:
-    """Flag file paths or specifics not present in the original request."""
+    """Flag project-specific paths in the brief that were not in the request.
+
+    Generic inference (e.g. "database migration" for "run the migration") is
+    allowed. Named files, modules, and services are not.
+    """
     errors: list[str] = []
     request_lower = request.lower()
     for match in FILE_PATH_PATTERN.finditer(body):
@@ -110,7 +115,7 @@ def parse_examples_markdown(content: str) -> list[BriefExample]:
                 )
             )
             continue
-        code_blocks = re.findall(r"```\n(.*?)```", section, re.DOTALL)
+        code_blocks = re.findall(r"```(?:[^\n]*\n)?(.*?)```", section, re.DOTALL)
         if not code_blocks:
             continue
         body = code_blocks[0].strip()

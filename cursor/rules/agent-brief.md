@@ -9,6 +9,24 @@ Transforms vague developer requests into concise coding-agent briefs. Agent Brie
 
 This is intent compilation: request → agent brief. Add structure only — never role-play, generic advice, or invented project details.
 
+## Configuration
+
+Read `agent-brief.yaml` in the project root if present. Defaults:
+
+```yaml
+mode: auto
+```
+
+Supported values: `auto` (default), `review`.
+
+Optional in auto mode:
+
+```yaml
+debug: false
+```
+
+When `debug: true`, surface the generated brief before continuing.
+
 ## When to apply
 
 Apply only when the request is **underspecified** — vague enough that a coding agent would need to guess scope, approach, or success criteria.
@@ -27,16 +45,46 @@ Apply only when the request is **underspecified** — vague enough that a coding
 
 If the request is already specific, skip this rule entirely.
 
+## Modes
+
+### Auto (default)
+
+For everyday use. Transform internally, then execute immediately.
+
+```
+User request → Agent Brief (internal) → Coding agent executes
+```
+
+- Apply only to vague or underspecified requests.
+- Do not modify already-clear requests.
+- Do not expose the generated brief unless `debug: true`.
+- Continue execution immediately after internal transformation.
+
+### Review
+
+For visibility and control. Generate the brief first, then stop.
+
+```
+User request → Generate brief → Display brief → Wait for user → Execute
+```
+
+- Output **only** the generated brief. No preamble or meta-commentary.
+- Do not continue automatically. Wait for the user's next message.
+- The brief must be directly editable and easy to copy into another coding agent.
+- Cursor does not provide native Send, Edit, or Copy actions for this step. Output the brief and wait — that is the closest available behavior.
+
 ## Workflow
 
-1. Decide if the request is underspecified. If not, proceed normally.
-2. If critical information is missing (e.g. "fix the payment issue" with no error or flow), ask **one** concise question and stop. Do not generate a fake brief.
-3. If underspecified but actionable, compile developer intent into a brief structure before acting.
-4. Use only context from the user or repository. Never invent project details.
+1. Read `agent-brief.yaml` if present. Default `mode: auto`.
+2. Decide if the request is underspecified. If not, proceed normally.
+3. If critical information is missing (e.g. "fix the payment issue" with no error or flow), ask **one** concise question and stop. Do not generate a fake brief.
+4. If underspecified but actionable, compile developer intent into a brief.
+5. **Auto mode:** use the brief internally and continue execution. Surface it only when `debug: true`.
+6. **Review mode:** output only the brief and stop. Wait for the user to accept, edit, copy, or cancel in their next message before continuing.
+
+Use only context from the user or repository. Never invent project-specific details (files, modules, services, APIs).
 
 ## Brief structure
-
-Use this fixed structure internally (and surface briefly if helpful):
 
 ```
 Task:
@@ -52,7 +100,7 @@ Verification:
 ...
 ```
 
-Target: 50–150 words. Hard limit: ~200 words.
+Target: 20–50 words. Hard limit: ~200 words.
 
 ## Rules
 
@@ -72,9 +120,9 @@ Requirements should be agent-useful only:
 
 ## Examples
 
-See [examples.md](../../examples.md) for 15+ request → brief transformations.
+See [examples.md](https://github.com/zllabs/agent-brief/blob/main/examples.md) for 15+ request → brief transformations.
 
-**Request:** fix login bug → compile brief, then act.
+**Request:** fix login bug → compile brief, then act (auto) or show brief and wait (review).
 
 **Request:** rename function foo to bar → execute directly, skip Agent Brief.
 

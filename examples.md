@@ -151,6 +151,7 @@ Requirements:
 Inspect current implementation first.
 Preserve existing behavior.
 Make incremental changes.
+Match naming, structure, and style already used in the project.
 Do not expand scope beyond this code.
 
 Verification:
@@ -173,6 +174,7 @@ Requirements:
 Remove dead code and unused imports only where safe.
 Do not refactor beyond this file.
 Preserve existing behavior.
+Match naming, structure, and style already used in the project.
 
 Verification:
 Confirm the project builds and tests pass.

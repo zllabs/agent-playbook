@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="480" height="320" viewBox="0 0 480 320">
-  <rect width="480" height="320" fill="#fafafa" rx="8"/>
-  <text x="240" y="28" text-anchor="middle" font-family="system-ui,sans-serif"
-        font-size="15" font-weight="600" fill="#222">Contract tests by invariant</text>
-  <text x="240" y="46" text-anchor="middle" font-family="system-ui,sans-serif"
-        font-size="12" fill="#666">16 contract tests</text>
-  <path d="M168.0,166.4 L168.0,76.8 A89.6,89.6 0 0 1 250.8,132.1 Z" fill="#4C78A8" stroke="#fff" stroke-width="1.5"/><path d="M168.0,166.4 L250.8,132.1 A89.6,89.6 0 0 1 202.3,249.2 Z" fill="#F58518" stroke="#fff" stroke-width="1.5"/><path d="M168.0,166.4 L202.3,249.2 A89.6,89.6 0 0 1 104.6,229.8 Z" fill="#54A24B" stroke="#fff" stroke-width="1.5"/><path d="M168.0,166.4 L104.6,229.8 A89.6,89.6 0 0 1 133.7,83.6 Z" fill="#E45756" stroke="#fff" stroke-width="1.5"/><path d="M168.0,166.4 L133.7,83.6 A89.6,89.6 0 0 1 168.0,76.8 Z" fill="#B279A2" stroke="#fff" stroke-width="1.5"/>
-  <rect x="298" y="48" width="14" height="14" fill="#4C78A8" rx="2"/><text x="320" y="59" font-family="system-ui,sans-serif" font-size="13" fill="#333">Structure compliance (3, 19%)</text><rect x="298" y="76" width="14" height="14" fill="#F58518" rx="2"/><text x="320" y="87" font-family="system-ui,sans-serif" font-size="13" fill="#333">Brief quality (4, 25%)</text><rect x="298" y="104" width="14" height="14" fill="#54A24B" rx="2"/><text x="320" y="115" font-family="system-ui,sans-serif" font-size="13" fill="#333">Design behavior (3, 19%)</text><rect x="298" y="132" width="14" height="14" fill="#E45756" rx="2"/><text x="320" y="143" font-family="system-ui,sans-serif" font-size="13" fill="#333">Package integrity (5, 31%)</text><rect x="298" y="160" width="14" height="14" fill="#B279A2" rx="2"/><text x="320" y="171" font-family="system-ui,sans-serif" font-size="13" fill="#333">Example coverage (1, 6%)</text>
-</svg>
