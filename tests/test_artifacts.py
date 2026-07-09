@@ -1,4 +1,4 @@
-"""Artifact sync and validation helper tests."""
+"""Tests for artifact synchronization and validation helpers."""
 
 from __future__ import annotations
 
