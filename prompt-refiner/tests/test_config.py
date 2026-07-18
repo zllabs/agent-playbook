@@ -6,17 +6,17 @@ import re
 import unittest
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-CONFIG = ROOT / "prompt-refiner.yaml"
-CURSOR_RULE = (ROOT / "cursor" / "rules" / "prompt-refiner.md").read_text()
-CLAUDE_SKILL = (ROOT / "claude" / "skills" / "prompt-refiner" / "SKILL.md").read_text()
+PKG = Path(__file__).resolve().parents[1]
+CONFIG = PKG / "config.yaml.example"
+CURSOR_RULE = (PKG / "cursor" / "rule.mdc").read_text()
+CLAUDE_SKILL = (PKG / "claude" / "SKILL.md").read_text()
 VALID_MODES = frozenset({"auto", "review"})
 
 
 def parse_mode_from_config(content: str) -> str:
     match = re.search(r"^mode:\s*(\w+)\s*$", content, re.MULTILINE)
     if not match:
-        raise ValueError("missing mode in prompt-refiner.yaml")
+        raise ValueError("missing mode in config")
     mode = match.group(1)
     if mode not in VALID_MODES:
         raise ValueError(f"invalid mode: {mode}")
@@ -31,8 +31,8 @@ def parse_debug_from_config(content: str) -> bool | None:
 
 
 class TestConfig(unittest.TestCase):
-    def test_config_file_exists(self) -> None:
-        self.assertTrue(CONFIG.is_file(), "prompt-refiner.yaml must exist at project root")
+    def test_config_example_exists(self) -> None:
+        self.assertTrue(CONFIG.is_file())
 
     def test_config_has_valid_mode(self) -> None:
         mode = parse_mode_from_config(CONFIG.read_text())
@@ -76,11 +76,11 @@ class TestModesDocumented(unittest.TestCase):
     def test_claude_skill_documents_platform_limitation(self) -> None:
         self.assertIn("does not provide native", CLAUDE_SKILL)
 
-    def test_readme_documents_modes(self) -> None:
-        readme = (ROOT / "README.md").read_text()
+    def test_package_readme_documents_modes(self) -> None:
+        readme = (PKG / "README.md").read_text()
         self.assertIn("## Modes", readme)
-        self.assertIn("### Auto", readme)
-        self.assertIn("### Review", readme)
+        self.assertIn("`auto`", readme)
+        self.assertIn("`review`", readme)
         self.assertIn("## Configuration", readme)
 
 

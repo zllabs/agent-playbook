@@ -60,11 +60,7 @@ def check_word_limit(body: str) -> list[str]:
 
 
 def check_no_invented_context(request: str, body: str) -> list[str]:
-    """Flag project-specific paths in the brief that were not in the request.
-
-    Generic inference (e.g. "database migration" for "run the migration") is
-    allowed. Named files, modules, and services are not.
-    """
+    """Flag project-specific paths in the brief that were not in the request."""
     errors: list[str] = []
     request_lower = request.lower()
     for match in FILE_PATH_PATTERN.finditer(body):
@@ -75,7 +71,6 @@ def check_no_invented_context(request: str, body: str) -> list[str]:
 
 
 def check_brief_quality(request: str, body: str) -> list[str]:
-    """Run all brief quality checks."""
     errors: list[str] = []
     errors.extend(check_structure_compliance(body))
     errors.extend(check_no_role_play_fluff(body))
@@ -136,6 +131,6 @@ def parse_skipped_requests(content: str) -> list[str]:
     )
     if not skipped_section:
         return []
-    table = content[skipped_section.start() :]
+    table = content[skipped_section.start():]
     rows = re.findall(r"\| `([^`]+)` \|", table)
     return rows

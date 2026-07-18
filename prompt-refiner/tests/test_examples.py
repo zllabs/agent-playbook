@@ -5,23 +5,23 @@ from __future__ import annotations
 import unittest
 from pathlib import Path
 
-from tests.validate_brief import (
+from validate_brief import (
     REQUIRED_SECTIONS,
     WORD_HARD_LIMIT,
     WORD_TARGET_MAX,
     WORD_TARGET_MIN,
+    check_brief_quality,
     check_no_invented_context,
     check_no_role_play_fluff,
     check_structure_compliance,
     check_word_limit,
-    check_brief_quality,
     parse_examples_markdown,
     parse_skipped_requests,
     word_count,
 )
 
-ROOT = Path(__file__).resolve().parents[1]
-EXAMPLES = (ROOT / "examples.md").read_text()
+PKG = Path(__file__).resolve().parents[1]
+EXAMPLES = (PKG / "examples.md").read_text()
 
 REQUIRED_CATEGORIES = {
     "Bug fix",

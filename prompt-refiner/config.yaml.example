@@ -1,4 +1,6 @@
 # Prompt Refiner configuration
+# Copy to your project root as prompt-refiner.yaml
+#
 # mode: auto | review (default: auto)
 mode: auto
 

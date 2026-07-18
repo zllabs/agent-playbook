@@ -1,34 +1,26 @@
-"""Tests for artifact synchronization and validation helpers."""
+"""Tests for artifact consistency within the prompt-refiner package."""
 
 from __future__ import annotations
 
 import unittest
 from pathlib import Path
 
-from tests.validate_brief import (
+from validate_brief import (
     WORD_TARGET_LABEL,
     check_no_invented_context,
     parse_examples_markdown,
 )
 
-ROOT = Path(__file__).resolve().parents[1]
-CURSOR_RULE = ROOT / "cursor" / "rules" / "prompt-refiner.md"
-INSTALLED_RULE = ROOT / ".cursor" / "rules" / "prompt-refiner.mdc"
-CLAUDE_SKILL = ROOT / "claude" / "skills" / "prompt-refiner" / "SKILL.md"
-EXAMPLES = ROOT / "examples.md"
+PKG = Path(__file__).resolve().parents[1]
+CURSOR_RULE = PKG / "cursor" / "rule.mdc"
+CLAUDE_SKILL = PKG / "claude" / "SKILL.md"
+EXAMPLES = PKG / "examples.md"
 
 
 class TestArtifactSync(unittest.TestCase):
-    def test_installed_rule_matches_distributable(self) -> None:
-        self.assertEqual(
-            CURSOR_RULE.read_text(),
-            INSTALLED_RULE.read_text(),
-            ".cursor/rules/prompt-refiner.mdc must match cursor/rules/prompt-refiner.md",
-        )
-
     def test_word_target_documented_consistently(self) -> None:
         label = f"{WORD_TARGET_LABEL} words"
-        for path in (CURSOR_RULE, INSTALLED_RULE, CLAUDE_SKILL, ROOT / "README.md"):
+        for path in (CURSOR_RULE, CLAUDE_SKILL, PKG / "README.md"):
             with self.subTest(path=path.name):
                 self.assertIn(label, path.read_text())
 
@@ -42,6 +34,12 @@ class TestArtifactSync(unittest.TestCase):
         for path in (CURSOR_RULE, CLAUDE_SKILL):
             with self.subTest(path=path.name):
                 self.assertIn(phrase, path.read_text())
+
+    def test_examples_linked_from_artifacts(self) -> None:
+        link = "prompt-refiner/examples.md"
+        for path in (CURSOR_RULE, CLAUDE_SKILL):
+            with self.subTest(path=path.name):
+                self.assertIn(link, path.read_text())
 
 
 class TestValidateBriefHelpers(unittest.TestCase):
