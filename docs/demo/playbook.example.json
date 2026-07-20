@@ -1,0 +1,38 @@
+{
+  "title": "Build Oauth Authentication Using Playbook",
+  "task": "Build OAuth authentication using FastAPI",
+  "skills": [
+    {
+      "id": "oauth-security",
+      "title": "OAuth & Authentication",
+      "description": "Implement OAuth 2.0, JWT tokens, session management, and secure authentication flows.",
+      "tags": ["oauth", "auth", "security", "jwt", "authentication"],
+      "ecosystem": "cursor",
+      "repo_url": "https://github.com/sanjeed5/awesome-cursor-rules-mdc",
+      "source_url": "https://github.com/sanjeed5/awesome-cursor-rules-mdc/blob/main/rules-mdc/auth0.mdc",
+      "author": "sanjeed5",
+      "license": "CC0-1.0",
+      "reason": "Matched tags: authentication, oauth."
+    },
+    {
+      "id": "fastapi-skill",
+      "title": "FastAPI Development",
+      "description": "Build REST APIs with FastAPI including routing, Pydantic models, dependency injection, and OpenAPI docs.",
+      "tags": ["python", "fastapi", "api", "backend", "rest"],
+      "ecosystem": "cursor",
+      "repo_url": "https://github.com/sanjeed5/awesome-cursor-rules-mdc",
+      "source_url": "https://github.com/sanjeed5/awesome-cursor-rules-mdc/blob/main/rules-mdc/fastapi.mdc",
+      "author": "sanjeed5",
+      "license": "CC0-1.0",
+      "reason": "Matched tags: fastapi."
+    }
+  ],
+  "edges": [
+    {
+      "from": "oauth-security",
+      "to": "fastapi-skill",
+      "type": "related_to"
+    }
+  ],
+  "generated_at": "2026-07-20T08:46:03.768514+00:00"
+}

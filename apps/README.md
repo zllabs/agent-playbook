@@ -2,7 +2,7 @@
 
 > **Discover. Visualize. Assemble. Export.**
 
-Describe a software engineering task, get a ranked Cursor skill Playbook with reasons, explore relationships, and export JSON.
+Describe a software engineering task, get a recommended Cursor skill Playbook with explainable reasons, explore resource relationships, and export JSON.
 
 ## Quick start
 
