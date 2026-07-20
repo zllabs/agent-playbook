@@ -45,7 +45,7 @@ apps/
   web/               React + Vite + React Flow
 data/
   catalog.json       Curated external skills
-  custom_skills.json User-added skills (via UI)
+  custom_skills.example.json  # seed copied to custom_skills.json on first run
 ```
 
 ## API
@@ -58,6 +58,8 @@ data/
 | GET | `/api/custom-skills` | List user-added custom skills |
 | POST | `/api/custom-skills` | Add a custom skill |
 | DELETE | `/api/custom-skills/{id}` | Remove a custom skill |
+| GET | `/api/edges?ids=` | Edges among skill IDs |
+| GET | `/api/local-skills/{id}/source` | Local package README |
 | GET | `/api/skills/{id}` | Skill detail |
 | POST | `/api/recommend` | `{ "task": "..." }` → Playbook JSON |
 
@@ -77,4 +79,4 @@ cd apps/api && .venv/bin/python test_recommend.py
 
 ## License
 
-MIT
+MIT — see [LICENSE](../LICENSE).

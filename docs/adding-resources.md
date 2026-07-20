@@ -7,11 +7,11 @@ Agent Playbook indexes **references** to AI development resources — not copies
 Every entry in `data/catalog.json` must have:
 
 - **Source URL** — link to the canonical resource (MDC file, docs page, or repo path)
-- **License** — SPDX identifier or known license string (`CC0-1.0`, `MIT`, etc.)
+- **License** — SPDX identifier or `See source` for upstream documentation
 - **Attribution** — `author` field naming the maintainer or project
 - **No redistribution** — catalog entries are metadata only; do not paste rule bodies, SKILL.md content, or other third-party text into this repo
 
-Edges in `catalog.json` are curated relationships (`requires`, `related_to`) between catalog skill IDs. Both endpoints must exist in the skills array.
+Edges in `catalog.json` are curated relationships (`requires`, `related_to`). Endpoints must exist in the catalog **or** as a local package under `skills/`.
 
 ## Add an external skill to the catalog
 

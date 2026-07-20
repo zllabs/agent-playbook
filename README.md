@@ -6,6 +6,10 @@ A graph-powered platform that **discovers and assembles relevant AI development 
 
 Describe what you want to build. Get a recommended Playbook of Cursor Skills with reasons, a relationship graph, and JSON export.
 
+Agent Playbook is an open-source project created to help developers discover and assemble reusable AI development resources. It is shared publicly for others to use and build upon.
+
+**Author:** [zhilinglien](https://github.com/zhilinglien) · MIT licensed · personal project ([contributions policy](CONTRIBUTING.md))
+
 ## Before & After
 
 Same engineering task — two very different outcomes.
@@ -20,16 +24,7 @@ Same engineering task — two very different outcomes.
 | Find FastAPI rules, **miss OAuth and related skills** | **Discover connected skills** via catalog graph |
 | No idea how resources relate | **Visual graph** shows `related_to` / `requires` links |
 | No reasons, no export | **Explainable reasons** + **playbook.json** export |
-| Start coding with gaps in your AI stack | Start with a **complete, linked resource set** |
-
-<details>
-<summary>Individual comparison panels</summary>
-
-| Manual search | Agent Playbook |
-|:---:|:---:|
-| ![Before: scattered search, missed skills](docs/demo/before-manual.svg) | ![After: linked skills in one Playbook](docs/demo/after-playbook.svg) |
-
-</details>
+| Start coding with gaps in your AI stack | Start with a **linked, explainable resource set** |
 
 ## Problem
 
@@ -50,17 +45,17 @@ Unlike GitHub search, Agent Playbook provides:
 
 **Home — task entry:**
 
-![Agent Playbook home screen](docs/demo/home.png)
+<img src="docs/demo/home.png" alt="Agent Playbook home screen" width="520">
 
 **Result — skill graph:**
 
-![Skill graph showing OAuth & Authentication related to FastAPI Development](docs/demo/graph.png)
+<img src="docs/demo/graph.png" alt="Skill graph showing OAuth & Authentication related to FastAPI Development" width="520">
 
 **Example Playbook output:** [docs/demo/playbook.example.json](docs/demo/playbook.example.json)
 
 ```json
 {
-  "title": "Build Oauth Authentication Using Playbook",
+  "title": "Build OAuth Authentication Using Playbook",
   "task": "Build OAuth authentication using FastAPI",
   "skills": [
     {
@@ -86,24 +81,29 @@ Unlike GitHub search, Agent Playbook provides:
 
 ## Quick start
 
+Run **both** the API and web app (two terminals):
+
 ```bash
-# API
+# Terminal 1 — API
 cd apps/api && python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt && uvicorn main:app --reload --port 8000
 
-# Web
-cd apps/web && npm install && npm run dev
+# Terminal 2 — Web
+cd apps/web && npm ci && npm run dev
 ```
 
 Open http://localhost:5173 — see [apps/README.md](apps/README.md) for details.
+
+> **Note:** v0.1 is a local-dev tool. See [SECURITY.md](SECURITY.md).
 
 ## Documentation
 
 | Doc | Description |
 |-----|-------------|
 | [docs/architecture.md](docs/architecture.md) | System design, stack, data model |
-| [docs/adding-resources.md](docs/adding-resources.md) | Catalog rules and contribution guide |
-| [brainstorm_plan.md](brainstorm_plan.md) | Product scope and MVP definition |
+| [docs/adding-resources.md](docs/adding-resources.md) | Catalog rules (for forks and local use) |
+| [CONTRIBUTING.md](CONTRIBUTING.md) | Project status and local development |
+| [CHANGELOG.md](CHANGELOG.md) | Release notes |
 
 ## Repository layout
 
@@ -114,7 +114,7 @@ apps/
   web/                   # React frontend
 data/
   catalog.json           # curated external skills + edges
-  custom_skills.json     # user-added skills (via UI)
+  custom_skills.example.json  # seed for local custom skills (copied on first run)
 docs/
   architecture.md
   adding-resources.md
@@ -148,7 +148,7 @@ See [data/sources.json](data/sources.json) for the full hub list.
 ## Catalog rules
 
 - **Source URL required** — every catalog entry must link to the canonical resource
-- **License required** — SPDX or known license string
+- **License required** — SPDX identifier, or `See source` for upstream documentation pages
 - **Attribution required** — author / maintainer field
 - **No redistribution of third-party content** — metadata and links only
 
@@ -163,4 +163,4 @@ cd apps/api && .venv/bin/python test_recommend.py
 
 ## License
 
-MIT — see [LICENSE](LICENSE) if present. Catalog entries retain their upstream licenses; this project stores attribution only.
+MIT — see [LICENSE](LICENSE). Catalog entries retain their upstream licenses; this project stores attribution only.

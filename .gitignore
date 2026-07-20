@@ -8,10 +8,16 @@ venv/
 
 # Data
 data/playbook.db
+data/custom_skills.json
 
-# Node
+# Env
+.env
+.env.*
+
+# Node / TS
 node_modules/
 dist/
+*.tsbuildinfo
 
 # macOS
 .DS_Store

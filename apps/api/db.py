@@ -9,6 +9,7 @@ from sources import playbook_skill_path
 ROOT = Path(__file__).resolve().parents[2]
 CATALOG_PATH = ROOT / "data" / "catalog.json"
 CUSTOM_SKILLS_PATH = ROOT / "data" / "custom_skills.json"
+CUSTOM_SKILLS_EXAMPLE = ROOT / "data" / "custom_skills.example.json"
 SKILLS_DIR = ROOT / "skills"
 DB_PATH = ROOT / "data" / "playbook.db"
 
@@ -115,7 +116,10 @@ def discover_local_skills() -> list[dict]:
 
 def _load_custom_skills_file() -> list[dict]:
     if not CUSTOM_SKILLS_PATH.exists():
-        CUSTOM_SKILLS_PATH.write_text('{"skills": []}')
+        if CUSTOM_SKILLS_EXAMPLE.exists():
+            CUSTOM_SKILLS_PATH.write_text(CUSTOM_SKILLS_EXAMPLE.read_text())
+        else:
+            CUSTOM_SKILLS_PATH.write_text('{"skills": []}\n')
         return []
     return json.loads(CUSTOM_SKILLS_PATH.read_text()).get("skills", [])
 
@@ -186,6 +190,7 @@ def list_custom_skills() -> list[dict]:
 
 
 def add_custom_skill(skill: dict) -> dict:
+    validate_skill_id(skill["id"])
     if get_skill(skill["id"]):
         raise ValueError(f"Skill id already exists: {skill['id']}")
 
@@ -248,13 +253,21 @@ def list_skills(q: str = "", custom: Optional[bool] = None) -> list[dict]:
     conn = get_conn()
     try:
         if q.strip():
-            rows = conn.execute(
-                """SELECT s.* FROM skills s
-                   JOIN skills_fts f ON s.id = f.id
-                   WHERE skills_fts MATCH ?
-                   ORDER BY rank LIMIT 50""",
-                (q,),
-            ).fetchall()
+            tokens = _tokenize(q)
+            if not tokens:
+                rows = []
+            else:
+                fts_query = " OR ".join(tokens)
+                try:
+                    rows = conn.execute(
+                        """SELECT s.* FROM skills s
+                           JOIN skills_fts f ON s.id = f.id
+                           WHERE skills_fts MATCH ?
+                           ORDER BY rank LIMIT 50""",
+                        (fts_query,),
+                    ).fetchall()
+                except sqlite3.OperationalError:
+                    rows = []
         else:
             rows = conn.execute("SELECT * FROM skills ORDER BY title").fetchall()
 
@@ -345,25 +358,17 @@ def get_edges_for_skills(skill_ids: set[str]) -> list[dict]:
         conn.close()
 
 
-def get_edges_touching(skill_ids: set[str]) -> list[dict]:
-    """Edges where any endpoint is in skill_ids (for neighbor discovery)."""
-    if not skill_ids:
-        return []
-    conn = get_conn()
-    try:
-        placeholders = ",".join("?" * len(skill_ids))
-        rows = conn.execute(
-            f"""SELECT from_id, to_id, type FROM edges
-                WHERE from_id IN ({placeholders}) OR to_id IN ({placeholders})""",
-            list(skill_ids) + list(skill_ids),
-        ).fetchall()
-        return [{"from_id": r[0], "to_id": r[1], "type": r[2]} for r in rows]
-    finally:
-        conn.close()
+def is_valid_skill_id(skill_id: str) -> bool:
+    return bool(re.fullmatch(r"[a-z0-9-]+", skill_id)) and ".." not in skill_id
 
 
 def local_skill_readme_path(skill_id: str) -> Optional[Path]:
-    readme = SKILLS_DIR / skill_id / "README.md"
+    if not is_valid_skill_id(skill_id):
+        return None
+    readme = (SKILLS_DIR / skill_id / "README.md").resolve()
+    skills_root = SKILLS_DIR.resolve()
+    if skills_root not in readme.parents:
+        return None
     return readme if readme.is_file() else None
 
 
@@ -393,3 +398,8 @@ def _tokenize(text: str) -> list[str]:
 def slugify_id(text: str) -> str:
     slug = re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")
     return slug[:64]
+
+
+def validate_skill_id(skill_id: str) -> None:
+    if not is_valid_skill_id(skill_id):
+        raise ValueError("Skill id must use lowercase letters, numbers, and hyphens only")

@@ -49,3 +49,23 @@ r2 = client.get("/api/local-skills/prompt-refiner/source")
 assert r2.status_code == 200
 assert "text/html" in r2.headers.get("content-type", "")
 print("OK: local skill source")
+
+# FTS search must not crash on malformed input
+r = client.get("/api/skills", params={"q": '"'})
+assert r.status_code == 200
+assert r.json() == []
+print("OK: malformed FTS query returns empty list")
+
+# Path traversal blocked
+r = client.get("/api/local-skills/..", params={"format": "text"})
+assert r.status_code == 404
+print("OK: path traversal blocked")
+
+r = client.post("/api/custom-skills", json={
+    "id": "bad/id",
+    "title": "Bad",
+    "description": "Bad id test",
+    "tags": ["x"],
+})
+assert r.status_code == 400
+print("OK: invalid custom skill id rejected")

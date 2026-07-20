@@ -16,31 +16,31 @@
       "title": "Cursor Skills Documentation",
       "url": "https://cursor.com/docs/context/skills",
       "description": "How to create and use Agent Skills in Cursor.",
-      "license": null
+      "license": "See source"
     },
     "cursor_rules_docs": {
       "title": "Cursor Rules Documentation",
       "url": "https://cursor.com/docs/context/rules",
       "description": "How to write project rules for Cursor.",
-      "license": null
+      "license": "See source"
     },
     "cursor_bugbot_docs": {
       "title": "Cursor Bugbot",
       "url": "https://cursor.com/docs/bugbot",
       "description": "Automated PR code review in Cursor.",
-      "license": null
+      "license": "See source"
     },
     "cursor_directory": {
       "title": "Cursor Directory",
       "url": "https://cursor.directory",
       "description": "Community marketplace for Cursor rules and MCP servers.",
-      "license": null
+      "license": "See source"
     },
     "claude_code_skills_docs": {
       "title": "Claude Code Skills",
       "url": "https://code.claude.com/docs/en/skills",
       "description": "Official Claude Code skills documentation.",
-      "license": null
+      "license": "See source"
     },
     "anthropic_skills": {
       "title": "Anthropic Skills",
@@ -52,7 +52,7 @@
       "title": "Agent Skills Standard",
       "url": "https://agentskills.io",
       "description": "Open standard for SKILL.md-based agent skills.",
-      "license": null
+      "license": "See source"
     }
   },
   "mdc_repo": "https://github.com/sanjeed5/awesome-cursor-rules-mdc",

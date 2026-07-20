@@ -45,6 +45,8 @@ def list_local_skills():
 
 @app.get("/api/local-skills/{skill_id}/source")
 def local_skill_source(skill_id: str, format: Optional[str] = Query(default=None)):
+    if not db.is_valid_skill_id(skill_id):
+        raise HTTPException(status_code=404, detail="Local skill source not found")
     path = db.local_skill_readme_path(skill_id)
     if not path:
         raise HTTPException(status_code=404, detail="Local skill source not found")
@@ -98,6 +100,11 @@ def add_custom_skill(body: CreateCustomSkillRequest):
     skill_id = (body.id or db.slugify_id(title)).strip()
     if not skill_id:
         raise HTTPException(status_code=400, detail="Could not derive skill id")
+    if not db.is_valid_skill_id(skill_id):
+        raise HTTPException(
+            status_code=400,
+            detail="Skill id must use lowercase letters, numbers, and hyphens only",
+        )
 
     skill = {
         "id": skill_id,

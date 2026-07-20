@@ -42,7 +42,7 @@ export default function SkillGraph({ playbook, onNodeSelect }: Props) {
           nodesDraggable={false}
           nodesConnectable={false}
           elementsSelectable
-          proOptions={{ hideAttribution: true }}
+          proOptions={{ hideAttribution: false }}
         >
           <Background gap={16} size={1} />
           <Controls showInteractive={false} />

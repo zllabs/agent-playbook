@@ -108,7 +108,7 @@
       "repo_url": "https://cursor.com/docs/bugbot",
       "source_url": "https://cursor.com/docs/bugbot",
       "author": "Cursor",
-      "license": null
+      "license": "See source"
     },
     {
       "id": "create-skill",
@@ -119,7 +119,7 @@
       "repo_url": "https://cursor.com/docs/context/skills",
       "source_url": "https://cursor.com/docs/context/skills",
       "author": "Cursor",
-      "license": null
+      "license": "See source"
     },
     {
       "id": "create-rule",
@@ -130,7 +130,7 @@
       "repo_url": "https://cursor.com/docs/context/rules",
       "source_url": "https://cursor.com/docs/context/rules",
       "author": "Cursor",
-      "license": null
+      "license": "See source"
     },
     {
       "id": "nextjs-app",
@@ -207,7 +207,7 @@
       "repo_url": "https://cursor.directory",
       "source_url": "https://cursor.directory",
       "author": "Cursor Community",
-      "license": null
+      "license": "See source"
     },
     {
       "id": "tailwind-ui",

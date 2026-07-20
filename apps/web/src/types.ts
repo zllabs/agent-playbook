@@ -7,7 +7,7 @@ export interface Skill {
   repo_url: string;
   source_url: string;
   author: string;
-  license: string;
+  license?: string | null;
   version?: string | null;
   custom?: boolean;
   local?: boolean;
