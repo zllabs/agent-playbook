@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1060" height="360" viewBox="0 0 1060 360" role="img" aria-label="Before and after: manual skill search vs Agent Playbook">
+  <defs>
+    <pattern id="g" width="16" height="16" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1" fill="#d8dee6"/>
+    </pattern>
+    <marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#0d7377"/>
+    </marker>
+  </defs>
+
+  <text x="530" y="22" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" font-weight="600" fill="#1a2332">Same task — different outcome</text>
+  <text x="530" y="40" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#4a5568">Build OAuth authentication using FastAPI</text>
+
+  <!-- BEFORE panel -->
+  <rect x="10" y="52" width="510" height="298" rx="12" fill="#f4f6f8" stroke="#d8dee6" stroke-width="1.5"/>
+  <rect x="10" y="52" width="510" height="298" rx="12" fill="url(#g)" opacity="0.55"/>
+  <text x="28" y="76" font-family="system-ui" font-size="11" font-weight="700" fill="#b42318">BEFORE · Manual search</text>
+  <text x="28" y="94" font-family="system-ui" font-size="12" fill="#4a5568">Scattered tabs · incomplete coverage</text>
+
+  <rect x="28" y="108" width="120" height="24" rx="12" fill="#fff" stroke="#d8dee6" stroke-dasharray="4 3"/>
+  <text x="88" y="124" text-anchor="middle" font-family="system-ui" font-size="9" fill="#94a3b8">GitHub</text>
+  <rect x="158" y="108" width="120" height="24" rx="12" fill="#fff" stroke="#d8dee6" stroke-dasharray="4 3"/>
+  <text x="218" y="124" text-anchor="middle" font-family="system-ui" font-size="9" fill="#94a3b8">Cursor Directory</text>
+  <rect x="288" y="108" width="100" height="24" rx="12" fill="#fff" stroke="#d8dee6" stroke-dasharray="4 3"/>
+  <text x="338" y="124" text-anchor="middle" font-family="system-ui" font-size="9" fill="#94a3b8">Docs</text>
+  <rect x="398" y="108" width="100" height="24" rx="12" fill="#fff" stroke="#d8dee6" stroke-dasharray="4 3"/>
+  <text x="448" y="124" text-anchor="middle" font-family="system-ui" font-size="9" fill="#94a3b8">Forums</text>
+
+  <rect x="170" y="150" width="170" height="40" rx="10" fill="#fff" stroke="#0d7377" stroke-width="2"/>
+  <text x="255" y="168" text-anchor="middle" font-family="system-ui" font-size="11" font-weight="600" fill="#1a2332">FastAPI Development</text>
+  <text x="255" y="182" text-anchor="middle" font-family="system-ui" font-size="8" fill="#0d7377">only match found</text>
+
+  <rect x="28" y="210" width="140" height="38" rx="10" fill="#fff" stroke="#b42318" stroke-dasharray="5 4"/>
+  <text x="98" y="228" text-anchor="middle" font-family="system-ui" font-size="10" font-weight="600" fill="#b42318">OAuth &amp; Auth</text>
+  <text x="98" y="240" text-anchor="middle" font-family="system-ui" font-size="8" fill="#b42318">missed</text>
+
+  <rect x="178" y="210" width="110" height="38" rx="10" fill="#fff" stroke="#b42318" stroke-dasharray="5 4"/>
+  <text x="233" y="228" text-anchor="middle" font-family="system-ui" font-size="10" font-weight="600" fill="#b42318">API Testing</text>
+  <text x="233" y="240" text-anchor="middle" font-family="system-ui" font-size="8" fill="#b42318">missed</text>
+
+  <rect x="298" y="210" width="130" height="38" rx="10" fill="#fff" stroke="#b42318" stroke-dasharray="5 4"/>
+  <text x="363" y="228" text-anchor="middle" font-family="system-ui" font-size="10" font-weight="600" fill="#b42318">Security Review</text>
+  <text x="363" y="240" text-anchor="middle" font-family="system-ui" font-size="8" fill="#b42318">missed</text>
+
+  <text x="265" y="278" text-anchor="middle" font-family="system-ui" font-size="10" fill="#94a3b8">✗ No graph</text>
+  <text x="265" y="296" text-anchor="middle" font-family="system-ui" font-size="10" fill="#94a3b8">✗ No export</text>
+  <text x="265" y="334" text-anchor="middle" font-family="system-ui" font-size="10" fill="#b42318">Gaps in your AI resource stack</text>
+
+  <!-- Arrow between panels -->
+  <path d="M530 200 L548 200" stroke="#0d7377" stroke-width="3" marker-end="url(#a)"/>
+
+  <!-- AFTER panel -->
+  <rect x="540" y="52" width="510" height="298" rx="12" fill="#f4f6f8" stroke="#0d7377" stroke-width="2"/>
+  <rect x="540" y="52" width="510" height="298" rx="12" fill="url(#g)" opacity="0.55"/>
+  <text x="558" y="76" font-family="system-ui" font-size="11" font-weight="700" fill="#0d7377">AFTER · Agent Playbook</text>
+  <text x="558" y="94" font-family="system-ui" font-size="12" fill="#4a5568">One list · linked · exportable</text>
+
+  <rect x="560" y="118" width="130" height="42" rx="10" fill="#fff" stroke="#1a2332"/>
+  <text x="625" y="136" text-anchor="middle" font-family="system-ui" font-size="10" font-weight="600" fill="#1a2332">OAuth &amp; Auth</text>
+  <text x="625" y="150" text-anchor="middle" font-family="system-ui" font-size="8" fill="#0d7377">oauth, auth</text>
+
+  <rect x="710" y="118" width="130" height="42" rx="10" fill="#fff" stroke="#1a2332"/>
+  <text x="775" y="136" text-anchor="middle" font-family="system-ui" font-size="10" font-weight="600" fill="#1a2332">FastAPI</text>
+  <text x="775" y="150" text-anchor="middle" font-family="system-ui" font-size="8" fill="#0d7377">fastapi</text>
+
+  <rect x="860" y="118" width="130" height="42" rx="10" fill="#fff" stroke="#1a2332"/>
+  <text x="925" y="136" text-anchor="middle" font-family="system-ui" font-size="10" font-weight="600" fill="#1a2332">API Testing</text>
+  <text x="925" y="150" text-anchor="middle" font-family="system-ui" font-size="8" fill="#0d7377">related</text>
+
+  <path d="M690 139 L710 139" stroke="#0d7377" stroke-width="2"/>
+  <path d="M840 139 L860 139" stroke="#0d7377" stroke-width="2"/>
+  <text x="700" y="134" text-anchor="middle" font-family="system-ui" font-size="7" fill="#4a5568">related</text>
+  <text x="850" y="134" text-anchor="middle" font-family="system-ui" font-size="7" fill="#4a5568">related</text>
+
+  <rect x="558" y="178" width="474" height="88" rx="8" fill="#fff" stroke="#d8dee6"/>
+  <text x="572" y="198" font-family="system-ui" font-size="10" font-weight="700" fill="#1a2332">Recommended Playbook</text>
+  <text x="572" y="218" font-family="system-ui" font-size="9" fill="#1a2332">✓ OAuth &amp; Authentication — Matched tags: oauth, auth</text>
+  <text x="572" y="236" font-family="system-ui" font-size="9" fill="#1a2332">✓ FastAPI Development — Matched tags: fastapi</text>
+  <text x="572" y="254" font-family="system-ui" font-size="9" fill="#1a2332">✓ API Testing — Related skill in catalog graph</text>
+
+  <rect x="900" y="184" width="88" height="22" rx="11" fill="#0d7377"/>
+  <text x="944" y="199" text-anchor="middle" font-family="system-ui" font-size="9" font-weight="600" fill="#fff">Export JSON</text>
+
+  <text x="795" y="290" text-anchor="middle" font-family="system-ui" font-size="10" fill="#0d7377">✓ Relationship graph</text>
+  <text x="795" y="308" text-anchor="middle" font-family="system-ui" font-size="10" fill="#0d7377">✓ Explainable reasons</text>
+  <text x="795" y="334" text-anchor="middle" font-family="system-ui" font-size="10" fill="#0d7377">Complete stack in one Playbook</text>
+</svg>

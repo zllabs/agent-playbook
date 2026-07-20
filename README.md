@@ -6,6 +6,31 @@ A graph-powered platform that **discovers and assembles relevant AI development 
 
 Describe what you want to build. Get a recommended Playbook of Cursor Skills with reasons, a relationship graph, and JSON export.
 
+## Before & After
+
+Same engineering task — two very different outcomes.
+
+**Task:** *Build OAuth authentication using FastAPI*
+
+![Before manual search vs after Agent Playbook — linked skills in one Playbook](docs/demo/before-after.svg)
+
+| Before | After |
+|--------|-------|
+| Search GitHub, Cursor Directory, and docs separately | Enter one task → get a ranked Playbook |
+| Find FastAPI rules, **miss OAuth and related skills** | **Discover connected skills** via catalog graph |
+| No idea how resources relate | **Visual graph** shows `related_to` / `requires` links |
+| No reasons, no export | **Explainable reasons** + **playbook.json** export |
+| Start coding with gaps in your AI stack | Start with a **complete, linked resource set** |
+
+<details>
+<summary>Individual comparison panels</summary>
+
+| Manual search | Agent Playbook |
+|:---:|:---:|
+| ![Before: scattered search, missed skills](docs/demo/before-manual.svg) | ![After: linked skills in one Playbook](docs/demo/after-playbook.svg) |
+
+</details>
+
 ## Problem
 
 Developers have access to Cursor Skills, MCP servers, rules, prompt libraries, and community repositories — but choosing which resources to use, in what order, and which work together is still manual.

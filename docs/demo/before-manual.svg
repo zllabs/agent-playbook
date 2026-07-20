@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="340" viewBox="0 0 520 340" role="img" aria-label="Before: manual skill search misses related resources">
+  <defs>
+    <pattern id="grid" width="16" height="16" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1" fill="#d8dee6"/>
+    </pattern>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <rect width="520" height="340" rx="12" fill="#f4f6f8" stroke="#d8dee6" stroke-width="1.5"/>
+  <rect width="520" height="340" rx="12" fill="url(#grid)" opacity="0.6"/>
+
+  <text x="20" y="28" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#b42318" letter-spacing="0.06em">BEFORE</text>
+  <text x="20" y="48" font-family="system-ui, sans-serif" font-size="15" font-weight="600" fill="#1a2332">Manual search  scattered &amp; incomplete</text>
+
+  <!-- Task -->
+  <rect x="20" y="64" width="480" height="36" rx="8" fill="#fafbfc" stroke="#d8dee6"/>
+  <text x="32" y="86" font-family="ui-monospace, monospace" font-size="11" fill="#4a5568">Task: Build OAuth authentication using FastAPI</text>
+
+  <!-- Search sources -->
+  <rect x="20" y="118" width="108" height="28" rx="14" fill="#fff" stroke="#d8dee6" stroke-dasharray="4 3"/>
+  <text x="74" y="136" text-anchor="middle" font-family="system-ui" font-size="10" fill="#94a3b8">GitHub search</text>
+
+  <rect x="140" y="118" width="120" height="28" rx="14" fill="#fff" stroke="#d8dee6" stroke-dasharray="4 3"/>
+  <text x="200" y="136" text-anchor="middle" font-family="system-ui" font-size="10" fill="#94a3b8">Cursor Directory</text>
+
+  <rect x="272" y="118" width="88" height="28" rx="14" fill="#fff" stroke="#d8dee6" stroke-dasharray="4 3"/>
+  <text x="316" y="136" text-anchor="middle" font-family="system-ui" font-size="10" fill="#94a3b8">Docs tabs</text>
+
+  <rect x="372" y="118" width="128" height="28" rx="14" fill="#fff" stroke="#d8dee6" stroke-dasharray="4 3"/>
+  <text x="436" y="136" text-anchor="middle" font-family="system-ui" font-size="10" fill="#94a3b8">Community repos</text>
+
+  <!-- Arrows down scattered -->
+  <path d="M74 146 L74 168" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#arrow)"/>
+  <path d="M200 146 L200 168" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="3 3"/>
+  <path d="M316 146 L316 168" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="3 3"/>
+  <path d="M436 146 L436 168" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="3 3"/>
+
+  <!-- Found skill -->
+  <rect x="130" y="178" width="160" height="44" rx="10" fill="#fff" stroke="#0d7377" stroke-width="2"/>
+  <text x="210" y="198" text-anchor="middle" font-family="system-ui" font-size="12" font-weight="600" fill="#1a2332">FastAPI Development</text>
+  <text x="210" y="214" text-anchor="middle" font-family="system-ui" font-size="9" fill="#0d7377">found by keyword match</text>
+
+  <!-- Missing skills -->
+  <rect x="20" y="248" width="150" height="44" rx="10" fill="#fff" stroke="#b42318" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="95" y="268" text-anchor="middle" font-family="system-ui" font-size="12" font-weight="600" fill="#b42318">OAuth &amp; Authentication</text>
+  <text x="95" y="284" text-anchor="middle" font-family="system-ui" font-size="9" fill="#b42318">missed</text>
+
+  <rect x="190" y="248" width="130" height="44" rx="10" fill="#fff" stroke="#b42318" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="255" y="268" text-anchor="middle" font-family="system-ui" font-size="12" font-weight="600" fill="#b42318">API Testing</text>
+  <text x="255" y="284" text-anchor="middle" font-family="system-ui" font-size="9" fill="#b42318">missed</text>
+
+  <rect x="340" y="248" width="160" height="44" rx="10" fill="#fff" stroke="#b42318" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="420" y="268" text-anchor="middle" font-family="system-ui" font-size="12" font-weight="600" fill="#b42318">Security Review</text>
+  <text x="420" y="284" text-anchor="middle" font-family="system-ui" font-size="9" fill="#b42318">missed</text>
+
+  <!-- No links indicator -->
+  <text x="260" y="318" text-anchor="middle" font-family="system-ui" font-size="11" fill="#94a3b8">No relationship graph · no single export · gaps in coverage</text>
+</svg>
