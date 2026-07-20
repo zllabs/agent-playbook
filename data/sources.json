@@ -1,0 +1,61 @@
+{
+  "hubs": {
+    "awesome_cursor_rules_mdc": {
+      "title": "Awesome Cursor Rules (MDC)",
+      "url": "https://github.com/sanjeed5/awesome-cursor-rules-mdc",
+      "description": "Community-curated Cursor .mdc rule files for libraries and frameworks.",
+      "license": "CC0-1.0"
+    },
+    "cursor_plugins": {
+      "title": "Cursor Official Plugins",
+      "url": "https://github.com/cursor/plugins",
+      "description": "Official Cursor plugins with rules, skills, agents, and MCP servers.",
+      "license": "MIT"
+    },
+    "cursor_skills_docs": {
+      "title": "Cursor Skills Documentation",
+      "url": "https://cursor.com/docs/context/skills",
+      "description": "How to create and use Agent Skills in Cursor.",
+      "license": null
+    },
+    "cursor_rules_docs": {
+      "title": "Cursor Rules Documentation",
+      "url": "https://cursor.com/docs/context/rules",
+      "description": "How to write project rules for Cursor.",
+      "license": null
+    },
+    "cursor_bugbot_docs": {
+      "title": "Cursor Bugbot",
+      "url": "https://cursor.com/docs/bugbot",
+      "description": "Automated PR code review in Cursor.",
+      "license": null
+    },
+    "cursor_directory": {
+      "title": "Cursor Directory",
+      "url": "https://cursor.directory",
+      "description": "Community marketplace for Cursor rules and MCP servers.",
+      "license": null
+    },
+    "claude_code_skills_docs": {
+      "title": "Claude Code Skills",
+      "url": "https://code.claude.com/docs/en/skills",
+      "description": "Official Claude Code skills documentation.",
+      "license": null
+    },
+    "anthropic_skills": {
+      "title": "Anthropic Skills",
+      "url": "https://github.com/anthropics/skills",
+      "description": "Example and document skills from Anthropic for Claude.",
+      "license": "Apache-2.0"
+    },
+    "agent_skills_standard": {
+      "title": "Agent Skills Standard",
+      "url": "https://agentskills.io",
+      "description": "Open standard for SKILL.md-based agent skills.",
+      "license": null
+    }
+  },
+  "mdc_repo": "https://github.com/sanjeed5/awesome-cursor-rules-mdc",
+  "mdc_rules_path": "rules-mdc",
+  "playbook_repo": "https://github.com/zllabs/agent-brief"
+}

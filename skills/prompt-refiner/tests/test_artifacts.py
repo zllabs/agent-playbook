@@ -36,7 +36,7 @@ class TestArtifactSync(unittest.TestCase):
                 self.assertIn(phrase, path.read_text())
 
     def test_examples_linked_from_artifacts(self) -> None:
-        link = "prompt-refiner/examples.md"
+        link = "github.com/zllabs/agent-brief/blob/main/skills/prompt-refiner/examples.md"
         for path in (CURSOR_RULE, CLAUDE_SKILL):
             with self.subTest(path=path.name):
                 self.assertIn(link, path.read_text())

@@ -34,9 +34,9 @@ Run relevant tests.
 
 ```bash
 mkdir -p /path/to/your/project/.cursor/rules
-cp prompt-refiner/cursor/rule.mdc /path/to/your/project/.cursor/rules/prompt-refiner.mdc
-cp prompt-refiner/examples.md /path/to/your/project/   # optional
-cp prompt-refiner/config.yaml.example /path/to/your/project/prompt-refiner.yaml   # optional
+cp skills/prompt-refiner/cursor/rule.mdc /path/to/your/project/.cursor/rules/prompt-refiner.mdc
+cp skills/prompt-refiner/examples.md /path/to/your/project/   # optional
+cp skills/prompt-refiner/config.yaml.example /path/to/your/project/prompt-refiner.yaml   # optional
 ```
 
 The rule uses `alwaysApply: true` and self-filters — it only runs on underspecified requests.
@@ -45,7 +45,7 @@ The rule uses `alwaysApply: true` and self-filters — it only runs on underspec
 
 ```bash
 mkdir -p ~/.claude/skills
-cp -r prompt-refiner/claude ~/.claude/skills/prompt-refiner
+cp -r skills/prompt-refiner/claude ~/.claude/skills/prompt-refiner
 # usage: /prompt-refiner make API faster
 ```
 
@@ -88,4 +88,4 @@ Triggered by **request quality**, not keyword matching.
 python -m tests
 ```
 
-Contract tests live in `prompt-refiner/tests/` and verify brief structure, length, and artifact consistency.
+Contract tests live in `skills/prompt-refiner/tests/` and verify brief structure, length, and artifact consistency.

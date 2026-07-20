@@ -6,6 +6,13 @@ __pycache__/
 .venv/
 venv/
 
+# Data
+data/playbook.db
+
+# Node
+node_modules/
+dist/
+
 # macOS
 .DS_Store
 

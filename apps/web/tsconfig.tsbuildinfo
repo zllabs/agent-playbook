@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/api.ts","./src/localskills.ts","./src/main.tsx","./src/sourceurl.ts","./src/types.ts","./src/vite-env.d.ts","./src/components/customskillspanel.tsx","./src/components/skillgraph.tsx","./src/components/skillsourcemodal.tsx","./src/components/skillsuggestions.tsx","./src/pages/home.tsx","./src/pages/result.tsx"],"version":"5.7.3"}

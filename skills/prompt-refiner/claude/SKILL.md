@@ -102,4 +102,4 @@ Requirements should be agent-useful only:
 
 ## Examples
 
-See [examples.md](https://github.com/zllabs/prompt-refiner/blob/main/prompt-refiner/examples.md) for 15+ request → brief transformations.
+See [examples.md](https://github.com/zllabs/agent-brief/blob/main/skills/prompt-refiner/examples.md) for 15+ request → brief transformations.
