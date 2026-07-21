@@ -156,7 +156,7 @@ export default function Result({ playbook, onReset }: Props) {
       ) : (
         <>
           <section className="skills-section">
-            <h2 className="section-title">Recommended skills</h2>
+            <h2 className="section-title">Recommended resources</h2>
             <p className="skills-hint">Uncheck to exclude from export and graph.</p>
             <ul className="skill-list" ref={listRef}>
               {allSkills.map((skill) => {
@@ -218,8 +218,8 @@ export default function Result({ playbook, onReset }: Props) {
       )}
 
       <section className="add-skill-section">
-        <h2 className="section-title">Add a skill</h2>
-        <p className="skills-hint">Search the catalog and add skills to expand your playbook.</p>
+        <h2 className="section-title">Add a resource</h2>
+        <p className="skills-hint">Search the catalog and add resources to expand your playbook.</p>
         <input
           className="add-skill-input"
           type="search"

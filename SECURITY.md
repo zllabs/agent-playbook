@@ -6,7 +6,7 @@ Do not expose the API to untrusted networks without adding your own access contr
 
 ## Reporting issues
 
-Open a GitHub issue with reproduction steps. For sensitive reports, contact the repository maintainer privately.
+Open a GitHub issue with reproduction steps. For sensitive reports, contact [@zllabs](https://github.com/zllabs) privately.
 
 ## Known local-dev risks
 

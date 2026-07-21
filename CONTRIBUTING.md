@@ -1,6 +1,6 @@
 # Contributing
 
-Agent Playbook is maintained as a **personal open-source project** by [zhilinglien](https://github.com/zhilinglien).
+Agent Playbook is maintained as a **personal open-source project** by [zllabs](https://github.com/zllabs).
 
 **External contributions (pull requests) are not accepted at this time.** You are welcome to use, fork, and adapt the project under the [MIT license](LICENSE). Recognition of the original work stays with this repository and its author.
 

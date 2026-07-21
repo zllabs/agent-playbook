@@ -1,15 +1,23 @@
 # Adding resources
 
-Agent Playbook indexes **references** to AI development resources — not copies of their content.
+Agent Playbook indexes **references** to AI development resources — Cursor rules, Claude skills, MCP servers, templates, prompts, and similar formats — not copies of their content.
+
+## Third-party resources
+
+Third-party resources remain the intellectual property of their respective authors.
+
+Agent Playbook stores only metadata necessary for discovery, attribution, and recommendation, including titles, descriptions, authors, licenses, canonical URLs, tags, and relationships.
+
+If you are the author of a listed resource and would like it updated or removed, please [open an issue](https://github.com/zllabs/agent-brief/issues).
 
 ## Catalog rules
 
 Every entry in `data/catalog.json` must have:
 
 - **Source URL** — link to the canonical resource (MDC file, docs page, or repo path)
-- **License** — SPDX identifier or `See source` for upstream documentation
+- **License** — SPDX identifier when available; otherwise `Documentation (copyright)` or `Unknown (see source)` for official documentation sites and community hubs
 - **Attribution** — `author` field naming the maintainer or project
-- **No redistribution** — catalog entries are metadata only; do not paste rule bodies, SKILL.md content, or other third-party text into this repo
+- **No redistribution** — catalog entries are metadata only. Agent Playbook stores title, description, license, tags, attribution, canonical URLs, and relationships — not rule bodies, SKILL.md content, or other third-party text
 
 Edges in `catalog.json` are curated relationships (`requires`, `related_to`). Endpoints must exist in the catalog **or** as a local package under `skills/`.
 
@@ -39,7 +47,7 @@ Prefer linking to community hubs listed in [data/sources.json](../data/sources.j
 
 ## Add a local skill package
 
-Local packages live under `skills/<id>/` and are auto-discovered via `skill.json`.
+Local packages live under `skills/<id>/` and are auto-discovered via `skill.json`. **Only add original work or content you have rights to redistribute** — do not copy rules or skills from Cursor Directory, Anthropic, or other catalogs into this folder.
 
 1. Copy an existing package (e.g. `skills/prompt-refiner/`).
 2. Edit `skill.json` — unique `id`, title, description, tags, license.

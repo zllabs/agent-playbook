@@ -2,6 +2,8 @@
 
 Local skill packages live here — one directory per skill. The Agent Playbook app auto-discovers them via each package's `skill.json` manifest.
 
+**Only original packages belong here.** Do not copy `.mdc`, `SKILL.md`, or other content from Cursor Directory, Anthropic, or community catalogs unless you have redistribution rights and note the upstream license.
+
 ## Layout
 
 ```

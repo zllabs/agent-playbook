@@ -1,6 +1,8 @@
 # Architecture
 
-Agent Playbook is a small full-stack app: FastAPI + SQLite on the backend, React + Vite + React Flow on the frontend.
+Agent Playbook is a **metadata catalog and recommendation engine** for AI development resources — not a single-ecosystem helper. Cursor rules, Claude skills, MCP servers, AGENTS.md, templates, and prompts are resource types in the same catalog model.
+
+Implementation: FastAPI + SQLite on the backend, React + Vite + React Flow on the frontend.
 
 ## Overview
 
@@ -8,13 +10,13 @@ Agent Playbook is a small full-stack app: FastAPI + SQLite on the backend, React
 User task (browser)
     → POST /api/recommend
         → SQLite FTS5 search + tag scoring
-        → Coalesce connected skill cluster
+        → Coalesce connected resource cluster
         → Template reasons (optional Ollama polish)
-    → Playbook JSON (skills + edges + reasons)
+    → Playbook JSON (resources + edges + reasons)
     → React Result page (list + graph + export)
 ```
 
-The catalog stores **metadata and attribution only** — titles, tags, source URLs, licenses, and curated relationship edges. No third-party skill bodies are bundled.
+The catalog stores **metadata and attribution only** — title, description, license, tags, canonical URLs, and curated relationship edges. No third-party skill bodies are bundled or redistributed.
 
 ## Repository layout
 
@@ -26,7 +28,7 @@ data/
   catalog.json  Curated external skill metadata + edges
   sources.json  Hub URLs for documentation links
   custom_skills.json  User-added skills (UI, local file)
-skills/         Local skill packages (skill.json + README)
+skills/         Original local skill packages (skill.json + README); not third-party copies
 docs/           OSS documentation
 ```
 

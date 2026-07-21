@@ -2,13 +2,11 @@
 
 > **Discover. Visualize. Assemble. Export.**
 
-A graph-powered platform that **discovers and assembles relevant AI development playbooks** for a software engineering task — by connecting metadata references, explaining recommendations, and exporting a reusable Playbook.
+Agent Playbook is an open-source **metadata catalog and recommendation engine** for AI development resources. Describe an engineering task, get a ranked resource set with explainable reasons, explore how resources relate, and export a reusable playbook — without redistributing third-party content.
 
-Describe what you want to build. Get a recommended Playbook of Cursor Skills with reasons, a relationship graph, and JSON export.
+**Resource types** include Cursor rules, Claude skills, MCP servers, AGENTS.md, templates, prompts, and future formats. The v0.1 catalog is Cursor-heavy; the architecture is ecosystem-agnostic.
 
-Agent Playbook is an open-source project created to help developers discover and assemble reusable AI development resources. It is shared publicly for others to use and build upon.
-
-**Author:** [zhilinglien](https://github.com/zhilinglien) · MIT licensed · personal project ([contributions policy](CONTRIBUTING.md))
+**Author:** [zllabs](https://github.com/zllabs) · MIT licensed · personal project ([contributions policy](CONTRIBUTING.md))
 
 ## Before & After
 
@@ -16,38 +14,38 @@ Same engineering task — two very different outcomes.
 
 **Task:** *Build OAuth authentication using FastAPI*
 
-![Before manual search vs after Agent Playbook — linked skills in one Playbook](docs/demo/before-after.svg)
+![Before manual search vs after Agent Playbook — linked resources in one playbook](docs/demo/before-after.svg)
 
 | Before | After |
 |--------|-------|
-| Search GitHub, Cursor Directory, and docs separately | Enter one task → get a ranked Playbook |
-| Find FastAPI rules, **miss OAuth and related skills** | **Discover connected skills** via catalog graph |
+| Search GitHub, directories, and docs separately | Enter one task → get a ranked resource set |
+| Find FastAPI rules, **miss OAuth and related resources** | **Discover connected resources** via catalog graph |
 | No idea how resources relate | **Visual graph** shows `related_to` / `requires` links |
 | No reasons, no export | **Explainable reasons** + **playbook.json** export |
 | Start coding with gaps in your AI stack | Start with a **linked, explainable resource set** |
 
 ## Problem
 
-Developers have access to Cursor Skills, MCP servers, rules, prompt libraries, and community repositories — but choosing which resources to use, in what order, and which work together is still manual.
+Developers have access to Cursor rules, Claude skills, MCP servers, AGENTS.md, prompt libraries, templates, and community catalogs — but choosing which resources to use, in what order, and which work together is still manual.
 
 ## Why Agent Playbook
 
 Unlike GitHub search, Agent Playbook provides:
 
-- **Task-specific recommendations** — ranked skills matched to your engineering task
+- **Task-specific recommendations** — ranked resources matched to your engineering task
 - **Explainable reasons** — why each resource is included
-- **Resource relationship graphs** — curated edges between related skills
+- **Resource relationship graphs** — curated edges between related entries
 - **Reusable playbook exports** — download `playbook.json` for sharing or tooling
 
 ## Demo
 
-**Example task:** Build OAuth authentication using FastAPI
+**Example task:** Build OAuth authentication using FastAPI *(v0.1 demo uses Cursor rule metadata from the community catalog)*
 
 **Home — task entry:**
 
 <img src="docs/demo/home.png" alt="Agent Playbook home screen" width="520">
 
-**Result — skill graph:**
+**Result — resource graph:**
 
 <img src="docs/demo/graph.png" alt="Skill graph showing OAuth & Authentication related to FastAPI Development" width="520">
 
@@ -108,22 +106,22 @@ Open http://localhost:5173 — see [apps/README.md](apps/README.md) for details.
 ## Repository layout
 
 ```
-skills/                  # local skill packages (auto-discovered)
+skills/                  # original local packages only (see skills/README.md)
 apps/
   api/                   # FastAPI backend
   web/                   # React frontend
 data/
-  catalog.json           # curated external skills + edges
-  custom_skills.example.json  # seed for local custom skills (copied on first run)
+  catalog.json           # curated external resource metadata + edges
+  custom_skills.example.json  # seed for local custom entries (copied on first run)
 docs/
   architecture.md
   adding-resources.md
   demo/                  # example exports + release screenshots
 ```
 
-## Packages
+## Local resource packages
 
-Cursor rules and Claude Code skills — no runtime, no CLI. Each package is self-contained.
+Original rules and skills shipped with this repo — not copies from third-party catalogs. Each package is self-contained and MIT-licensed unless noted otherwise.
 
 | Package | Cursor rule | Claude skill | Description |
 |---------|-------------|--------------|-------------|
@@ -131,9 +129,9 @@ Cursor rules and Claude Code skills — no runtime, no CLI. Each package is self
 
 Add a new package under `skills/` — see [skills/README.md](skills/README.md).
 
-## References
+## Reference hubs
 
-Catalog skills link to community and official hubs (see [data/sources.json](data/sources.json)):
+The catalog indexes metadata pointing at community and official hubs (see [data/sources.json](data/sources.json)):
 
 | Resource | URL |
 |----------|-----|
@@ -145,14 +143,24 @@ Catalog skills link to community and official hubs (see [data/sources.json](data
 
 See [data/sources.json](data/sources.json) for the full hub list.
 
+> Official documentation links are provided as references only. Copyright remains with their respective owners.
+
 ## Catalog rules
 
 - **Source URL required** — every catalog entry must link to the canonical resource
-- **License required** — SPDX identifier, or `See source` for upstream documentation pages
+- **License required** — SPDX identifier when available; otherwise `Documentation (copyright)` or `Unknown (see source)` for official documentation sites and community hubs
 - **Attribution required** — author / maintainer field
-- **No redistribution of third-party content** — metadata and links only
+- **No redistribution of third-party content** — Agent Playbook stores only metadata (title, description, license, tags, attribution, canonical URLs, and relationships)
 
 Details: [docs/adding-resources.md](docs/adding-resources.md)
+
+## Third-party resources
+
+Third-party resources remain the intellectual property of their respective authors.
+
+Agent Playbook stores only metadata necessary for discovery, attribution, and recommendation — titles, descriptions, authors, licenses, canonical URLs, tags, and relationships.
+
+If you are the author of a listed resource and would like it updated or removed, [open an issue](https://github.com/zllabs/agent-brief/issues).
 
 ## Tests
 

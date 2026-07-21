@@ -104,7 +104,7 @@ def discover_local_skills() -> list[dict]:
         data = json.loads(manifest.read_text())
         data.setdefault("id", pkg_dir.name)
         data.setdefault("ecosystem", "cursor")
-        data.setdefault("author", "Agent Playbook")
+        data.setdefault("author", "zllabs")
         data.setdefault("license", "MIT")
         data.setdefault("repo_url", playbook_skill_path(data["id"]).rsplit("/tree/", 1)[0])
         if not str(data.get("source_url", "")).startswith("http"):

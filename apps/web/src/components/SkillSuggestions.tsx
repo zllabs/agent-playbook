@@ -9,7 +9,7 @@ export default function SkillSuggestions({ skills }: Props) {
 
   return (
     <div className="suggestions">
-      <p className="suggestions-label">Matching skills</p>
+      <p className="suggestions-label">Matching resources</p>
       <ul className="suggestions-list">
         {skills.map((skill) => (
           <li key={skill.id} className="suggestion-item">

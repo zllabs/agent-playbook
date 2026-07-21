@@ -2,10 +2,10 @@
 
 ## 0.1.0 — 2026-07-20
 
-Initial public preview by [zhilinglien](https://github.com/zhilinglien).
+Initial public preview by [zllabs](https://github.com/zllabs).
 
-- Task → recommended Cursor skill Playbook with reasons
-- Skill relationship graph and JSON export
-- Curated catalog + local `skills/` packages
-- Custom skills via UI
+- Task → recommended resource playbook with reasons
+- Resource relationship graph and JSON export
+- Curated metadata catalog + local `skills/` packages
+- Custom resources via UI
 - Optional Ollama reason polish

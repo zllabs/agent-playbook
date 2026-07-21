@@ -69,14 +69,14 @@ export default function CustomSkillsPanel({ onChange }: Props) {
   return (
     <section className="custom-skills">
       <div className="custom-skills-head">
-        <h2 className="section-title">Your skills</h2>
+        <h2 className="section-title">Your resources</h2>
         <button type="button" className="btn secondary btn-sm" onClick={() => setOpen((v) => !v)}>
           {open ? "Cancel" : "Add custom skill"}
         </button>
       </div>
 
       <p className="custom-skills-note">
-        Local packages in <code>skills/</code> are auto-discovered. Custom skills are saved via the UI.
+        Local packages in <code>skills/</code> are auto-discovered. Custom entries are saved via the UI.
       </p>
 
       {localSkills.length > 0 && (
@@ -105,7 +105,7 @@ export default function CustomSkillsPanel({ onChange }: Props) {
         </>
       )}
 
-      <h3 className="subsection-title">Custom skills</h3>
+      <h3 className="subsection-title">Custom resources</h3>
       {customSkills.length > 0 ? (
         <ul className="custom-skills-list">
           {customSkills.map((skill) => (

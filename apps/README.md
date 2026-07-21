@@ -2,7 +2,9 @@
 
 > **Discover. Visualize. Assemble. Export.**
 
-Describe a software engineering task, get a recommended Cursor skill Playbook with explainable reasons, explore resource relationships, and export JSON.
+Describe a software engineering task, get a recommended resource playbook with explainable reasons, explore relationships in the catalog graph, and export JSON.
+
+Agent Playbook is a **metadata catalog and recommendation engine** for AI development resources — Cursor rules, Claude skills, MCP servers, templates, prompts, and more.
 
 ## Quick start
 

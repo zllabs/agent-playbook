@@ -53,7 +53,7 @@ export default function Home({ onPlaybook }: Props) {
     <div className="page home">
       <header className="hero">
         <h1 className="brand">Agent Playbook</h1>
-        <p className="tagline">Describe a task. Get a recommended Cursor skill Playbook.</p>
+        <p className="tagline">Metadata catalog for AI dev resources. Describe a task, get a playbook.</p>
       </header>
 
       <form className="task-form" onSubmit={handleSubmit}>

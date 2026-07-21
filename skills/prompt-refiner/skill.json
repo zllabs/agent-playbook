@@ -4,7 +4,7 @@
   "description": "Turn vague coding requests into concise structured briefs for coding agents.",
   "tags": ["prompts", "planning", "cursor", "workflow", "refine", "brief"],
   "ecosystem": "cursor",
-  "author": "Agent Playbook",
+  "author": "zllabs",
   "license": "MIT",
   "repo_url": "https://github.com/zllabs/agent-brief",
   "source_url": "https://github.com/zllabs/agent-brief/tree/main/skills/prompt-refiner"
