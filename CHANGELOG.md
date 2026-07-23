@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Add `./dev.sh` to bootstrap deps and run API + web together
+
 ## 0.1.0 — 2026-07-20
 
 Initial public preview by [zllabs](https://github.com/zllabs).

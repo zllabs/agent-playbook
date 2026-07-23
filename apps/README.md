@@ -8,25 +8,31 @@ Agent Playbook is a **metadata catalog and recommendation engine** for AI develo
 
 ## Quick start
 
-### API
+From the repo root:
 
 ```bash
+./dev.sh
+```
+
+Open http://127.0.0.1:5173
+
+Override ports with `API_PORT` / `WEB_PORT` if the defaults are taken.
+
+### Manual (two terminals)
+
+```bash
+# Terminal 1 — API
 cd apps/api
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 uvicorn main:app --reload --port 8000
-```
 
-### Web
-
-```bash
+# Terminal 2 — Web
 cd apps/web
-npm install
+npm ci
 npm run dev
 ```
-
-Open http://localhost:5173
 
 ### Optional: Ollama reason polish
 

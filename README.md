@@ -79,18 +79,13 @@ Unlike GitHub search, Agent Playbook provides:
 
 ## Quick start
 
-Run **both** the API and web app (two terminals):
-
 ```bash
-# Terminal 1 — API
-cd apps/api && python3 -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt && uvicorn main:app --reload --port 8000
-
-# Terminal 2 — Web
-cd apps/web && npm ci && npm run dev
+./dev.sh
 ```
 
-Open http://localhost:5173 — see [apps/README.md](apps/README.md) for details.
+Opens API (`:8000`) and web (`:5173`) in one process — Ctrl+C stops both. First run creates the venv and installs deps. Override with `API_PORT` / `WEB_PORT` if needed.
+
+Open http://127.0.0.1:5173 — see [apps/README.md](apps/README.md) for manual two-terminal setup.
 
 > **Note:** v0.1 is a local-dev tool. See [SECURITY.md](SECURITY.md).
 
