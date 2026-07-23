@@ -83,7 +83,12 @@ python -m tests
 
 # API recommend smoke test
 cd apps/api && .venv/bin/python test_recommend.py
+
+# Recommendation quality eval (10 task cases)
+cd apps/api && .venv/bin/python test_recommend_eval.py
 ```
+
+Cases live in `apps/api/eval_cases.json`. When ranking changes on purpose, update `expect` / `forbid` there, re-run the eval, and note it in `CHANGELOG.md` if user-visible.
 
 ## License
 

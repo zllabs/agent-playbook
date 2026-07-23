@@ -3,6 +3,7 @@
 ## Unreleased
 
 - Add `./dev.sh` to bootstrap deps and run API + web together
+- Add recommendation quality eval (`eval_cases.json` + `test_recommend_eval.py`)
 
 ## 0.1.0 — 2026-07-20
 

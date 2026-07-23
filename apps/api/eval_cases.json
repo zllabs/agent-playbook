@@ -1,0 +1,62 @@
+[
+  {
+    "id": "oauth-fastapi",
+    "task": "Build OAuth authentication using FastAPI",
+    "expect": ["oauth-security", "fastapi-skill"],
+    "forbid": ["prompt-refiner", "tailwind-ui"]
+  },
+  {
+    "id": "prompt-refine",
+    "task": "refine vague prompts before coding",
+    "expect": ["prompt-refiner"],
+    "forbid": ["create-skill", "oauth-security"]
+  },
+  {
+    "id": "react-frontend",
+    "task": "Build a React TypeScript frontend with hooks",
+    "expect": ["react-frontend"],
+    "forbid": ["prompt-refiner", "docker-deploy"]
+  },
+  {
+    "id": "sqlite-fts",
+    "task": "Design SQLite schema with FTS5 full-text search",
+    "expect": ["sqlite-database"],
+    "forbid": ["prompt-refiner"]
+  },
+  {
+    "id": "docker-compose",
+    "task": "Containerize the app with Docker and docker-compose",
+    "expect": ["docker-deploy"],
+    "forbid": ["prompt-refiner"]
+  },
+  {
+    "id": "api-pytest",
+    "task": "Write pytest integration tests for a REST API",
+    "expect": ["api-testing"],
+    "forbid": ["prompt-refiner", "tailwind-ui"]
+  },
+  {
+    "id": "security-pr-review",
+    "task": "Review a PR for security vulnerabilities and auth flaws",
+    "expect": ["security-review"],
+    "forbid": ["prompt-refiner"]
+  },
+  {
+    "id": "nextjs-app-router",
+    "task": "Set up Next.js App Router with server components",
+    "expect": ["nextjs-app"],
+    "forbid": ["prompt-refiner", "docker-deploy"]
+  },
+  {
+    "id": "tailwind-react",
+    "task": "Add Tailwind CSS styling to a React UI",
+    "expect": ["tailwind-ui"],
+    "forbid": ["prompt-refiner", "sqlite-database"]
+  },
+  {
+    "id": "github-actions-ci",
+    "task": "Create a GitHub Actions CI workflow",
+    "expect": ["ci-pipeline"],
+    "forbid": ["prompt-refiner", "react-frontend"]
+  }
+]

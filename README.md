@@ -162,6 +162,7 @@ If you are the author of a listed resource and would like it updated or removed,
 ```bash
 python -m tests
 cd apps/api && .venv/bin/python test_recommend.py
+cd apps/api && .venv/bin/python test_recommend_eval.py
 ```
 
 ## License

@@ -90,4 +90,7 @@ No LLM is required. Default reasons are template strings from matched tags. Set 
 ```bash
 python -m tests              # package contract tests
 cd apps/api && .venv/bin/python test_recommend.py
+cd apps/api && .venv/bin/python test_recommend_eval.py  # ranking quality cases
 ```
+
+Eval cases: `apps/api/eval_cases.json`. Update `expect` / `forbid` when catalog ranking intentionally changes.

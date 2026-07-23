@@ -28,6 +28,9 @@ jobs:
       - name: API smoke tests
         run: cd apps/api && .venv/bin/python test_recommend.py
 
+      - name: Recommend quality eval
+        run: cd apps/api && .venv/bin/python test_recommend_eval.py
+
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
