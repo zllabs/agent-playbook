@@ -4,7 +4,13 @@
       "id": "fastapi-skill",
       "title": "FastAPI Development",
       "description": "Build REST APIs with FastAPI including routing, Pydantic models, dependency injection, and OpenAPI docs.",
-      "tags": ["python", "fastapi", "api", "backend", "rest"],
+      "tags": [
+        "python",
+        "fastapi",
+        "api",
+        "backend",
+        "rest"
+      ],
       "ecosystem": "cursor",
       "repo_url": "https://github.com/sanjeed5/awesome-cursor-rules-mdc",
       "source_url": "https://github.com/sanjeed5/awesome-cursor-rules-mdc/blob/main/rules-mdc/fastapi.mdc",
@@ -15,7 +21,13 @@
       "id": "oauth-security",
       "title": "OAuth & Authentication",
       "description": "Implement OAuth 2.0, JWT tokens, session management, and secure authentication flows.",
-      "tags": ["oauth", "auth", "security", "jwt", "authentication"],
+      "tags": [
+        "oauth",
+        "auth",
+        "security",
+        "jwt",
+        "authentication"
+      ],
       "ecosystem": "cursor",
       "repo_url": "https://github.com/sanjeed5/awesome-cursor-rules-mdc",
       "source_url": "https://github.com/sanjeed5/awesome-cursor-rules-mdc/blob/main/rules-mdc/auth0.mdc",
@@ -26,7 +38,12 @@
       "id": "security-review",
       "title": "Security Review",
       "description": "Review code changes for security vulnerabilities, auth flaws, injection risks, and data exposure.",
-      "tags": ["security", "review", "audit", "auth"],
+      "tags": [
+        "security",
+        "review",
+        "audit",
+        "auth"
+      ],
       "ecosystem": "cursor",
       "repo_url": "https://github.com/cursor/plugins",
       "source_url": "https://cursor.com/docs/bugbot",
@@ -37,7 +54,12 @@
       "id": "api-testing",
       "title": "API Testing",
       "description": "Write integration and contract tests for REST APIs using pytest, httpx, and test fixtures.",
-      "tags": ["testing", "api", "pytest", "integration"],
+      "tags": [
+        "testing",
+        "api",
+        "pytest",
+        "integration"
+      ],
       "ecosystem": "cursor",
       "repo_url": "https://github.com/sanjeed5/awesome-cursor-rules-mdc",
       "source_url": "https://github.com/sanjeed5/awesome-cursor-rules-mdc/blob/main/rules-mdc/pytest.mdc",
@@ -48,7 +70,12 @@
       "id": "react-frontend",
       "title": "React Frontend",
       "description": "Build React applications with TypeScript, hooks, component patterns, and modern state management.",
-      "tags": ["react", "typescript", "frontend", "ui"],
+      "tags": [
+        "react",
+        "typescript",
+        "frontend",
+        "ui"
+      ],
       "ecosystem": "cursor",
       "repo_url": "https://github.com/sanjeed5/awesome-cursor-rules-mdc",
       "source_url": "https://github.com/sanjeed5/awesome-cursor-rules-mdc/blob/main/rules-mdc/react.mdc",
@@ -59,7 +86,12 @@
       "id": "sqlite-database",
       "title": "SQLite Database",
       "description": "Design SQLite schemas, migrations, FTS5 full-text search, and query optimization.",
-      "tags": ["sqlite", "database", "sql", "fts"],
+      "tags": [
+        "sqlite",
+        "database",
+        "sql",
+        "fts"
+      ],
       "ecosystem": "cursor",
       "repo_url": "https://github.com/sanjeed5/awesome-cursor-rules-mdc",
       "source_url": "https://github.com/sanjeed5/awesome-cursor-rules-mdc/blob/main/rules-mdc/sqlite.mdc",
@@ -70,7 +102,12 @@
       "id": "python-backend",
       "title": "Python Backend",
       "description": "Structure Python backend services with async patterns, error handling, and clean module layout.",
-      "tags": ["python", "backend", "async", "services"],
+      "tags": [
+        "python",
+        "backend",
+        "async",
+        "services"
+      ],
       "ecosystem": "cursor",
       "repo_url": "https://github.com/sanjeed5/awesome-cursor-rules-mdc",
       "source_url": "https://github.com/sanjeed5/awesome-cursor-rules-mdc/blob/main/rules-mdc/python.mdc",
@@ -81,7 +118,12 @@
       "id": "docker-deploy",
       "title": "Docker Deployment",
       "description": "Containerize applications with Docker, write Dockerfiles, and configure docker-compose services.",
-      "tags": ["docker", "deployment", "devops", "containers"],
+      "tags": [
+        "docker",
+        "deployment",
+        "devops",
+        "containers"
+      ],
       "ecosystem": "cursor",
       "repo_url": "https://github.com/sanjeed5/awesome-cursor-rules-mdc",
       "source_url": "https://github.com/sanjeed5/awesome-cursor-rules-mdc/blob/main/rules-mdc/docker.mdc",
@@ -92,7 +134,12 @@
       "id": "git-workflow",
       "title": "Git Workflow",
       "description": "Manage branches, commits, pull requests, and code review workflows with Git best practices.",
-      "tags": ["git", "workflow", "pr", "version-control"],
+      "tags": [
+        "git",
+        "workflow",
+        "pr",
+        "version-control"
+      ],
       "ecosystem": "cursor",
       "repo_url": "https://github.com/sanjeed5/awesome-cursor-rules-mdc",
       "source_url": "https://github.com/sanjeed5/awesome-cursor-rules-mdc/blob/main/rules-mdc/git.mdc",
@@ -103,7 +150,12 @@
       "id": "bugbot-review",
       "title": "Bugbot Code Review",
       "description": "Automated code review for pull requests focusing on bugs, edge cases, and logic errors.",
-      "tags": ["review", "bugs", "pr", "quality"],
+      "tags": [
+        "review",
+        "bugs",
+        "pr",
+        "quality"
+      ],
       "ecosystem": "cursor",
       "repo_url": "https://cursor.com/docs/bugbot",
       "source_url": "https://cursor.com/docs/bugbot",
@@ -114,7 +166,12 @@
       "id": "create-skill",
       "title": "Create Cursor Skill",
       "description": "Author new Cursor Agent Skills with proper SKILL.md structure, examples, and best practices.",
-      "tags": ["cursor", "skills", "authoring", "documentation"],
+      "tags": [
+        "cursor",
+        "skills",
+        "authoring",
+        "documentation"
+      ],
       "ecosystem": "cursor",
       "repo_url": "https://cursor.com/docs/context/skills",
       "source_url": "https://cursor.com/docs/context/skills",
@@ -125,7 +182,12 @@
       "id": "create-rule",
       "title": "Create Cursor Rule",
       "description": "Write Cursor project rules with globs, alwaysApply settings, and effective agent guidance.",
-      "tags": ["cursor", "rules", "authoring", "configuration"],
+      "tags": [
+        "cursor",
+        "rules",
+        "authoring",
+        "configuration"
+      ],
       "ecosystem": "cursor",
       "repo_url": "https://cursor.com/docs/context/rules",
       "source_url": "https://cursor.com/docs/context/rules",
@@ -136,7 +198,12 @@
       "id": "nextjs-app",
       "title": "Next.js Application",
       "description": "Build full-stack Next.js apps with App Router, server components, and API routes.",
-      "tags": ["nextjs", "react", "frontend", "fullstack"],
+      "tags": [
+        "nextjs",
+        "react",
+        "frontend",
+        "fullstack"
+      ],
       "ecosystem": "cursor",
       "repo_url": "https://github.com/sanjeed5/awesome-cursor-rules-mdc",
       "source_url": "https://github.com/sanjeed5/awesome-cursor-rules-mdc/blob/main/rules-mdc/next-js.mdc",
@@ -147,7 +214,12 @@
       "id": "postgres-database",
       "title": "PostgreSQL Database",
       "description": "Design PostgreSQL schemas, indexes, migrations, and complex queries with SQLAlchemy or raw SQL.",
-      "tags": ["postgres", "database", "sql", "backend"],
+      "tags": [
+        "postgres",
+        "database",
+        "sql",
+        "backend"
+      ],
       "ecosystem": "cursor",
       "repo_url": "https://github.com/sanjeed5/awesome-cursor-rules-mdc",
       "source_url": "https://github.com/sanjeed5/awesome-cursor-rules-mdc/blob/main/rules-mdc/postgresql.mdc",
@@ -158,7 +230,12 @@
       "id": "graphql-api",
       "title": "GraphQL API",
       "description": "Build GraphQL APIs with schema design, resolvers, subscriptions, and client integration.",
-      "tags": ["graphql", "api", "backend", "schema"],
+      "tags": [
+        "graphql",
+        "api",
+        "backend",
+        "schema"
+      ],
       "ecosystem": "cursor",
       "repo_url": "https://github.com/sanjeed5/awesome-cursor-rules-mdc",
       "source_url": "https://github.com/sanjeed5/awesome-cursor-rules-mdc/blob/main/rules-mdc/graphql.mdc",
@@ -169,7 +246,12 @@
       "id": "e2e-testing",
       "title": "End-to-End Testing",
       "description": "Write E2E tests with Playwright or Cypress covering user flows and critical paths.",
-      "tags": ["testing", "e2e", "playwright", "quality"],
+      "tags": [
+        "testing",
+        "e2e",
+        "playwright",
+        "quality"
+      ],
       "ecosystem": "cursor",
       "repo_url": "https://github.com/sanjeed5/awesome-cursor-rules-mdc",
       "source_url": "https://github.com/sanjeed5/awesome-cursor-rules-mdc/blob/main/rules-mdc/playwright.mdc",
@@ -180,7 +262,12 @@
       "id": "ci-pipeline",
       "title": "CI/CD Pipeline",
       "description": "Configure GitHub Actions or similar CI pipelines for test, lint, build, and deploy stages.",
-      "tags": ["ci", "github-actions", "devops", "automation"],
+      "tags": [
+        "ci",
+        "github-actions",
+        "devops",
+        "automation"
+      ],
       "ecosystem": "cursor",
       "repo_url": "https://github.com/sanjeed5/awesome-cursor-rules-mdc",
       "source_url": "https://github.com/sanjeed5/awesome-cursor-rules-mdc/blob/main/rules-mdc/github-actions.mdc",
@@ -191,7 +278,12 @@
       "id": "refactoring",
       "title": "Code Refactoring",
       "description": "Safely refactor code with minimal diffs, preserve behavior, and improve structure incrementally.",
-      "tags": ["refactoring", "clean-code", "maintenance", "quality"],
+      "tags": [
+        "refactoring",
+        "clean-code",
+        "maintenance",
+        "quality"
+      ],
       "ecosystem": "cursor",
       "repo_url": "https://github.com/sanjeed5/awesome-cursor-rules-mdc",
       "source_url": "https://github.com/sanjeed5/awesome-cursor-rules-mdc/tree/main/rules-mdc",
@@ -202,7 +294,12 @@
       "id": "accessibility",
       "title": "Web Accessibility",
       "description": "Implement WCAG-compliant UI with semantic HTML, ARIA attributes, keyboard navigation, and screen reader support.",
-      "tags": ["accessibility", "a11y", "frontend", "ui"],
+      "tags": [
+        "accessibility",
+        "a11y",
+        "frontend",
+        "ui"
+      ],
       "ecosystem": "cursor",
       "repo_url": "https://cursor.directory",
       "source_url": "https://cursor.directory",
@@ -213,7 +310,13 @@
       "id": "tailwind-ui",
       "title": "Tailwind CSS UI",
       "description": "Build responsive UI with Tailwind CSS utility classes, design tokens, and component patterns.",
-      "tags": ["tailwind", "css", "frontend", "ui", "design"],
+      "tags": [
+        "tailwind",
+        "css",
+        "frontend",
+        "ui",
+        "design"
+      ],
       "ecosystem": "cursor",
       "repo_url": "https://github.com/sanjeed5/awesome-cursor-rules-mdc",
       "source_url": "https://github.com/sanjeed5/awesome-cursor-rules-mdc/blob/main/rules-mdc/tailwind.mdc",
@@ -224,7 +327,12 @@
       "id": "websocket-realtime",
       "title": "WebSocket Realtime",
       "description": "Implement realtime features with WebSockets, SSE, or polling for live updates and chat.",
-      "tags": ["websocket", "realtime", "backend", "api"],
+      "tags": [
+        "websocket",
+        "realtime",
+        "backend",
+        "api"
+      ],
       "ecosystem": "cursor",
       "repo_url": "https://github.com/sanjeed5/awesome-cursor-rules-mdc",
       "source_url": "https://github.com/sanjeed5/awesome-cursor-rules-mdc/blob/main/rules-mdc/aiohttp.mdc",
@@ -235,7 +343,12 @@
       "id": "stripe-payments",
       "title": "Stripe Payments",
       "description": "Integrate Stripe for subscriptions, one-time payments, webhooks, and billing portal.",
-      "tags": ["stripe", "payments", "billing", "backend"],
+      "tags": [
+        "stripe",
+        "payments",
+        "billing",
+        "backend"
+      ],
       "ecosystem": "cursor",
       "repo_url": "https://github.com/sanjeed5/awesome-cursor-rules-mdc",
       "source_url": "https://github.com/sanjeed5/awesome-cursor-rules-mdc/blob/main/rules-mdc/stripe.mdc",
@@ -246,7 +359,12 @@
       "id": "aws-deploy",
       "title": "AWS Deployment",
       "description": "Deploy applications to AWS using ECS, Lambda, S3, RDS, and infrastructure-as-code patterns.",
-      "tags": ["aws", "cloud", "deployment", "devops"],
+      "tags": [
+        "aws",
+        "cloud",
+        "deployment",
+        "devops"
+      ],
       "ecosystem": "cursor",
       "repo_url": "https://github.com/sanjeed5/awesome-cursor-rules-mdc",
       "source_url": "https://github.com/sanjeed5/awesome-cursor-rules-mdc/blob/main/rules-mdc/aws.mdc",
@@ -257,7 +375,12 @@
       "id": "monitoring-observability",
       "title": "Monitoring & Observability",
       "description": "Add logging, metrics, tracing, and alerting with structured logs and APM tools.",
-      "tags": ["monitoring", "logging", "observability", "devops"],
+      "tags": [
+        "monitoring",
+        "logging",
+        "observability",
+        "devops"
+      ],
       "ecosystem": "cursor",
       "repo_url": "https://github.com/sanjeed5/awesome-cursor-rules-mdc",
       "source_url": "https://github.com/sanjeed5/awesome-cursor-rules-mdc/blob/main/rules-mdc/datadog.mdc",
@@ -268,34 +391,932 @@
       "id": "claude-code-skills",
       "title": "Claude Code Skills Hub",
       "description": "Official Claude Code skills documentation and the Agent Skills open standard.",
-      "tags": ["claude", "skills", "anthropic", "workflow"],
+      "tags": [
+        "claude",
+        "skills",
+        "anthropic",
+        "workflow"
+      ],
       "ecosystem": "claude",
       "repo_url": "https://github.com/anthropics/skills",
       "source_url": "https://code.claude.com/docs/en/skills",
       "author": "Anthropic",
       "license": "Apache-2.0"
+    },
+    {
+      "id": "matt-pocock-ask-matt",
+      "title": "Ask Matt",
+      "description": "Ask which skill or flow fits your situation. A router over the skills in this repo.",
+      "tags": [
+        "router",
+        "skills",
+        "workflow",
+        "planning",
+        "cursor",
+        "matt-pocock"
+      ],
+      "ecosystem": "cursor",
+      "repo_url": "https://github.com/mattpocock/skills",
+      "source_url": "https://github.com/mattpocock/skills/tree/main/skills/engineering/ask-matt",
+      "author": "mattpocock",
+      "license": "MIT"
+    },
+    {
+      "id": "matt-pocock-code-review",
+      "title": "Code Review",
+      "description": "Review the changes since a fixed point (commit, branch, tag, or merge-base) along two axes \u2014 Standards (does the code follow this repo's documented coding standards?) and Spec (does the code match what the\u2026",
+      "tags": [
+        "review",
+        "standards",
+        "spec",
+        "pr",
+        "quality",
+        "skills",
+        "cursor",
+        "matt-pocock"
+      ],
+      "ecosystem": "cursor",
+      "repo_url": "https://github.com/mattpocock/skills",
+      "source_url": "https://github.com/mattpocock/skills/tree/main/skills/engineering/code-review",
+      "author": "mattpocock",
+      "license": "MIT"
+    },
+    {
+      "id": "matt-pocock-codebase-design",
+      "title": "Codebase Design",
+      "description": "Shared vocabulary for designing deep modules. Use when the user wants to design or improve a module's interface, find deepening opportunities, decide where a seam goes, make code more testable or AI-navigable, or\u2026",
+      "tags": [
+        "architecture",
+        "modules",
+        "design",
+        "seams",
+        "skills",
+        "cursor",
+        "matt-pocock"
+      ],
+      "ecosystem": "cursor",
+      "repo_url": "https://github.com/mattpocock/skills",
+      "source_url": "https://github.com/mattpocock/skills/tree/main/skills/engineering/codebase-design",
+      "author": "mattpocock",
+      "license": "MIT"
+    },
+    {
+      "id": "matt-pocock-diagnosing-bugs",
+      "title": "Diagnosing Bugs",
+      "description": "Diagnosis loop for hard bugs and performance regressions. Use when the user says \"diagnose\"/\"debug this\", or reports something broken/throwing/failing/slow.",
+      "tags": [
+        "debug",
+        "bugs",
+        "diagnosis",
+        "performance",
+        "skills",
+        "cursor",
+        "matt-pocock"
+      ],
+      "ecosystem": "cursor",
+      "repo_url": "https://github.com/mattpocock/skills",
+      "source_url": "https://github.com/mattpocock/skills/tree/main/skills/engineering/diagnosing-bugs",
+      "author": "mattpocock",
+      "license": "MIT"
+    },
+    {
+      "id": "matt-pocock-domain-modeling",
+      "title": "Domain Modeling",
+      "description": "Build and sharpen a project's domain model. Use when the user wants to pin down domain terminology or a ubiquitous language, record an architectural decision, or when another skill needs to maintain the domain model.",
+      "tags": [
+        "domain",
+        "glossary",
+        "adr",
+        "ubiquitous",
+        "skills",
+        "cursor",
+        "matt-pocock"
+      ],
+      "ecosystem": "cursor",
+      "repo_url": "https://github.com/mattpocock/skills",
+      "source_url": "https://github.com/mattpocock/skills/tree/main/skills/engineering/domain-modeling",
+      "author": "mattpocock",
+      "license": "MIT"
+    },
+    {
+      "id": "matt-pocock-grill-with-docs",
+      "title": "Grill With Docs",
+      "description": "A relentless interview to sharpen a plan or design, which also creates docs (ADR's and glossary) as we go.",
+      "tags": [
+        "grill",
+        "interview",
+        "domain",
+        "adr",
+        "planning",
+        "stress",
+        "skills",
+        "cursor",
+        "matt-pocock"
+      ],
+      "ecosystem": "cursor",
+      "repo_url": "https://github.com/mattpocock/skills",
+      "source_url": "https://github.com/mattpocock/skills/tree/main/skills/engineering/grill-with-docs",
+      "author": "mattpocock",
+      "license": "MIT"
+    },
+    {
+      "id": "matt-pocock-implement",
+      "title": "Implement",
+      "description": "Implement a piece of work based on a spec or set of tickets.",
+      "tags": [
+        "implement",
+        "tickets",
+        "spec",
+        "tdd",
+        "skills",
+        "cursor",
+        "matt-pocock"
+      ],
+      "ecosystem": "cursor",
+      "repo_url": "https://github.com/mattpocock/skills",
+      "source_url": "https://github.com/mattpocock/skills/tree/main/skills/engineering/implement",
+      "author": "mattpocock",
+      "license": "MIT"
+    },
+    {
+      "id": "matt-pocock-improve-codebase-architecture",
+      "title": "Improve Codebase Architecture",
+      "description": "Scan a codebase for deepening opportunities, present them as a visual HTML report, then grill through whichever one you pick.",
+      "tags": [
+        "architecture",
+        "deepening",
+        "design",
+        "refactor",
+        "skills",
+        "cursor",
+        "matt-pocock"
+      ],
+      "ecosystem": "cursor",
+      "repo_url": "https://github.com/mattpocock/skills",
+      "source_url": "https://github.com/mattpocock/skills/tree/main/skills/engineering/improve-codebase-architecture",
+      "author": "mattpocock",
+      "license": "MIT"
+    },
+    {
+      "id": "matt-pocock-prototype",
+      "title": "Prototype",
+      "description": "Build a throwaway prototype to answer a design question. Use when the user wants to sanity-check whether a state model or logic feels right, or explore what a UI should look like.",
+      "tags": [
+        "prototype",
+        "design",
+        "ui",
+        "spike",
+        "skills",
+        "cursor",
+        "matt-pocock"
+      ],
+      "ecosystem": "cursor",
+      "repo_url": "https://github.com/mattpocock/skills",
+      "source_url": "https://github.com/mattpocock/skills/tree/main/skills/engineering/prototype",
+      "author": "mattpocock",
+      "license": "MIT"
+    },
+    {
+      "id": "matt-pocock-research",
+      "title": "Research",
+      "description": "Investigate a question against high-trust primary sources and capture the findings as a Markdown file in the repo. Use when the user wants a topic researched, docs or API facts gathered, or reading legwork delegated\u2026",
+      "tags": [
+        "research",
+        "docs",
+        "sources",
+        "skills",
+        "cursor",
+        "matt-pocock"
+      ],
+      "ecosystem": "cursor",
+      "repo_url": "https://github.com/mattpocock/skills",
+      "source_url": "https://github.com/mattpocock/skills/tree/main/skills/engineering/research",
+      "author": "mattpocock",
+      "license": "MIT"
+    },
+    {
+      "id": "matt-pocock-resolving-merge-conflicts",
+      "title": "Resolving Merge Conflicts",
+      "description": "Use when you need to resolve an in-progress git merge/rebase conflict.",
+      "tags": [
+        "git",
+        "merge",
+        "rebase",
+        "conflicts",
+        "skills",
+        "cursor",
+        "matt-pocock"
+      ],
+      "ecosystem": "cursor",
+      "repo_url": "https://github.com/mattpocock/skills",
+      "source_url": "https://github.com/mattpocock/skills/tree/main/skills/engineering/resolving-merge-conflicts",
+      "author": "mattpocock",
+      "license": "MIT"
+    },
+    {
+      "id": "matt-pocock-setup-matt-pocock-skills",
+      "title": "Setup Matt Pocock Skills",
+      "description": "Configure this repo for the engineering skills \u2014 set up its issue tracker, triage label vocabulary, and domain doc layout. Run once before first use of the other engineering skills.",
+      "tags": [
+        "setup",
+        "skills",
+        "triage",
+        "tracker",
+        "cursor",
+        "matt-pocock"
+      ],
+      "ecosystem": "cursor",
+      "repo_url": "https://github.com/mattpocock/skills",
+      "source_url": "https://github.com/mattpocock/skills/tree/main/skills/engineering/setup-matt-pocock-skills",
+      "author": "mattpocock",
+      "license": "MIT"
+    },
+    {
+      "id": "matt-pocock-tdd",
+      "title": "TDD",
+      "description": "Test-driven development. Use when the user wants to build features or fix bugs test-first, mentions \"red-green-refactor\", or wants integration tests.",
+      "tags": [
+        "tdd",
+        "testing",
+        "red-green-refactor",
+        "skills",
+        "cursor",
+        "matt-pocock"
+      ],
+      "ecosystem": "cursor",
+      "repo_url": "https://github.com/mattpocock/skills",
+      "source_url": "https://github.com/mattpocock/skills/tree/main/skills/engineering/tdd",
+      "author": "mattpocock",
+      "license": "MIT"
+    },
+    {
+      "id": "matt-pocock-to-spec",
+      "title": "To Spec",
+      "description": "Turn the current conversation into a spec and publish it to the project issue tracker \u2014 no interview, just synthesis of what you've already discussed.",
+      "tags": [
+        "spec",
+        "planning",
+        "issues",
+        "skills",
+        "cursor",
+        "matt-pocock"
+      ],
+      "ecosystem": "cursor",
+      "repo_url": "https://github.com/mattpocock/skills",
+      "source_url": "https://github.com/mattpocock/skills/tree/main/skills/engineering/to-spec",
+      "author": "mattpocock",
+      "license": "MIT"
+    },
+    {
+      "id": "matt-pocock-to-tickets",
+      "title": "To Tickets",
+      "description": "Break a plan, spec, or the current conversation into a set of tracer-bullet tickets, each declaring its blocking edges, published to the configured tracker \u2014 edges as text in one file per ticket locally, or native\u2026",
+      "tags": [
+        "tickets",
+        "planning",
+        "tracer",
+        "issues",
+        "skills",
+        "cursor",
+        "matt-pocock"
+      ],
+      "ecosystem": "cursor",
+      "repo_url": "https://github.com/mattpocock/skills",
+      "source_url": "https://github.com/mattpocock/skills/tree/main/skills/engineering/to-tickets",
+      "author": "mattpocock",
+      "license": "MIT"
+    },
+    {
+      "id": "matt-pocock-triage",
+      "title": "Triage",
+      "description": "Move issues and external PRs through a state machine of triage roles \u2014 categorise, verify, grill if needed, and write agent-ready briefs.",
+      "tags": [
+        "triage",
+        "issues",
+        "labels",
+        "skills",
+        "cursor",
+        "matt-pocock"
+      ],
+      "ecosystem": "cursor",
+      "repo_url": "https://github.com/mattpocock/skills",
+      "source_url": "https://github.com/mattpocock/skills/tree/main/skills/engineering/triage",
+      "author": "mattpocock",
+      "license": "MIT"
+    },
+    {
+      "id": "matt-pocock-wayfinder",
+      "title": "Wayfinder",
+      "description": "Plan a huge chunk of work \u2014 more than one agent session can hold \u2014 as a shared map of decision tickets on your issue tracker, and resolve them one at a time until the way to the destination is clear.",
+      "tags": [
+        "planning",
+        "tickets",
+        "decisions",
+        "roadmap",
+        "skills",
+        "cursor",
+        "matt-pocock"
+      ],
+      "ecosystem": "cursor",
+      "repo_url": "https://github.com/mattpocock/skills",
+      "source_url": "https://github.com/mattpocock/skills/tree/main/skills/engineering/wayfinder",
+      "author": "mattpocock",
+      "license": "MIT"
+    },
+    {
+      "id": "matt-pocock-grill-me",
+      "title": "Grill Me",
+      "description": "A relentless interview to sharpen a plan or design.",
+      "tags": [
+        "grill",
+        "interview",
+        "planning",
+        "alignment",
+        "stress",
+        "skills",
+        "cursor",
+        "matt-pocock"
+      ],
+      "ecosystem": "cursor",
+      "repo_url": "https://github.com/mattpocock/skills",
+      "source_url": "https://github.com/mattpocock/skills/tree/main/skills/productivity/grill-me",
+      "author": "mattpocock",
+      "license": "MIT"
+    },
+    {
+      "id": "matt-pocock-grilling",
+      "title": "Grilling",
+      "description": "Grill the user relentlessly about a plan, decision, or idea. Use when the user wants to stress-test their thinking, or uses any 'grill' trigger phrases.",
+      "tags": [
+        "grill",
+        "interview",
+        "planning",
+        "stress",
+        "skills",
+        "cursor",
+        "matt-pocock"
+      ],
+      "ecosystem": "cursor",
+      "repo_url": "https://github.com/mattpocock/skills",
+      "source_url": "https://github.com/mattpocock/skills/tree/main/skills/productivity/grilling",
+      "author": "mattpocock",
+      "license": "MIT"
+    },
+    {
+      "id": "matt-pocock-handoff",
+      "title": "Handoff",
+      "description": "Compact the current conversation into a handoff document for another agent to pick up.",
+      "tags": [
+        "handoff",
+        "context",
+        "agents",
+        "skills",
+        "cursor",
+        "matt-pocock"
+      ],
+      "ecosystem": "cursor",
+      "repo_url": "https://github.com/mattpocock/skills",
+      "source_url": "https://github.com/mattpocock/skills/tree/main/skills/productivity/handoff",
+      "author": "mattpocock",
+      "license": "MIT"
+    },
+    {
+      "id": "matt-pocock-teach",
+      "title": "Teach",
+      "description": "Teach the user a new skill or concept, within this workspace.",
+      "tags": [
+        "teach",
+        "learning",
+        "skills",
+        "cursor",
+        "matt-pocock"
+      ],
+      "ecosystem": "cursor",
+      "repo_url": "https://github.com/mattpocock/skills",
+      "source_url": "https://github.com/mattpocock/skills/tree/main/skills/productivity/teach",
+      "author": "mattpocock",
+      "license": "MIT"
+    },
+    {
+      "id": "matt-pocock-writing-great-skills",
+      "title": "Writing Great Skills",
+      "description": "Reference for writing and editing skills well \u2014 the vocabulary and principles that make a skill predictable.",
+      "tags": [
+        "skills",
+        "authoring",
+        "writing",
+        "cursor",
+        "matt-pocock"
+      ],
+      "ecosystem": "cursor",
+      "repo_url": "https://github.com/mattpocock/skills",
+      "source_url": "https://github.com/mattpocock/skills/tree/main/skills/productivity/writing-great-skills",
+      "author": "mattpocock",
+      "license": "MIT"
+    },
+    {
+      "id": "anthropic-algorithmic-art",
+      "title": "Algorithmic Art",
+      "description": "Generate algorithmic art with p5.js patterns and seeded randomness.",
+      "tags": [
+        "art",
+        "creative",
+        "generative",
+        "skills",
+        "claude",
+        "anthropic"
+      ],
+      "ecosystem": "claude",
+      "repo_url": "https://github.com/anthropics/skills",
+      "source_url": "https://github.com/anthropics/skills/tree/main/skills/algorithmic-art",
+      "author": "Anthropic",
+      "license": "Apache-2.0"
+    },
+    {
+      "id": "anthropic-brand-guidelines",
+      "title": "Brand Guidelines",
+      "description": "Apply Anthropic-style brand guidelines to visual and written assets.",
+      "tags": [
+        "brand",
+        "design",
+        "guidelines",
+        "skills",
+        "claude",
+        "anthropic"
+      ],
+      "ecosystem": "claude",
+      "repo_url": "https://github.com/anthropics/skills",
+      "source_url": "https://github.com/anthropics/skills/tree/main/skills/brand-guidelines",
+      "author": "Anthropic",
+      "license": "Apache-2.0"
+    },
+    {
+      "id": "anthropic-canvas-design",
+      "title": "Canvas Design",
+      "description": "Design visual art on a canvas for posters and static pieces.",
+      "tags": [
+        "design",
+        "canvas",
+        "visual",
+        "skills",
+        "claude",
+        "anthropic"
+      ],
+      "ecosystem": "claude",
+      "repo_url": "https://github.com/anthropics/skills",
+      "source_url": "https://github.com/anthropics/skills/tree/main/skills/canvas-design",
+      "author": "Anthropic",
+      "license": "Apache-2.0"
+    },
+    {
+      "id": "anthropic-claude-api",
+      "title": "Claude Api",
+      "description": "Build with the Claude API and SDKs effectively.",
+      "tags": [
+        "claude",
+        "api",
+        "sdk",
+        "skills",
+        "anthropic"
+      ],
+      "ecosystem": "claude",
+      "repo_url": "https://github.com/anthropics/skills",
+      "source_url": "https://github.com/anthropics/skills/tree/main/skills/claude-api",
+      "author": "Anthropic",
+      "license": "Apache-2.0"
+    },
+    {
+      "id": "anthropic-doc-coauthoring",
+      "title": "Doc Coauthoring",
+      "description": "Co-author documents with structured drafting workflows.",
+      "tags": [
+        "docs",
+        "writing",
+        "collaboration",
+        "skills",
+        "claude",
+        "anthropic"
+      ],
+      "ecosystem": "claude",
+      "repo_url": "https://github.com/anthropics/skills",
+      "source_url": "https://github.com/anthropics/skills/tree/main/skills/doc-coauthoring",
+      "author": "Anthropic",
+      "license": "Apache-2.0"
+    },
+    {
+      "id": "anthropic-docx",
+      "title": "Docx",
+      "description": "Create and edit Word (.docx) documents.",
+      "tags": [
+        "docx",
+        "documents",
+        "office",
+        "skills",
+        "claude",
+        "anthropic"
+      ],
+      "ecosystem": "claude",
+      "repo_url": "https://github.com/anthropics/skills",
+      "source_url": "https://github.com/anthropics/skills/tree/main/skills/docx",
+      "author": "Anthropic",
+      "license": "Source-available (see source)"
+    },
+    {
+      "id": "anthropic-frontend-design",
+      "title": "Frontend Design",
+      "description": "Create distinctive, production-grade frontend interfaces.",
+      "tags": [
+        "frontend",
+        "design",
+        "ui",
+        "skills",
+        "claude",
+        "anthropic"
+      ],
+      "ecosystem": "claude",
+      "repo_url": "https://github.com/anthropics/skills",
+      "source_url": "https://github.com/anthropics/skills/tree/main/skills/frontend-design",
+      "author": "Anthropic",
+      "license": "Apache-2.0"
+    },
+    {
+      "id": "anthropic-internal-comms",
+      "title": "Internal Comms",
+      "description": "Draft internal communications status reports and updates.",
+      "tags": [
+        "comms",
+        "writing",
+        "enterprise",
+        "skills",
+        "claude",
+        "anthropic"
+      ],
+      "ecosystem": "claude",
+      "repo_url": "https://github.com/anthropics/skills",
+      "source_url": "https://github.com/anthropics/skills/tree/main/skills/internal-comms",
+      "author": "Anthropic",
+      "license": "Apache-2.0"
+    },
+    {
+      "id": "anthropic-mcp-builder",
+      "title": "Mcp Builder",
+      "description": "Guide for building MCP servers that connect agents to tools.",
+      "tags": [
+        "mcp",
+        "tools",
+        "servers",
+        "skills",
+        "claude",
+        "anthropic"
+      ],
+      "ecosystem": "claude",
+      "repo_url": "https://github.com/anthropics/skills",
+      "source_url": "https://github.com/anthropics/skills/tree/main/skills/mcp-builder",
+      "author": "Anthropic",
+      "license": "Apache-2.0"
+    },
+    {
+      "id": "anthropic-pdf",
+      "title": "Pdf",
+      "description": "Create and edit PDF documents and forms.",
+      "tags": [
+        "pdf",
+        "documents",
+        "skills",
+        "claude",
+        "anthropic"
+      ],
+      "ecosystem": "claude",
+      "repo_url": "https://github.com/anthropics/skills",
+      "source_url": "https://github.com/anthropics/skills/tree/main/skills/pdf",
+      "author": "Anthropic",
+      "license": "Source-available (see source)"
+    },
+    {
+      "id": "anthropic-pptx",
+      "title": "Pptx",
+      "description": "Create and edit PowerPoint presentations.",
+      "tags": [
+        "pptx",
+        "presentations",
+        "office",
+        "skills",
+        "claude",
+        "anthropic"
+      ],
+      "ecosystem": "claude",
+      "repo_url": "https://github.com/anthropics/skills",
+      "source_url": "https://github.com/anthropics/skills/tree/main/skills/pptx",
+      "author": "Anthropic",
+      "license": "Source-available (see source)"
+    },
+    {
+      "id": "anthropic-skill-creator",
+      "title": "Skill Creator",
+      "description": "Guide for creating effective Agent Skills for Claude.",
+      "tags": [
+        "skills",
+        "authoring",
+        "claude",
+        "anthropic"
+      ],
+      "ecosystem": "claude",
+      "repo_url": "https://github.com/anthropics/skills",
+      "source_url": "https://github.com/anthropics/skills/tree/main/skills/skill-creator",
+      "author": "Anthropic",
+      "license": "Apache-2.0"
+    },
+    {
+      "id": "anthropic-slack-gif-creator",
+      "title": "Slack Gif Creator",
+      "description": "Create animated GIFs optimized for Slack.",
+      "tags": [
+        "slack",
+        "gif",
+        "creative",
+        "skills",
+        "claude",
+        "anthropic"
+      ],
+      "ecosystem": "claude",
+      "repo_url": "https://github.com/anthropics/skills",
+      "source_url": "https://github.com/anthropics/skills/tree/main/skills/slack-gif-creator",
+      "author": "Anthropic",
+      "license": "Apache-2.0"
+    },
+    {
+      "id": "anthropic-theme-factory",
+      "title": "Theme Factory",
+      "description": "Apply consistent theme styles across artifacts.",
+      "tags": [
+        "theme",
+        "design",
+        "ui",
+        "skills",
+        "claude",
+        "anthropic"
+      ],
+      "ecosystem": "claude",
+      "repo_url": "https://github.com/anthropics/skills",
+      "source_url": "https://github.com/anthropics/skills/tree/main/skills/theme-factory",
+      "author": "Anthropic",
+      "license": "Apache-2.0"
+    },
+    {
+      "id": "anthropic-web-artifacts-builder",
+      "title": "Web Artifacts Builder",
+      "description": "Build complex multi-component web artifacts.",
+      "tags": [
+        "artifacts",
+        "web",
+        "frontend",
+        "skills",
+        "claude",
+        "anthropic"
+      ],
+      "ecosystem": "claude",
+      "repo_url": "https://github.com/anthropics/skills",
+      "source_url": "https://github.com/anthropics/skills/tree/main/skills/web-artifacts-builder",
+      "author": "Anthropic",
+      "license": "Apache-2.0"
+    },
+    {
+      "id": "anthropic-webapp-testing",
+      "title": "Webapp Testing",
+      "description": "Test local web apps with Playwright automation.",
+      "tags": [
+        "testing",
+        "web",
+        "playwright",
+        "skills",
+        "claude",
+        "anthropic"
+      ],
+      "ecosystem": "claude",
+      "repo_url": "https://github.com/anthropics/skills",
+      "source_url": "https://github.com/anthropics/skills/tree/main/skills/webapp-testing",
+      "author": "Anthropic",
+      "license": "Apache-2.0"
+    },
+    {
+      "id": "anthropic-xlsx",
+      "title": "Xlsx",
+      "description": "Create and edit Excel spreadsheets.",
+      "tags": [
+        "xlsx",
+        "spreadsheets",
+        "office",
+        "skills",
+        "claude",
+        "anthropic"
+      ],
+      "ecosystem": "claude",
+      "repo_url": "https://github.com/anthropics/skills",
+      "source_url": "https://github.com/anthropics/skills/tree/main/skills/xlsx",
+      "author": "Anthropic",
+      "license": "Source-available (see source)"
     }
   ],
   "edges": [
-    { "from_id": "fastapi-skill", "to_id": "python-backend", "type": "requires" },
-    { "from_id": "oauth-security", "to_id": "fastapi-skill", "type": "related_to" },
-    { "from_id": "oauth-security", "to_id": "security-review", "type": "related_to" },
-    { "from_id": "api-testing", "to_id": "fastapi-skill", "type": "related_to" },
-    { "from_id": "react-frontend", "to_id": "accessibility", "type": "related_to" },
-    { "from_id": "react-frontend", "to_id": "tailwind-ui", "type": "related_to" },
-    { "from_id": "nextjs-app", "to_id": "react-frontend", "type": "requires" },
-    { "from_id": "sqlite-database", "to_id": "python-backend", "type": "related_to" },
-    { "from_id": "postgres-database", "to_id": "python-backend", "type": "related_to" },
-    { "from_id": "docker-deploy", "to_id": "ci-pipeline", "type": "related_to" },
-    { "from_id": "e2e-testing", "to_id": "react-frontend", "type": "related_to" },
-    { "from_id": "graphql-api", "to_id": "api-testing", "type": "related_to" },
-    { "from_id": "create-skill", "to_id": "create-rule", "type": "related_to" },
-    { "from_id": "create-skill", "to_id": "claude-code-skills", "type": "related_to" },
-    { "from_id": "prompt-refiner", "to_id": "create-skill", "type": "related_to" },
-    { "from_id": "bugbot-review", "to_id": "security-review", "type": "related_to" },
-    { "from_id": "stripe-payments", "to_id": "oauth-security", "type": "related_to" },
-    { "from_id": "websocket-realtime", "to_id": "fastapi-skill", "type": "related_to" },
-    { "from_id": "aws-deploy", "to_id": "docker-deploy", "type": "related_to" },
-    { "from_id": "monitoring-observability", "to_id": "aws-deploy", "type": "related_to" }
+    {
+      "from_id": "fastapi-skill",
+      "to_id": "python-backend",
+      "type": "requires"
+    },
+    {
+      "from_id": "oauth-security",
+      "to_id": "fastapi-skill",
+      "type": "related_to"
+    },
+    {
+      "from_id": "oauth-security",
+      "to_id": "security-review",
+      "type": "related_to"
+    },
+    {
+      "from_id": "api-testing",
+      "to_id": "fastapi-skill",
+      "type": "related_to"
+    },
+    {
+      "from_id": "react-frontend",
+      "to_id": "accessibility",
+      "type": "related_to"
+    },
+    {
+      "from_id": "react-frontend",
+      "to_id": "tailwind-ui",
+      "type": "related_to"
+    },
+    {
+      "from_id": "nextjs-app",
+      "to_id": "react-frontend",
+      "type": "requires"
+    },
+    {
+      "from_id": "sqlite-database",
+      "to_id": "python-backend",
+      "type": "related_to"
+    },
+    {
+      "from_id": "postgres-database",
+      "to_id": "python-backend",
+      "type": "related_to"
+    },
+    {
+      "from_id": "docker-deploy",
+      "to_id": "ci-pipeline",
+      "type": "related_to"
+    },
+    {
+      "from_id": "e2e-testing",
+      "to_id": "react-frontend",
+      "type": "related_to"
+    },
+    {
+      "from_id": "graphql-api",
+      "to_id": "api-testing",
+      "type": "related_to"
+    },
+    {
+      "from_id": "create-skill",
+      "to_id": "create-rule",
+      "type": "related_to"
+    },
+    {
+      "from_id": "create-skill",
+      "to_id": "claude-code-skills",
+      "type": "related_to"
+    },
+    {
+      "from_id": "prompt-refiner",
+      "to_id": "create-skill",
+      "type": "related_to"
+    },
+    {
+      "from_id": "bugbot-review",
+      "to_id": "security-review",
+      "type": "related_to"
+    },
+    {
+      "from_id": "stripe-payments",
+      "to_id": "oauth-security",
+      "type": "related_to"
+    },
+    {
+      "from_id": "websocket-realtime",
+      "to_id": "fastapi-skill",
+      "type": "related_to"
+    },
+    {
+      "from_id": "aws-deploy",
+      "to_id": "docker-deploy",
+      "type": "related_to"
+    },
+    {
+      "from_id": "monitoring-observability",
+      "to_id": "aws-deploy",
+      "type": "related_to"
+    },
+    {
+      "from_id": "matt-pocock-grill-me",
+      "to_id": "matt-pocock-grilling",
+      "type": "requires"
+    },
+    {
+      "from_id": "matt-pocock-grill-me",
+      "to_id": "matt-pocock-grill-with-docs",
+      "type": "related_to"
+    },
+    {
+      "from_id": "matt-pocock-grill-with-docs",
+      "to_id": "matt-pocock-grilling",
+      "type": "requires"
+    },
+    {
+      "from_id": "matt-pocock-grill-with-docs",
+      "to_id": "matt-pocock-domain-modeling",
+      "type": "related_to"
+    },
+    {
+      "from_id": "matt-pocock-implement",
+      "to_id": "matt-pocock-tdd",
+      "type": "related_to"
+    },
+    {
+      "from_id": "matt-pocock-implement",
+      "to_id": "matt-pocock-code-review",
+      "type": "related_to"
+    },
+    {
+      "from_id": "matt-pocock-to-spec",
+      "to_id": "matt-pocock-to-tickets",
+      "type": "related_to"
+    },
+    {
+      "from_id": "matt-pocock-to-tickets",
+      "to_id": "matt-pocock-implement",
+      "type": "related_to"
+    },
+    {
+      "from_id": "matt-pocock-ask-matt",
+      "to_id": "matt-pocock-setup-matt-pocock-skills",
+      "type": "related_to"
+    },
+    {
+      "from_id": "matt-pocock-triage",
+      "to_id": "matt-pocock-to-tickets",
+      "type": "related_to"
+    },
+    {
+      "from_id": "matt-pocock-wayfinder",
+      "to_id": "matt-pocock-to-tickets",
+      "type": "related_to"
+    },
+    {
+      "from_id": "matt-pocock-improve-codebase-architecture",
+      "to_id": "matt-pocock-codebase-design",
+      "type": "related_to"
+    },
+    {
+      "from_id": "matt-pocock-writing-great-skills",
+      "to_id": "create-skill",
+      "type": "related_to"
+    },
+    {
+      "from_id": "create-skill",
+      "to_id": "matt-pocock-writing-great-skills",
+      "type": "related_to"
+    },
+    {
+      "from_id": "create-skill",
+      "to_id": "anthropic-skill-creator",
+      "type": "related_to"
+    },
+    {
+      "from_id": "anthropic-skill-creator",
+      "to_id": "claude-code-skills",
+      "type": "related_to"
+    },
+    {
+      "from_id": "anthropic-frontend-design",
+      "to_id": "react-frontend",
+      "type": "related_to"
+    },
+    {
+      "from_id": "anthropic-webapp-testing",
+      "to_id": "e2e-testing",
+      "type": "related_to"
+    },
+    {
+      "from_id": "anthropic-mcp-builder",
+      "to_id": "claude-code-skills",
+      "type": "related_to"
+    },
+    {
+      "from_id": "matt-pocock-diagnosing-bugs",
+      "to_id": "matt-pocock-tdd",
+      "type": "related_to"
+    }
   ]
 }

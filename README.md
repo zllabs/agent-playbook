@@ -134,6 +134,8 @@ The catalog indexes metadata pointing at community and official hubs (see [data/
 | Cursor Skills docs | [cursor.com/docs/context/skills](https://cursor.com/docs/context/skills) |
 | Cursor Rules docs | [cursor.com/docs/context/rules](https://cursor.com/docs/context/rules) |
 | Claude Code Skills | [code.claude.com/docs/en/skills](https://code.claude.com/docs/en/skills) |
+| Matt Pocock Skills (flattened) | [github.com/mattpocock/skills](https://github.com/mattpocock/skills) |
+| Anthropic Skills (flattened) | [github.com/anthropics/skills](https://github.com/anthropics/skills) |
 | Agent Skills standard | [agentskills.io](https://agentskills.io) |
 
 See [data/sources.json](data/sources.json) for the full hub list.

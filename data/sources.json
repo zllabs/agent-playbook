@@ -53,6 +53,12 @@
       "url": "https://agentskills.io",
       "description": "Open standard for SKILL.md-based agent skills.",
       "license": "Documentation (copyright)"
+    },
+    "matt_pocock_skills": {
+      "title": "Matt Pocock Skills",
+      "url": "https://github.com/mattpocock/skills",
+      "description": "Flattened into catalog: engineering + productivity Agent Skills (grill-me, tdd, triage, \u2026).",
+      "license": "MIT"
     }
   },
   "mdc_repo": "https://github.com/sanjeed5/awesome-cursor-rules-mdc",

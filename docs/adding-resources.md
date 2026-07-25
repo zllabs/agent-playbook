@@ -45,6 +45,8 @@ Edges in `catalog.json` are curated relationships (`requires`, `related_to`). En
 
 Prefer linking to community hubs listed in [data/sources.json](../data/sources.json) (Awesome Cursor Rules MDC, Cursor docs, etc.).
 
+When a hub is a **skill repo** (multiple `SKILL.md` packages), add **one catalog entry per skill** — do not stop at a single hub-level row. Each skill needs its own `id`, `source_url` (path to that skill), tags, and license so recommend can surface it on its own.
+
 ## Add a local skill package
 
 Local packages live under `skills/<id>/` and are auto-discovered via `skill.json`. **Only add original work or content you have rights to redistribute** — do not copy rules or skills from Cursor Directory, Anthropic, or other catalogs into this folder.

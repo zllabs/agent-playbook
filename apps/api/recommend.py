@@ -82,7 +82,10 @@ def _coalesce_playbook(
             connected_ids.add(e["to_id"])
 
     if len(connected_ids) >= 2:
-        selected = [item for item in selected if item[0]["id"] in connected_ids]
+        # Never drop the top-ranked skill even if it has no edges in this set
+        # (weak tag collisions can form a cluster that would otherwise orphan it).
+        keep = connected_ids | {selected[0][0]["id"]}
+        selected = [item for item in selected if item[0]["id"] in keep]
         skill_ids = {s["id"] for s, _, _ in selected}
         edges = [e for e in edges if e["from_id"] in skill_ids and e["to_id"] in skill_ids]
 

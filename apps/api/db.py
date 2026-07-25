@@ -13,6 +13,10 @@ CUSTOM_SKILLS_EXAMPLE = ROOT / "data" / "custom_skills.example.json"
 SKILLS_DIR = ROOT / "skills"
 DB_PATH = ROOT / "data" / "playbook.db"
 
+# Reseed when catalog.json (or custom skills file) changes — uvicorn --reload
+# only watches Python, so catalog edits otherwise stay invisible until restart.
+_seed_mtime: Optional[float] = None
+
 
 def get_conn() -> sqlite3.Connection:
     conn = sqlite3.connect(DB_PATH)
@@ -20,7 +24,23 @@ def get_conn() -> sqlite3.Connection:
     return conn
 
 
+def _catalog_sources_mtime() -> float:
+    mtimes = [CATALOG_PATH.stat().st_mtime]
+    if CUSTOM_SKILLS_PATH.exists():
+        mtimes.append(CUSTOM_SKILLS_PATH.stat().st_mtime)
+    return max(mtimes)
+
+
+def ensure_db() -> None:
+    """Reseed from catalog if source files changed since last seed."""
+    global _seed_mtime
+    mtime = _catalog_sources_mtime()
+    if _seed_mtime is None or mtime > _seed_mtime:
+        init_db()
+
+
 def init_db() -> int:
+    global _seed_mtime
     DB_PATH.parent.mkdir(parents=True, exist_ok=True)
     catalog = json.loads(CATALOG_PATH.read_text())
     local = discover_local_skills()
@@ -85,6 +105,7 @@ def init_db() -> int:
 
         conn.commit()
         count = conn.execute("SELECT COUNT(*) FROM skills").fetchone()[0]
+        _seed_mtime = _catalog_sources_mtime()
         return count
     finally:
         conn.close()
@@ -233,6 +254,7 @@ def delete_custom_skill(skill_id: str) -> bool:
 
 
 def get_skill_count() -> int:
+    ensure_db()
     conn = get_conn()
     try:
         return conn.execute("SELECT COUNT(*) FROM skills").fetchone()[0]
@@ -241,6 +263,7 @@ def get_skill_count() -> int:
 
 
 def get_skill(skill_id: str) -> Optional[dict]:
+    ensure_db()
     conn = get_conn()
     try:
         row = conn.execute("SELECT * FROM skills WHERE id = ?", (skill_id,)).fetchone()
@@ -250,6 +273,7 @@ def get_skill(skill_id: str) -> Optional[dict]:
 
 
 def list_skills(q: str = "", custom: Optional[bool] = None) -> list[dict]:
+    ensure_db()
     conn = get_conn()
     try:
         if q.strip():
@@ -289,6 +313,7 @@ GENERIC_TAGS = frozenset({
 
 def search_skills(task: str) -> list[tuple[dict, float, list[str]]]:
     """Return (skill, score, matched_tags) ranked by relevance."""
+    ensure_db()
     tokens = _tokenize(task)
     if not tokens:
         return []
