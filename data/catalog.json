@@ -1115,6 +1115,355 @@
       "source_url": "https://github.com/anthropics/skills/tree/main/skills/xlsx",
       "author": "Anthropic",
       "license": "Source-available (see source)"
+    },
+    {
+      "id": "cursor-kit-aesthetic",
+      "title": "Aesthetic",
+      "description": "Create aesthetically beautiful interfaces following proven design principles. Use when building UI/UX, analyzing designs from inspiration sites, implementing visual hierarchy and color theory, adding micro-interactions, or creating design documentation.",
+      "tags": [
+        "design",
+        "ui",
+        "ux",
+        "aesthetics",
+        "accessibility",
+        "skills",
+        "cursor",
+        "cursor-kit"
+      ],
+      "ecosystem": "cursor",
+      "repo_url": "https://github.com/duongductrong/cursor-kit",
+      "source_url": "https://github.com/duongductrong/cursor-kit/tree/master/.cursor/skills/aesthetic",
+      "author": "duongductrong",
+      "license": "MIT"
+    },
+    {
+      "id": "cursor-kit-backend-development",
+      "title": "Backend Development",
+      "description": "Build robust backend systems with modern stacks (Node.js, Python, Go), APIs (REST, GraphQL, gRPC), auth (OAuth 2.1, JWT), databases, OWASP security, scalability, and DevOps (Docker, Kubernetes, CI/CD).",
+      "tags": [
+        "backend",
+        "api",
+        "security",
+        "devops",
+        "database",
+        "skills",
+        "cursor",
+        "cursor-kit"
+      ],
+      "ecosystem": "cursor",
+      "repo_url": "https://github.com/duongductrong/cursor-kit",
+      "source_url": "https://github.com/duongductrong/cursor-kit/tree/master/.cursor/skills/backend-development",
+      "author": "duongductrong",
+      "license": "MIT"
+    },
+    {
+      "id": "cursor-kit-frontend-design",
+      "title": "Frontend Design",
+      "description": "Create distinctive, production-grade frontend interfaces with high design quality. Use when building web components, pages, or applications; avoids generic AI aesthetics.",
+      "tags": [
+        "frontend",
+        "design",
+        "ui",
+        "web",
+        "skills",
+        "cursor",
+        "cursor-kit"
+      ],
+      "ecosystem": "cursor",
+      "repo_url": "https://github.com/duongductrong/cursor-kit",
+      "source_url": "https://github.com/duongductrong/cursor-kit/tree/master/.cursor/skills/frontend-design",
+      "author": "duongductrong",
+      "license": "MIT"
+    },
+    {
+      "id": "cursor-kit-frontend-development",
+      "title": "Frontend Development",
+      "description": "Frontend guidelines for React/TypeScript: Suspense, lazy loading, useSuspenseQuery, features directory layout, MUI v7, TanStack Router/Query, performance, and TypeScript practices.",
+      "tags": [
+        "frontend",
+        "react",
+        "typescript",
+        "tanstack",
+        "mui",
+        "skills",
+        "cursor",
+        "cursor-kit"
+      ],
+      "ecosystem": "cursor",
+      "repo_url": "https://github.com/duongductrong/cursor-kit",
+      "source_url": "https://github.com/duongductrong/cursor-kit/tree/master/.cursor/skills/frontend-development",
+      "author": "duongductrong",
+      "license": "MIT"
+    },
+    {
+      "id": "cursor-kit-problem-solving",
+      "title": "Problem Solving",
+      "description": "Systematic problem-solving for complexity spirals, innovation blocks, recurring patterns, assumption constraints, and scale uncertainty — simplification cascades, inversion, and meta-pattern recognition.",
+      "tags": [
+        "problem-solving",
+        "debugging",
+        "planning",
+        "skills",
+        "cursor",
+        "cursor-kit"
+      ],
+      "ecosystem": "cursor",
+      "repo_url": "https://github.com/duongductrong/cursor-kit",
+      "source_url": "https://github.com/duongductrong/cursor-kit/tree/master/.cursor/skills/problem-solving",
+      "author": "duongductrong",
+      "license": "MIT"
+    },
+    {
+      "id": "cursor-kit-research",
+      "title": "Research",
+      "description": "Research, analyze, and plan technical solutions that are scalable, secure, and maintainable — scoped investigation with YAGNI, KISS, and DRY.",
+      "tags": [
+        "research",
+        "planning",
+        "architecture",
+        "skills",
+        "cursor",
+        "cursor-kit"
+      ],
+      "ecosystem": "cursor",
+      "repo_url": "https://github.com/duongductrong/cursor-kit",
+      "source_url": "https://github.com/duongductrong/cursor-kit/tree/master/.cursor/skills/research",
+      "author": "duongductrong",
+      "license": "MIT"
+    },
+    {
+      "id": "cursor-kit-sequential-thinking",
+      "title": "Sequential Thinking",
+      "description": "Structured, reflective problem-solving for complex tasks: multi-step analysis, revision, branching, and hypothesis verification when scope is unclear.",
+      "tags": [
+        "planning",
+        "reasoning",
+        "problem-solving",
+        "skills",
+        "cursor",
+        "cursor-kit"
+      ],
+      "ecosystem": "cursor",
+      "repo_url": "https://github.com/duongductrong/cursor-kit",
+      "source_url": "https://github.com/duongductrong/cursor-kit/tree/master/.cursor/skills/sequential-thinking",
+      "author": "duongductrong",
+      "license": "MIT"
+    },
+    {
+      "id": "cursor-kit-ui-styling",
+      "title": "UI Styling",
+      "description": "Beautiful, accessible UIs with shadcn/ui (Radix + Tailwind), utility-first styling, theming, dark mode, responsive layouts, and canvas-based visual design.",
+      "tags": [
+        "ui",
+        "tailwind",
+        "shadcn",
+        "accessibility",
+        "skills",
+        "cursor",
+        "cursor-kit"
+      ],
+      "ecosystem": "cursor",
+      "repo_url": "https://github.com/duongductrong/cursor-kit",
+      "source_url": "https://github.com/duongductrong/cursor-kit/tree/master/.cursor/skills/ui-styling",
+      "author": "duongductrong",
+      "license": "MIT"
+    },
+    {
+      "id": "cursor-kit-swiftui-design",
+      "title": "SwiftUI Design",
+      "description": "Production-grade SwiftUI across Apple platforms: declarative architecture, @Observable data flow, composition, and distinctive hand-crafted aesthetics.",
+      "tags": [
+        "swiftui",
+        "ios",
+        "apple",
+        "mobile",
+        "design",
+        "skills",
+        "cursor-kit"
+      ],
+      "ecosystem": "cursor",
+      "repo_url": "https://github.com/duongductrong/cursor-kit",
+      "source_url": "https://github.com/duongductrong/cursor-kit/tree/master/templates/skills/swiftui-design",
+      "author": "duongductrong",
+      "license": "MIT"
+    },
+    {
+      "id": "cursor-kit-cmd-docs",
+      "title": "Cursor Kit: Docs Command",
+      "description": "Cursor slash-command template to create or update documentation that is clear, accurate, and synced with the codebase.",
+      "tags": [
+        "commands",
+        "documentation",
+        "cursor",
+        "cursor-kit",
+        "prompt"
+      ],
+      "ecosystem": "cursor",
+      "repo_url": "https://github.com/duongductrong/cursor-kit",
+      "source_url": "https://github.com/duongductrong/cursor-kit/blob/master/.cursor/commands/docs.md",
+      "author": "duongductrong",
+      "license": "MIT"
+    },
+    {
+      "id": "cursor-kit-cmd-explain",
+      "title": "Cursor Kit: Explain Command",
+      "description": "Cursor slash-command template for patient technical explanations of code or concepts.",
+      "tags": [
+        "commands",
+        "documentation",
+        "learning",
+        "cursor",
+        "cursor-kit",
+        "prompt"
+      ],
+      "ecosystem": "cursor",
+      "repo_url": "https://github.com/duongductrong/cursor-kit",
+      "source_url": "https://github.com/duongductrong/cursor-kit/blob/master/.cursor/commands/explain.md",
+      "author": "duongductrong",
+      "license": "MIT"
+    },
+    {
+      "id": "cursor-kit-cmd-fix",
+      "title": "Cursor Kit: Fix Command",
+      "description": "Cursor slash-command template to diagnose bugs, find root cause, apply a safe fix, and avoid regressions.",
+      "tags": [
+        "commands",
+        "debugging",
+        "bugfix",
+        "cursor",
+        "cursor-kit",
+        "prompt"
+      ],
+      "ecosystem": "cursor",
+      "repo_url": "https://github.com/duongductrong/cursor-kit",
+      "source_url": "https://github.com/duongductrong/cursor-kit/blob/master/.cursor/commands/fix.md",
+      "author": "duongductrong",
+      "license": "MIT"
+    },
+    {
+      "id": "cursor-kit-cmd-implement",
+      "title": "Cursor Kit: Implement Command",
+      "description": "Cursor slash-command template to turn a raw feature idea into an actionable implementation plan and production-ready work.",
+      "tags": [
+        "commands",
+        "planning",
+        "implementation",
+        "cursor",
+        "cursor-kit",
+        "prompt"
+      ],
+      "ecosystem": "cursor",
+      "repo_url": "https://github.com/duongductrong/cursor-kit",
+      "source_url": "https://github.com/duongductrong/cursor-kit/blob/master/.cursor/commands/implement.md",
+      "author": "duongductrong",
+      "license": "MIT"
+    },
+    {
+      "id": "cursor-kit-cmd-refactor",
+      "title": "Cursor Kit: Refactor Command",
+      "description": "Cursor slash-command template to improve code quality while preserving behavior and matching project patterns.",
+      "tags": [
+        "commands",
+        "refactoring",
+        "quality",
+        "cursor",
+        "cursor-kit",
+        "prompt"
+      ],
+      "ecosystem": "cursor",
+      "repo_url": "https://github.com/duongductrong/cursor-kit",
+      "source_url": "https://github.com/duongductrong/cursor-kit/blob/master/.cursor/commands/refactor.md",
+      "author": "duongductrong",
+      "license": "MIT"
+    },
+    {
+      "id": "cursor-kit-cmd-review",
+      "title": "Cursor Kit: Review Command",
+      "description": "Cursor slash-command template for thorough senior-level code review with a structured checklist.",
+      "tags": [
+        "commands",
+        "review",
+        "quality",
+        "cursor",
+        "cursor-kit",
+        "prompt"
+      ],
+      "ecosystem": "cursor",
+      "repo_url": "https://github.com/duongductrong/cursor-kit",
+      "source_url": "https://github.com/duongductrong/cursor-kit/blob/master/.cursor/commands/review.md",
+      "author": "duongductrong",
+      "license": "MIT"
+    },
+    {
+      "id": "cursor-kit-cmd-test",
+      "title": "Cursor Kit: Test Command",
+      "description": "Cursor slash-command template to generate comprehensive test suites for provided code.",
+      "tags": [
+        "commands",
+        "testing",
+        "cursor",
+        "cursor-kit",
+        "prompt"
+      ],
+      "ecosystem": "cursor",
+      "repo_url": "https://github.com/duongductrong/cursor-kit",
+      "source_url": "https://github.com/duongductrong/cursor-kit/blob/master/.cursor/commands/test.md",
+      "author": "duongductrong",
+      "license": "MIT"
+    },
+    {
+      "id": "cursor-kit-rule-coding-style",
+      "title": "Cursor Kit: Coding Style Rule",
+      "description": "Always-on Cursor rule for TypeScript-first style, guard clauses, naming, small pure units, and side effects at the edges.",
+      "tags": [
+        "rules",
+        "typescript",
+        "style",
+        "cursor",
+        "cursor-kit",
+        "mdc"
+      ],
+      "ecosystem": "cursor",
+      "repo_url": "https://github.com/duongductrong/cursor-kit",
+      "source_url": "https://github.com/duongductrong/cursor-kit/blob/master/.cursor/rules/coding-style.mdc",
+      "author": "duongductrong",
+      "license": "MIT"
+    },
+    {
+      "id": "cursor-kit-rule-git",
+      "title": "Cursor Kit: Git Rule",
+      "description": "Always-on Cursor rule for Conventional Commits, branching, and git workflow conventions.",
+      "tags": [
+        "rules",
+        "git",
+        "commits",
+        "cursor",
+        "cursor-kit",
+        "mdc"
+      ],
+      "ecosystem": "cursor",
+      "repo_url": "https://github.com/duongductrong/cursor-kit",
+      "source_url": "https://github.com/duongductrong/cursor-kit/blob/master/.cursor/rules/git.mdc",
+      "author": "duongductrong",
+      "license": "MIT"
+    },
+    {
+      "id": "cursor-kit-rule-toc",
+      "title": "Cursor Kit: Skills & Rules TOC",
+      "description": "Always-on Cursor rule that routes tasks to matching cursor-kit Skills and Rules (table of contents for the template set).",
+      "tags": [
+        "rules",
+        "router",
+        "skills",
+        "cursor",
+        "cursor-kit",
+        "mdc"
+      ],
+      "ecosystem": "cursor",
+      "repo_url": "https://github.com/duongductrong/cursor-kit",
+      "source_url": "https://github.com/duongductrong/cursor-kit/blob/master/.cursor/rules/toc.mdc",
+      "author": "duongductrong",
+      "license": "MIT"
     }
   ],
   "edges": [

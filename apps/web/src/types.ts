@@ -11,6 +11,8 @@ export interface Skill {
   version?: string | null;
   custom?: boolean;
   local?: boolean;
+  /** IDEs this resource can install into (from package layout / ecosystem). */
+  install_ides?: string[];
 }
 
 export interface CreateCustomSkillInput {

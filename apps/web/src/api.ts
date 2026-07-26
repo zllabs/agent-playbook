@@ -114,3 +114,45 @@ export function downloadPlaybook(playbook: Playbook) {
   a.click();
   URL.revokeObjectURL(url);
 }
+
+export interface InstallResponse {
+  ide: string;
+  scope: string;
+  target: string;
+  install_root: string;
+  installed: number;
+  skipped: number;
+  results: { id: string; status: string; path: string; detail?: string }[];
+}
+
+export async function installPlaybook(
+  playbook: Playbook,
+  options: {
+    targetDir?: string;
+    globalCli?: boolean;
+    scope?: "project" | "user";
+    ide?: "cursor" | "claude";
+  } = {},
+): Promise<InstallResponse> {
+  const res = await fetch(`${API}/playbook/install`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      skills: playbook.skills,
+      target_dir: options.targetDir ?? ".",
+      global_cli: options.globalCli ?? false,
+      scope: options.scope ?? "project",
+      ide: options.ide ?? "cursor",
+    }),
+  });
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({}));
+    if (res.status === 404) {
+      throw new Error(
+        "Install API not found — restart the API (./dev.sh). Port 8000 may still be an old process.",
+      );
+    }
+    throw new Error(typeof err.detail === "string" ? err.detail : "Install failed");
+  }
+  return res.json();
+}

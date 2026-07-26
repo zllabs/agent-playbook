@@ -7,7 +7,17 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse, PlainTextResponse
 
 import db
-from models import CreateCustomSkillRequest, HealthResponse, Playbook, PlaybookEdge, RecommendRequest, Skill
+from models import (
+    CreateCustomSkillRequest,
+    HealthResponse,
+    InstallRequest,
+    InstallResponse,
+    Playbook,
+    PlaybookEdge,
+    RecommendRequest,
+    Skill,
+)
+from install_local import install_skills
 from ollama import maybe_polish
 from recommend import recommend
 
@@ -149,6 +159,23 @@ def get_skill(skill_id: str):
     if not skill:
         raise HTTPException(status_code=404, detail="Skill not found")
     return Skill(**skill)
+
+
+@app.post("/api/playbook/install", response_model=InstallResponse)
+def playbook_install(body: InstallRequest):
+    """Write selected resources into Cursor or Claude dirs (local API only)."""
+    if not body.skills:
+        raise HTTPException(status_code=400, detail="At least one skill is required")
+    scope = body.scope if body.scope in ("project", "user") else "project"
+    ide = body.ide if body.ide in ("cursor", "claude") else "cursor"
+    result = install_skills(
+        [s.model_dump() for s in body.skills],
+        ide=ide,  # type: ignore[arg-type]
+        scope=scope,  # type: ignore[arg-type]
+        target_dir=body.target_dir.strip() or ".",
+        prefer_global_cli=body.global_cli,
+    )
+    return InstallResponse(**result)
 
 
 @app.post("/api/recommend", response_model=Playbook)

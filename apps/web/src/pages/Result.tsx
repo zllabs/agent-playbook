@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { downloadPlaybook, getEdges, searchSkills } from "../api";
+import { downloadPlaybook, getEdges, installPlaybook, searchSkills } from "../api";
 import SkillGraph from "../components/SkillGraph";
 import SkillSourceModal from "../components/SkillSourceModal";
 import { isLocalSkill } from "../localSkills";
@@ -25,6 +25,13 @@ export default function Result({ playbook, onReset }: Props) {
     "idle",
   );
   const [sourceModal, setSourceModal] = useState<{ id: string; title: string } | null>(null);
+  const [installTargetDir, setInstallTargetDir] = useState(".");
+  const [installIde, setInstallIde] = useState<"cursor" | "claude">("cursor");
+  const [installScope, setInstallScope] = useState<"project" | "user">("project");
+  const [installGlobalCli, setInstallGlobalCli] = useState(false);
+  const [installBusy, setInstallBusy] = useState(false);
+  const [installError, setInstallError] = useState<string | null>(null);
+  const [installOk, setInstallOk] = useState<string | null>(null);
   const listRef = useRef<HTMLUListElement>(null);
   const catalogEdgesRef = useRef(playbook.edges);
   catalogEdgesRef.current = catalogEdges;
@@ -137,7 +144,51 @@ export default function Result({ playbook, onReset }: Props) {
     setAddSearchState("idle");
   }
 
+  async function handleInstall() {
+    setInstallError(null);
+    setInstallOk(null);
+    setInstallBusy(true);
+    try {
+      const result = await installPlaybook(filteredPlaybook, {
+        targetDir: installTargetDir.trim() || ".",
+        globalCli: installGlobalCli,
+        scope: installScope,
+        ide: installIde,
+      });
+      const failed = result.results.filter((r) => r.status === "error");
+      const label = installIde === "cursor" ? "Cursor" : "Claude";
+      const where =
+        installScope === "user"
+          ? `${result.install_root} (all projects)`
+          : result.install_root;
+      if (result.installed === 0) {
+        setInstallError(
+          result.skipped > 0
+            ? `Nothing installed — ${result.skipped} resource(s) are for the other IDE or lack a fetchable source.`
+            : failed[0]?.detail
+              ? `Nothing installed — ${failed[0].detail}`
+              : "Nothing installed — no fetchable sources for the selection.",
+        );
+      } else {
+        setInstallOk(
+          `Installed ${result.installed} into ${label} at ${where}` +
+            (result.skipped ? ` (${result.skipped} skipped for other IDE/source)` : "") +
+            (failed.length ? ` (${failed.length} failed)` : ""),
+        );
+      }
+    } catch (e) {
+      setInstallError(e instanceof Error ? e.message : "Install failed");
+    } finally {
+      setInstallBusy(false);
+    }
+  }
+
   const empty = allSkills.length === 0;
+  const installCount = filteredPlaybook.skills.filter((s) => {
+    if (s.install_ides?.length) return s.install_ides.includes(installIde);
+    if (s.id.startsWith("cursor-kit-")) return installIde === "cursor";
+    return (s.ecosystem || "cursor") === installIde;
+  }).length;
 
   return (
     <div className="page result">
@@ -252,17 +303,106 @@ export default function Result({ playbook, onReset }: Props) {
       </section>
 
       <footer className="result-footer">
-        <button
-          type="button"
-          className="btn primary"
-          disabled={filteredPlaybook.skills.length === 0}
-          onClick={() => downloadPlaybook(filteredPlaybook)}
-        >
-          Export JSON ({filteredPlaybook.skills.length})
-        </button>
-        <button type="button" className="btn secondary" onClick={onReset}>
-          New task
-        </button>
+        <div className="install-panel">
+          <h2 className="section-title">Install</h2>
+          <p className="skills-hint">
+            Writes checked resources into Cursor (<code>.cursor/</code>) or Claude Code (
+            <code>.claude/</code>) on this machine. Claude resources are skipped for Cursor and
+            vice versa.
+          </p>
+          <div className="install-options">
+            <fieldset className="install-scope">
+              <legend className="sr-only">IDE</legend>
+              <label className="install-global">
+                <input
+                  type="radio"
+                  name="install-ide"
+                  checked={installIde === "cursor"}
+                  onChange={() => setInstallIde("cursor")}
+                />
+                Cursor
+              </label>
+              <label className="install-global">
+                <input
+                  type="radio"
+                  name="install-ide"
+                  checked={installIde === "claude"}
+                  onChange={() => setInstallIde("claude")}
+                />
+                Claude Code
+              </label>
+            </fieldset>
+            <fieldset className="install-scope">
+              <legend className="sr-only">Install scope</legend>
+              <label className="install-global">
+                <input
+                  type="radio"
+                  name="install-scope"
+                  checked={installScope === "project"}
+                  onChange={() => setInstallScope("project")}
+                />
+                This project
+              </label>
+              <label className="install-global">
+                <input
+                  type="radio"
+                  name="install-scope"
+                  checked={installScope === "user"}
+                  onChange={() => setInstallScope("user")}
+                />
+                All projects (
+                <code>{installIde === "cursor" ? "~/.cursor" : "~/.claude"}</code>)
+              </label>
+            </fieldset>
+            {installScope === "project" && (
+              <label className="install-field">
+                <span>Project path</span>
+                <input
+                  type="text"
+                  value={installTargetDir}
+                  onChange={(e) => setInstallTargetDir(e.target.value)}
+                  placeholder="."
+                  aria-label="Target project directory"
+                />
+              </label>
+            )}
+            {installIde === "cursor" && (
+              <label className="install-global">
+                <input
+                  type="checkbox"
+                  checked={installGlobalCli}
+                  onChange={(e) => setInstallGlobalCli(e.target.checked)}
+                />
+                Prefer global <code>cursor-kit-cli</code> templates
+              </label>
+            )}
+          </div>
+          {installError && <p className="install-error">{installError}</p>}
+          {installOk && <p className="install-ok">{installOk}</p>}
+        </div>
+        <div className="result-footer-actions">
+          <button
+            type="button"
+            className="btn primary"
+            disabled={installCount === 0 || installBusy}
+            onClick={() => void handleInstall()}
+          >
+            {installBusy
+              ? "Installing…"
+              : `Install ${installCount} to ${installIde === "cursor" ? "Cursor" : "Claude"}`}
+          </button>
+          <button
+            type="button"
+            className="btn secondary"
+            disabled={filteredPlaybook.skills.length === 0}
+            onClick={() => downloadPlaybook(filteredPlaybook)}
+          >
+            Export JSON
+          </button>
+          <button type="button" className="btn secondary" onClick={onReset}>
+            New task
+          </button>
+        </div>
       </footer>
 
       {sourceModal && (

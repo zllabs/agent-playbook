@@ -397,20 +397,37 @@ def local_skill_readme_path(skill_id: str) -> Optional[Path]:
     return readme if readme.is_file() else None
 
 
+def _install_ides_for(skill_id: str, *, local: bool, ecosystem: str) -> list[str]:
+    if local:
+        pkg = SKILLS_DIR / skill_id
+        ides: list[str] = []
+        if (pkg / "cursor").is_dir():
+            ides.append("cursor")
+        if (pkg / "claude").is_dir():
+            ides.append("claude")
+        return ides or [ecosystem or "cursor"]
+    if skill_id.startswith("cursor-kit-"):
+        return ["cursor"]
+    return [ecosystem or "cursor"]
+
+
 def _row_to_skill(row: sqlite3.Row) -> dict:
+    local = bool(row["local"])
+    eco = row["ecosystem"]
     return {
         "id": row["id"],
         "title": row["title"],
         "description": row["description"],
         "tags": row["tags"].split(),
-        "ecosystem": row["ecosystem"],
+        "ecosystem": eco,
         "repo_url": row["repo_url"],
         "source_url": row["source_url"],
         "author": row["author"],
         "license": row["license"],
         "version": row["version"],
         "custom": bool(row["custom"]),
-        "local": bool(row["local"]),
+        "local": local,
+        "install_ides": _install_ides_for(row["id"], local=local, ecosystem=eco),
     }
 
 

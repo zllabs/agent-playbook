@@ -87,6 +87,12 @@ Opens API (`:8000`) and web (`:5173`) in one process — Ctrl+C stops both. Firs
 
 Open http://127.0.0.1:5173 — see [apps/README.md](apps/README.md) for manual two-terminal setup.
 
+### Install into Cursor or Claude
+
+On the result screen, pick **Cursor** or **Claude Code**, then **This project** or **All projects**, and click **Install**. Only matching ecosystem resources are written (Claude skills never land in `.cursor/`, Cursor rules never land in `.claude/`).
+
+Local packages with both `cursor/` and `claude/` variants install the matching side.
+
 > **Note:** v0.1 is a local-dev tool. See [SECURITY.md](SECURITY.md).
 
 ## Documentation

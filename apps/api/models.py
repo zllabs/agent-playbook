@@ -16,6 +16,7 @@ class Skill(BaseModel):
     version: Optional[str] = None
     custom: bool = False
     local: bool = False
+    install_ides: Optional[list[str]] = None
 
 
 class CreateCustomSkillRequest(BaseModel):
@@ -54,6 +55,31 @@ class Playbook(BaseModel):
     skills: list[SkillWithReason]
     edges: list[PlaybookEdge]
     generated_at: str
+
+
+class InstallRequest(BaseModel):
+    skills: list[SkillWithReason]
+    target_dir: str = "."
+    global_cli: bool = False
+    scope: str = "project"  # project | user
+    ide: str = "cursor"  # cursor | claude
+
+
+class InstallResultItem(BaseModel):
+    id: str
+    status: str
+    path: str = ""
+    detail: str = ""
+
+
+class InstallResponse(BaseModel):
+    ide: str
+    scope: str
+    target: str
+    install_root: str
+    installed: int
+    skipped: int = 0
+    results: list[InstallResultItem]
 
 
 class RecommendRequest(BaseModel):

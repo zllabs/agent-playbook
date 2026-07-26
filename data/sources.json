@@ -59,6 +59,12 @@
       "url": "https://github.com/mattpocock/skills",
       "description": "Flattened into catalog: engineering + productivity Agent Skills (grill-me, tdd, triage, \u2026).",
       "license": "MIT"
+    },
+    "cursor_kit": {
+      "title": "Cursor Kit",
+      "url": "https://github.com/duongductrong/cursor-kit",
+      "description": "CLI templates for Cursor, GitHub Copilot, and AntiGravity — rules, commands, and Agent Skills (all flattened in catalog).",
+      "license": "MIT"
     }
   },
   "mdc_repo": "https://github.com/sanjeed5/awesome-cursor-rules-mdc",

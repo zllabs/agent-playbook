@@ -39,6 +39,12 @@ if [[ ! -d node_modules ]]; then
 fi
 
 echo "==> Starting API :$API_PORT and web :$WEB_PORT"
+if lsof -tiTCP:"$API_PORT" -sTCP:LISTEN >/dev/null 2>&1; then
+  echo "Port $API_PORT in use — stopping old listener"
+  lsof -tiTCP:"$API_PORT" -sTCP:LISTEN | xargs kill -TERM 2>/dev/null || true
+  sleep 0.5
+  lsof -tiTCP:"$API_PORT" -sTCP:LISTEN | xargs kill -KILL 2>/dev/null || true
+fi
 cd "$ROOT/apps/api"
 uvicorn main:app --reload --port "$API_PORT" &
 pids+=($!)
