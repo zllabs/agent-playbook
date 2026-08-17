@@ -1538,6 +1538,11 @@
       "type": "related_to"
     },
     {
+      "from_id": "playbook-task",
+      "to_id": "prompt-refiner",
+      "type": "related_to"
+    },
+    {
       "from_id": "prompt-refiner",
       "to_id": "create-skill",
       "type": "related_to"

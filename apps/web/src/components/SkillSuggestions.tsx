@@ -14,8 +14,8 @@ export default function SkillSuggestions({ skills }: Props) {
         {skills.map((skill) => (
           <li key={skill.id} className="suggestion-item">
             <span className="suggestion-title">{skill.title}</span>
-            {skill.custom && <span className="badge custom">Custom</span>}
-            {skill.local && <span className="badge local">Local</span>}
+            {skill.custom && <span className="badge saved">Saved</span>}
+            {skill.local && <span className="badge bundled">Bundled</span>}
             <span className="suggestion-tags">{skill.tags.slice(0, 4).join(", ")}</span>
           </li>
         ))}

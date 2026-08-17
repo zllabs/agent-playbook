@@ -8,7 +8,7 @@ Third-party resources remain the intellectual property of their respective autho
 
 Agent Playbook stores only metadata necessary for discovery, attribution, and recommendation, including titles, descriptions, authors, licenses, canonical URLs, tags, and relationships.
 
-If you are the author of a listed resource and would like it updated or removed, please [open an issue](https://github.com/zllabs/agent-brief/issues).
+If you are the author of a listed resource and would like it updated or removed, please [open an issue](https://github.com/zllabs/agent-playbook/issues).
 
 ## Catalog rules
 

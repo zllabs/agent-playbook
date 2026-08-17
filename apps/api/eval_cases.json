@@ -58,5 +58,11 @@
     "task": "Create a GitHub Actions CI workflow",
     "expect": ["ci-pipeline"],
     "forbid": ["prompt-refiner", "react-frontend"]
+  },
+  {
+    "id": "playbook-task-phrase",
+    "task": "help me phrase my task for finding AI dev resources",
+    "expect": ["playbook-task"],
+    "forbid": ["prompt-refiner", "oauth-security", "create-skill"]
   }
 ]

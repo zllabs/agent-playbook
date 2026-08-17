@@ -6,6 +6,6 @@
   "ecosystem": "cursor",
   "author": "zllabs",
   "license": "MIT",
-  "repo_url": "https://github.com/zllabs/agent-brief",
-  "source_url": "https://github.com/zllabs/agent-brief/tree/main/skills/prompt-refiner"
+  "repo_url": "https://github.com/zllabs/agent-playbook",
+  "source_url": "https://github.com/zllabs/agent-playbook/tree/main/skills/prompt-refiner"
 }

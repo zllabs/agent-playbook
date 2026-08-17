@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { downloadPlaybook, getEdges, installPlaybook, searchSkills } from "../api";
+import { copyPlaybookBrief, downloadPlaybook, getEdges, installPlaybook, searchSkills } from "../api";
 import SkillGraph from "../components/SkillGraph";
 import SkillSourceModal from "../components/SkillSourceModal";
 import { isLocalSkill } from "../localSkills";
@@ -32,6 +32,7 @@ export default function Result({ playbook, onReset }: Props) {
   const [installBusy, setInstallBusy] = useState(false);
   const [installError, setInstallError] = useState<string | null>(null);
   const [installOk, setInstallOk] = useState<string | null>(null);
+  const [copyBriefOk, setCopyBriefOk] = useState(false);
   const listRef = useRef<HTMLUListElement>(null);
   const catalogEdgesRef = useRef(playbook.edges);
   catalogEdgesRef.current = catalogEdges;
@@ -144,6 +145,16 @@ export default function Result({ playbook, onReset }: Props) {
     setAddSearchState("idle");
   }
 
+  async function handleCopyBrief() {
+    try {
+      await copyPlaybookBrief(filteredPlaybook);
+      setCopyBriefOk(true);
+      window.setTimeout(() => setCopyBriefOk(false), 2000);
+    } catch {
+      setInstallError("Could not copy to clipboard");
+    }
+  }
+
   async function handleInstall() {
     setInstallError(null);
     setInstallOk(null);
@@ -234,8 +245,8 @@ export default function Result({ playbook, onReset }: Props) {
                       <div className="skill-head">
                         <strong>{skill.title}</strong>
                         {isAdded && <span className="badge added">Added</span>}
-                        {skill.custom && <span className="badge custom">Custom</span>}
-                        {local && <span className="badge local">Local</span>}
+                        {skill.custom && <span className="badge saved">Saved</span>}
+                        {local && <span className="badge bundled">Bundled</span>}
                         {skill.license && <span className="license">{skill.license}</span>}
                       </div>
                       <p className="skill-reason">{skill.reason}</p>
@@ -390,6 +401,14 @@ export default function Result({ playbook, onReset }: Props) {
             {installBusy
               ? "Installing…"
               : `Install ${installCount} to ${installIde === "cursor" ? "Cursor" : "Claude"}`}
+          </button>
+          <button
+            type="button"
+            className="btn secondary"
+            disabled={filteredPlaybook.skills.length === 0}
+            onClick={() => void handleCopyBrief()}
+          >
+            {copyBriefOk ? "Copied!" : "Copy as brief"}
           </button>
           <button
             type="button"

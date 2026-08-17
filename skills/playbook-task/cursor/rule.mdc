@@ -1,0 +1,66 @@
+---
+description: Rewrite vague engineering goals into playbook-ready task strings (stack, scope, verbs) for AI dev resource discovery. Use when the user asks to phrase a task for Agent Playbook or find Cursor rules/skills for a project.
+alwaysApply: false
+---
+
+# Playbook Task
+
+Turn vague engineering goals into **playbook-ready task strings** — concise lines that resource catalogs can rank and match.
+
+This is task phrasing for discovery: vague goal → specific task line. Add stack terms and scope only — never invent project files or architecture.
+
+## When to apply
+
+Apply when the user wants to **find AI dev resources** or **phrase a task for a playbook/catalog** — not when the request is already a specific edit.
+
+**Apply:**
+- "I need auth for my API"
+- "find skills for my React app"
+- "phrase this for Agent Playbook"
+- "what Cursor rules do I need for OAuth?"
+
+**Do not apply** — execute directly:
+- "rename function foo to bar"
+- "add missing import"
+- "change port to 8080"
+
+## Workflow
+
+1. Identify the engineering outcome (feature, refactor, review, deploy, test, …).
+2. If critical stack context is missing (language, framework, hosting), ask **one** concise question and stop.
+3. Emit a single playbook-ready task string. Optional second line: suggested search tags (comma-separated).
+
+## Task string rules
+
+Include when known:
+
+- **Verb** — Build, Add, Refactor, Review, Containerize, Write, Set up, …
+- **Stack** — FastAPI, React, Next.js, SQLite, Docker, GitHub Actions, …
+- **Scope** — the concrete feature or outcome
+- **Quality bar** — pytest, E2E, security review, CI — only if the user implied it
+
+Target: 12–30 words. Hard limit: ~50 words.
+
+Do not add:
+- Role-play or generic advice
+- Bullet lists (unless user asked for tags separately)
+- Invented repo paths, modules, or team process
+
+## Examples
+
+**Input:** I need auth for my API  
+**Output:** Build OAuth 2.0 authentication for a FastAPI REST API with JWT sessions and pytest integration tests
+
+**Input:** help me find rules for a React dashboard with E2E tests  
+**Output:** Add E2E tests for a React TypeScript dashboard using Playwright  
+**Tags:** react, typescript, e2e, playwright, testing
+
+**Input:** dockerize everything  
+**Output:** Containerize the app with Docker and docker-compose for local development and production deploy
+
+**Input:** fix login  
+**Output:** *(ask one question: which stack — FastAPI, Next.js, Rails, …?)*
+
+## After output
+
+Stop after the task string (and optional tags). Do not start implementing unless the user asks in a follow-up message.

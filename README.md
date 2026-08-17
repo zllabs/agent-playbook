@@ -1,6 +1,8 @@
 # Agent Playbook
 
-> **Discover. Visualize. Assemble. Export.**
+> **Discover. Connect. Assemble. Export.**
+
+One task in. Linked playbook out.
 
 Agent Playbook is an open-source **metadata catalog and recommendation engine** for AI development resources. Describe an engineering task, get a ranked resource set with explainable reasons, explore how resources relate, and export a reusable playbook — without redistributing third-party content.
 
@@ -127,6 +129,7 @@ Original rules and skills shipped with this repo — not copies from third-party
 | Package | Cursor rule | Claude skill | Description |
 |---------|-------------|--------------|-------------|
 | [prompt-refiner](skills/prompt-refiner/) | [rule.mdc](skills/prompt-refiner/cursor/rule.mdc) | [SKILL.md](skills/prompt-refiner/claude/SKILL.md) | Compile vague requests into structured briefs |
+| [playbook-task](skills/playbook-task/) | [rule.mdc](skills/playbook-task/cursor/rule.mdc) | [SKILL.md](skills/playbook-task/claude/SKILL.md) | Phrase engineering goals as playbook-ready tasks |
 
 Add a new package under `skills/` — see [skills/README.md](skills/README.md).
 
@@ -163,7 +166,7 @@ Third-party resources remain the intellectual property of their respective autho
 
 Agent Playbook stores only metadata necessary for discovery, attribution, and recommendation — titles, descriptions, authors, licenses, canonical URLs, tags, and relationships.
 
-If you are the author of a listed resource and would like it updated or removed, [open an issue](https://github.com/zllabs/agent-brief/issues).
+If you are the author of a listed resource and would like it updated or removed, [open an issue](https://github.com/zllabs/agent-playbook/issues).
 
 ## Tests
 

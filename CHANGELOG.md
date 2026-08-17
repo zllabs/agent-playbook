@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- Add local skill: **playbook-task** (playbook-ready task phrasing)
+- Add **Copy as brief** Markdown export on result page
+- Unify product taglines; fix agent-playbook repo links
+- Add eval case for playbook-task
 - Add `./dev.sh` to bootstrap deps and run API + web together
 - Add recommendation quality eval (`eval_cases.json` + `test_recommend_eval.py`)
 

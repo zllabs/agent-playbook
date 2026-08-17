@@ -1,0 +1,11 @@
+{
+  "id": "playbook-task",
+  "title": "Playbook Task",
+  "description": "Turn vague engineering goals into playbook-ready task strings with stack terms, scope, and verbs for AI resource discovery.",
+  "tags": ["planning", "playbook", "task", "stack", "workflow", "discovery", "agent"],
+  "ecosystem": "cursor",
+  "author": "zllabs",
+  "license": "MIT",
+  "repo_url": "https://github.com/zllabs/agent-playbook",
+  "source_url": "https://github.com/zllabs/agent-playbook/tree/main/skills/playbook-task"
+}

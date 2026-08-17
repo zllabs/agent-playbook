@@ -1,5 +1,6 @@
 import catalog from "../../../data/catalog.json";
 import { getLocalSkillReadme } from "./localSkills";
+import { resolveSourceUrl } from "./sourceUrl";
 import type { CreateCustomSkillInput, Playbook, PlaybookEdge, Skill } from "./types";
 
 const API = "/api";
@@ -113,6 +114,34 @@ export function downloadPlaybook(playbook: Playbook) {
   a.download = "playbook.json";
   a.click();
   URL.revokeObjectURL(url);
+}
+
+export function formatPlaybookBrief(playbook: Playbook): string {
+  const lines: string[] = [`# ${playbook.title}`, "", `**Task:** ${playbook.task}`, ""];
+  if (playbook.skills.length === 0) {
+    lines.push("_No resources selected._");
+    return lines.join("\n");
+  }
+  lines.push("## Resources");
+  playbook.skills.forEach((skill, index) => {
+    lines.push(`${index + 1}. **${skill.title}** — ${skill.reason}`);
+    const source = resolveSourceUrl(skill.source_url, skill.id);
+    if (source) lines.push(`   Source: ${source}`);
+  });
+  if (playbook.edges.length > 0) {
+    const titleById = new Map(playbook.skills.map((s) => [s.id, s.title]));
+    lines.push("", "## Relationships");
+    for (const edge of playbook.edges) {
+      const from = titleById.get(edge.from) ?? edge.from;
+      const to = titleById.get(edge.to) ?? edge.to;
+      lines.push(`- ${from} ↔ ${to} (${edge.type})`);
+    }
+  }
+  return lines.join("\n");
+}
+
+export async function copyPlaybookBrief(playbook: Playbook): Promise<void> {
+  await navigator.clipboard.writeText(formatPlaybookBrief(playbook));
 }
 
 export interface InstallResponse {

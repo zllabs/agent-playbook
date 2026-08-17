@@ -170,13 +170,15 @@ body {
   border-radius: 3px;
 }
 
-.badge.custom {
+.badge.custom,
+.badge.saved {
   color: var(--accent);
   border: 1px solid var(--accent);
   background: #0d737711;
 }
 
-.badge.local {
+.badge.local,
+.badge.bundled {
   color: #5c4d3c;
   border: 1px solid #c4b5a0;
   background: #f5f0e811;
@@ -312,17 +314,37 @@ body {
   border-top: 1px solid var(--border);
 }
 
-.custom-skills-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
 .custom-skills-note {
-  margin: 0.25rem 0 1rem;
+  margin: 0.25rem 0 1.25rem;
   font-size: 0.875rem;
   color: var(--ink-muted);
+  line-height: 1.5;
+}
+
+.resource-section-intro {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: var(--ink-muted);
+  line-height: 1.45;
+}
+
+.catalog-entries-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.catalog-entries-head .subsection-title {
+  margin-top: 0;
+}
+
+.custom-skill-form-intro {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: var(--ink-muted);
+  line-height: 1.45;
 }
 
 .custom-skills-list {
@@ -361,6 +383,164 @@ body {
   margin: 0;
   font-size: 0.875rem;
   color: var(--ink-muted);
+}
+
+.local-packages {
+  margin: 0 0 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--paper);
+}
+
+.local-packages-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+
+.local-packages-summary::-webkit-details-marker {
+  display: none;
+}
+
+.local-packages-summary::before {
+  content: "▸";
+  margin-right: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--ink-muted);
+  transition: transform 0.15s ease;
+}
+
+.local-packages[open] .local-packages-summary::before {
+  transform: rotate(90deg);
+}
+
+.local-packages-summary-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--ink-muted);
+}
+
+.local-packages-count {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.125rem 0.4375rem;
+  border-radius: 999px;
+  color: #5c4d3c;
+  border: 1px solid #c4b5a0;
+  background: #f5f0e811;
+}
+
+.local-packages-summary-hint {
+  font-size: 0.75rem;
+  color: var(--ink-muted);
+}
+
+.local-packages-body {
+  padding: 0 1rem 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.local-packages-body .resource-section-intro {
+  margin-top: 0.75rem;
+}
+
+.local-packages-search {
+  width: 100%;
+  margin-top: 0.75rem;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+}
+
+.local-packages-empty {
+  margin: 0.75rem 0 0;
+  font-size: 0.875rem;
+  color: var(--ink-muted);
+}
+
+.local-packages-grid {
+  list-style: none;
+  padding: 0;
+  margin: 0.75rem 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.625rem;
+}
+
+.local-package-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  padding: 0.75rem 0.875rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.local-package-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.local-package-title {
+  font-size: 0.875rem;
+  line-height: 1.3;
+}
+
+.local-package-ides {
+  display: flex;
+  flex-shrink: 0;
+  gap: 0.25rem;
+}
+
+.local-package-ide {
+  font-size: 0.625rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.125rem 0.3125rem;
+  border-radius: 3px;
+  color: var(--ink-muted);
+  border: 1px solid var(--border);
+  background: var(--paper);
+}
+
+.local-package-desc {
+  margin: 0;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: var(--ink-muted);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.local-package-tags {
+  margin: 0;
+  font-size: 0.75rem;
+  color: var(--ink-muted);
+  font-family: var(--font-mono);
+}
+
+.local-package-readme {
+  align-self: flex-start;
+  margin-top: 0.125rem;
+  font-size: 0.8125rem;
 }
 
 .custom-skill-form {
