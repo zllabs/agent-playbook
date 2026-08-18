@@ -32,14 +32,18 @@ Run relevant tests.
 
 ### Cursor
 
+Install globally (recommended — loads in every project without reinstall):
+
 ```bash
-mkdir -p /path/to/your/project/.cursor/rules
-cp skills/prompt-refiner/cursor/rule.mdc /path/to/your/project/.cursor/rules/prompt-refiner.mdc
-cp skills/prompt-refiner/examples.md /path/to/your/project/   # optional
-cp skills/prompt-refiner/config.yaml.example /path/to/your/project/prompt-refiner.yaml   # optional
+mkdir -p ~/.cursor/rules
+cp skills/prompt-refiner/cursor/rule.mdc ~/.cursor/rules/prompt-refiner.mdc
+cp skills/prompt-refiner/examples.md ~/   # optional
+cp skills/prompt-refiner/config.yaml.example /path/to/your/project/prompt-refiner.yaml   # optional per-project
 ```
 
-The rule uses `alwaysApply: true` and self-filters — it only runs on underspecified requests.
+Agent Playbook install writes to `~/.cursor/rules/` only (not the project dir).
+
+The rule uses `alwaysApply: false` and self-filters — it only runs on underspecified requests.
 
 ### Claude Code
 

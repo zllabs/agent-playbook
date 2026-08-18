@@ -22,8 +22,11 @@ Paste the result into [Agent Playbook](https://github.com/zllabs/agent-playbook)
 
 ### Cursor
 
+Global + project (Agent Playbook install does both automatically):
+
 ```bash
-mkdir -p /path/to/your/project/.cursor/rules
+mkdir -p ~/.cursor/rules /path/to/your/project/.cursor/rules
+cp skills/playbook-task/cursor/rule.mdc ~/.cursor/rules/playbook-task.mdc
 cp skills/playbook-task/cursor/rule.mdc /path/to/your/project/.cursor/rules/playbook-task.mdc
 ```
 

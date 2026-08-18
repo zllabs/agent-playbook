@@ -1,6 +1,6 @@
 ---
 description: Compile underspecified coding requests into concise refined prompts (Task, Context, Requirements, Verification). Apply only when the request lacks enough detail to act on directly.
-alwaysApply: true
+alwaysApply: false
 ---
 
 # Prompt Refiner

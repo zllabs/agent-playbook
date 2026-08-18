@@ -7,5 +7,7 @@
   "author": "zllabs",
   "license": "MIT",
   "repo_url": "https://github.com/zllabs/agent-playbook",
-  "source_url": "https://github.com/zllabs/agent-playbook/tree/main/skills/prompt-refiner"
+  "source_url": "https://github.com/zllabs/agent-playbook/tree/main/skills/prompt-refiner",
+  "local": true,
+  "install_targets": ["user"]
 }

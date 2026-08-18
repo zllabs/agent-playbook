@@ -18,14 +18,32 @@ assert skill_matches_ide({"id": "prompt-refiner", "local": True}, "claude")
 print("OK: skill_matches_ide")
 
 tmp = Path(__file__).resolve().parent / "_install_test_tmp"
+fake_home = tmp / "home"
 if tmp.exists():
     shutil.rmtree(tmp)
 tmp.mkdir()
+fake_home.mkdir()
 try:
-    from install_local import resolve_target, ROOT
+    from install_local import resolve_target, ROOT, _local_install_targets
 
     assert resolve_target("project", ".").resolve() == ROOT.resolve()
     print("OK: resolve_target uses repo root")
+
+    refiner_targets = _local_install_targets(
+        {"id": "prompt-refiner", "install_targets": ["user"]},
+        scope="project",
+        project_target=tmp / "proj",
+        user_home=fake_home,
+    )
+    assert refiner_targets == [fake_home.resolve()]
+    playbook_targets = _local_install_targets(
+        {"id": "playbook-task", "install_targets": ["user", "project"]},
+        scope="project",
+        project_target=tmp / "proj",
+        user_home=fake_home,
+    )
+    assert playbook_targets == [fake_home.resolve(), (tmp / "proj").resolve()]
+    print("OK: local install targets")
 
     out = install_skills(
         [
@@ -45,13 +63,36 @@ try:
         ],
         ide="cursor",
         scope="project",
-        target_dir=str(tmp),
+        target_dir=str(tmp / "proj"),
+        user_home=fake_home,
     )
     assert out["installed"] == 1, out
     assert out["skipped"] == 1, out
-    assert (tmp / ".cursor" / "rules" / "prompt-refiner.mdc").is_file()
-    assert not (tmp / ".claude").exists()
-    print("OK: cursor install skips claude")
+    assert (fake_home / ".cursor" / "rules" / "prompt-refiner.mdc").is_file()
+    assert not (tmp / "proj" / ".cursor" / "rules" / "prompt-refiner.mdc").exists()
+    print("OK: prompt-refiner installs global only")
+
+    proj = tmp / "proj2"
+    proj.mkdir()
+    out_playbook = install_skills(
+        [
+            {
+                "id": "playbook-task",
+                "title": "Playbook Task",
+                "local": True,
+                "ecosystem": "cursor",
+                "source_url": "",
+            }
+        ],
+        ide="cursor",
+        scope="project",
+        target_dir=str(proj),
+        user_home=fake_home,
+    )
+    assert out_playbook["installed"] == 1, out_playbook
+    assert (fake_home / ".cursor" / "rules" / "playbook-task.mdc").is_file()
+    assert (proj / ".cursor" / "rules" / "playbook-task.mdc").is_file()
+    print("OK: playbook-task installs global and project")
 
     out2 = install_skills(
         [
@@ -71,11 +112,12 @@ try:
         ],
         ide="claude",
         scope="project",
-        target_dir=str(tmp),
+        target_dir=str(tmp / "proj3"),
+        user_home=fake_home,
     )
     assert out2["installed"] == 1, out2
     assert out2["skipped"] == 1, out2
-    assert (tmp / ".claude" / "skills" / "prompt-refiner" / "SKILL.md").is_file()
+    assert (fake_home / ".claude" / "skills" / "prompt-refiner" / "SKILL.md").is_file()
     print("OK: claude install skips cursor")
 
     # Tree install destination uses skill id, not URL leaf

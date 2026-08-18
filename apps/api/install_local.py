@@ -29,6 +29,12 @@ CURSOR_KIT_REPO = "https://github.com/duongductrong/cursor-kit.git"
 Scope = Literal["project", "user"]
 Ide = Literal["cursor", "claude"]
 
+# Default install targets for bundled local skills when skill.json omits install_targets.
+LOCAL_INSTALL_TARGETS: dict[str, list[Scope]] = {
+    "prompt-refiner": ["user"],
+    "playbook-task": ["user", "project"],
+}
+
 
 def github_blob_to_raw(url: str) -> str | None:
     m = GITHUB_BLOB.match(url.strip())
@@ -56,6 +62,37 @@ def _cursor_kit_parts(skill_id: str) -> tuple[str, str] | None:
     if skill_id.startswith("cursor-kit-"):
         return "skill", skill_id.removeprefix("cursor-kit-")
     return None
+
+
+def _local_install_targets(
+    skill: dict[str, Any],
+    *,
+    scope: Scope,
+    project_target: Path,
+    user_home: Path | None = None,
+) -> list[Path]:
+    """Resolve install dirs for bundled skills (e.g. global-only vs global+project)."""
+    skill_id = skill["id"]
+    configured = skill.get("install_targets")
+    if configured is None:
+        configured = LOCAL_INSTALL_TARGETS.get(skill_id, [scope])
+    home = (user_home or Path.home()).resolve()
+    project = project_target.resolve()
+    targets: list[Path] = []
+    if "user" in configured:
+        targets.append(home)
+    if "project" in configured and scope == "project":
+        targets.append(project)
+    if not targets:
+        targets.append(home if scope == "user" else project)
+    seen: set[str] = set()
+    unique: list[Path] = []
+    for path in targets:
+        key = str(path)
+        if key not in seen:
+            seen.add(key)
+            unique.append(path)
+    return unique
 
 
 def resolve_target(scope: Scope, target_dir: str = ".") -> Path:
@@ -250,7 +287,9 @@ def install_one(
     target: Path,
     *,
     ide: Ide,
+    scope: Scope = "project",
     prefer_global_cli: bool = False,
+    user_home: Path | None = None,
 ) -> dict[str, str]:
     skill_id = skill["id"]
     source = (skill.get("source_url") or "").strip()
@@ -270,8 +309,20 @@ def install_one(
         return {"id": skill_id, "status": "installed", "path": path}
 
     if skill.get("local"):
-        path = _install_local(skill, target, ide)
-        return {"id": skill_id, "status": "installed", "path": path}
+        paths = [
+            _install_local(skill, install_target, ide)
+            for install_target in _local_install_targets(
+                skill,
+                scope=scope,
+                project_target=target,
+                user_home=user_home,
+            )
+        ]
+        return {
+            "id": skill_id,
+            "status": "installed",
+            "path": ", ".join(paths),
+        }
 
     raw = github_blob_to_raw(source) if source else None
     if raw:
@@ -304,6 +355,7 @@ def install_skills(
     scope: Scope = "project",
     target_dir: str = ".",
     prefer_global_cli: bool = False,
+    user_home: Path | None = None,
 ) -> dict[str, Any]:
     target = resolve_target(scope, target_dir)
     target.mkdir(parents=True, exist_ok=True)
@@ -317,7 +369,14 @@ def install_skills(
         seen.add(sid)
         try:
             results.append(
-                install_one(skill, target, ide=ide, prefer_global_cli=prefer_global_cli)
+                install_one(
+                    skill,
+                    target,
+                    ide=ide,
+                    scope=scope,
+                    prefer_global_cli=prefer_global_cli,
+                    user_home=user_home,
+                )
             )
         except Exception as e:  # ponytail: surface per-skill failures; continue rest
             results.append({"id": sid, "status": "error", "path": "", "detail": str(e)})
