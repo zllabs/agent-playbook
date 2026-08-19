@@ -1,8 +1,15 @@
 {
   "id": "prompt-refiner",
   "title": "Prompt Refiner",
-  "description": "Turn vague coding requests into concise structured briefs for coding agents.",
+  "description": "Compile vague or underspecified coding requests into concise structured briefs (Task, Context, Requirements, Verification) before the agent acts.",
   "tags": ["prompts", "planning", "cursor", "workflow", "refine", "brief"],
+  "search_hints": [
+    "vague coding request",
+    "underspecified task",
+    "refine prompt before coding",
+    "structure developer intent",
+    "unclear requirements before implementation"
+  ],
   "ecosystem": "cursor",
   "author": "zllabs",
   "license": "MIT",

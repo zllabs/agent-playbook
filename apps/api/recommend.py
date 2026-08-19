@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import re
 from datetime import datetime, timezone
 
@@ -21,9 +23,11 @@ def recommend(task: str, polish_fn=None) -> Playbook:
     selected, raw_edges = _coalesce_playbook(selected)
 
     skills: list[SkillWithReason] = []
-    for skill, score, matched_tags in selected:
-        reason = _template_reason(skill, matched_tags, score, related=score < 1.0 and not matched_tags)
-        skills.append(SkillWithReason(**skill, reason=reason))
+    for skill, score, matched_tags, matched_intents in selected:
+        reason = _template_reason(
+            skill, matched_tags, score, matched_intents=matched_intents, related=score < 1.0 and not matched_tags
+        )
+        skills.append(SkillWithReason(**{k: v for k, v in skill.items() if k != "search_hints"}, reason=reason))
 
     if polish_fn and skills:
         skills = polish_fn(task, skills)
@@ -44,20 +48,20 @@ def recommend(task: str, polish_fn=None) -> Playbook:
     )
 
 
-def _select_skills(results: list[tuple[dict, float, list[str]]]) -> list[tuple[dict, float, list[str]]]:
+def _select_skills(results: list[tuple[dict, float, list[str], list[str]]]) -> list[tuple[dict, float, list[str], list[str]]]:
     """Top scored skills plus connected neighbors that also matched the task."""
     if not results:
         return []
 
-    by_id = {skill["id"]: (skill, score, tags) for skill, score, tags in results}
+    by_id = {skill["id"]: (skill, score, tags, intents) for skill, score, tags, intents in results}
     top = results[:8]
-    chosen_ids = {s["id"] for s, _, _ in top}
+    chosen_ids = {s["id"] for s, _, _, _ in top}
 
     for edge in get_edges_for_skills(chosen_ids):
         for sid in (edge["from_id"], edge["to_id"]):
             if sid not in chosen_ids and sid in by_id:
-                _, _, ntags = by_id[sid]
-                if ntags:
+                _, nscore, ntags, nintents = by_id[sid]
+                if ntags or nintents:
                     top.append(by_id[sid])
                     chosen_ids.add(sid)
             if len(top) >= 8:
@@ -69,10 +73,10 @@ def _select_skills(results: list[tuple[dict, float, list[str]]]) -> list[tuple[d
 
 
 def _coalesce_playbook(
-    selected: list[tuple[dict, float, list[str]]],
-) -> tuple[list[tuple[dict, float, list[str]]], list[dict]]:
+    selected: list[tuple[dict, float, list[str], list[str]]],
+) -> tuple[list[tuple[dict, float, list[str], list[str]]], list[dict]]:
     """Drop isolated orphans when a connected cluster exists."""
-    skill_ids = {s["id"] for s, _, _ in selected}
+    skill_ids = {s["id"] for s, _, _, _ in selected}
     edges = get_edges_for_skills(skill_ids)
 
     connected_ids: set[str] = set()
@@ -86,17 +90,24 @@ def _coalesce_playbook(
         # (weak tag collisions can form a cluster that would otherwise orphan it).
         keep = connected_ids | {selected[0][0]["id"]}
         selected = [item for item in selected if item[0]["id"] in keep]
-        skill_ids = {s["id"] for s, _, _ in selected}
+        skill_ids = {s["id"] for s, _, _, _ in selected}
         edges = [e for e in edges if e["from_id"] in skill_ids and e["to_id"] in skill_ids]
 
     return selected, edges
 
 
 def _template_reason(
-    skill: dict, matched_tags: list[str], score: float, related: bool = False
+    skill: dict,
+    matched_tags: list[str],
+    score: float,
+    *,
+    matched_intents: list[str] | None = None,
+    related: bool = False,
 ) -> str:
     if related:
         return "Related skill — connected in the catalog graph."
+    if matched_intents:
+        return f"Matched intent: {matched_intents[0]}."
     if matched_tags:
         tags = ", ".join(sorted(set(matched_tags)))
         return f"Matched tags: {tags}."

@@ -1548,6 +1548,11 @@
       "type": "related_to"
     },
     {
+      "from_id": "ponytail",
+      "to_id": "prompt-refiner",
+      "type": "related_to"
+    },
+    {
       "from_id": "bugbot-review",
       "to_id": "security-review",
       "type": "related_to"

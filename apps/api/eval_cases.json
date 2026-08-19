@@ -64,5 +64,17 @@
     "task": "help me phrase my task for finding AI dev resources",
     "expect": ["playbook-task"],
     "forbid": ["prompt-refiner", "oauth-security", "create-skill"]
+  },
+  {
+    "id": "ponytail-intent",
+    "task": "Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote.",
+    "expect": ["ponytail"],
+    "forbid": ["prompt-refiner", "fastapi-skill", "react-frontend"]
+  },
+  {
+    "id": "ponytail-yagni",
+    "task": "I want my agent to write less code and reuse what we already have",
+    "expect": ["ponytail"],
+    "forbid": ["prompt-refiner", "playbook-task"]
   }
 ]

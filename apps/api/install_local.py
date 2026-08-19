@@ -33,6 +33,7 @@ Ide = Literal["cursor", "claude"]
 LOCAL_INSTALL_TARGETS: dict[str, list[Scope]] = {
     "prompt-refiner": ["user"],
     "playbook-task": ["user", "project"],
+    "ponytail": ["user"],
 }
 
 

@@ -5,6 +5,7 @@ from pathlib import Path
 from typing import Optional
 
 from sources import playbook_skill_path
+from search_match import score_skill, tokenize
 
 ROOT = Path(__file__).resolve().parents[2]
 CATALOG_PATH = ROOT / "data" / "catalog.json"
@@ -12,6 +13,7 @@ CUSTOM_SKILLS_PATH = ROOT / "data" / "custom_skills.json"
 CUSTOM_SKILLS_EXAMPLE = ROOT / "data" / "custom_skills.example.json"
 SKILLS_DIR = ROOT / "skills"
 DB_PATH = ROOT / "data" / "playbook.db"
+HINT_SEP = "\x1f"
 
 # Reseed when catalog.json (or custom skills file) changes — uvicorn --reload
 # only watches Python, so catalog edits otherwise stay invisible until restart.
@@ -57,6 +59,7 @@ def init_db() -> int:
                 title TEXT NOT NULL,
                 description TEXT NOT NULL,
                 tags TEXT NOT NULL,
+                search_hints TEXT NOT NULL DEFAULT '',
                 ecosystem TEXT NOT NULL,
                 repo_url TEXT NOT NULL,
                 source_url TEXT NOT NULL,
@@ -72,6 +75,7 @@ def init_db() -> int:
                 title,
                 description,
                 tags,
+                search_hints,
                 content='skills',
                 content_rowid='rowid'
             );
@@ -84,6 +88,7 @@ def init_db() -> int:
         """)
 
         for skill in catalog["skills"]:
+            skill.setdefault("search_hints", [])
             _insert_skill_row(conn, skill)
 
         for skill in local:
@@ -95,7 +100,11 @@ def init_db() -> int:
                 continue
             _insert_skill_row(conn, skill, custom=True)
 
-        conn.execute("INSERT INTO skills_fts(id, title, description, tags) SELECT id, title, description, tags FROM skills")
+        conn.execute(
+            "INSERT INTO skills_fts(id, title, description, tags, search_hints) "
+            "SELECT id, title, description, tags, replace(search_hints, ?, ' ') FROM skills",
+            (HINT_SEP,),
+        )
 
         for edge in catalog.get("edges", []):
             conn.execute(
@@ -131,6 +140,7 @@ def discover_local_skills() -> list[dict]:
         if not str(data.get("source_url", "")).startswith("http"):
             data["source_url"] = playbook_skill_path(data["id"])
         data["tags"] = [t.lower() for t in data.get("tags", [])]
+        data["search_hints"] = [str(h).strip() for h in data.get("search_hints", []) if str(h).strip()]
         skills.append(data)
     return skills
 
@@ -157,15 +167,18 @@ def _insert_skill_row(
     local: bool = False,
 ) -> None:
     tags_str = " ".join(skill["tags"])
+    hints_list = skill.get("search_hints", [])
+    hints_store = HINT_SEP.join(hints_list)
     conn.execute(
         """INSERT INTO skills
-           (id, title, description, tags, ecosystem, repo_url, source_url, author, license, version, custom, local)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+           (id, title, description, tags, search_hints, ecosystem, repo_url, source_url, author, license, version, custom, local)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
         (
             skill["id"],
             skill["title"],
             skill["description"],
             tags_str,
+            hints_store,
             skill["ecosystem"],
             skill["repo_url"],
             skill["source_url"],
@@ -180,8 +193,8 @@ def _insert_skill_row(
 
 def _sync_fts_insert(conn: sqlite3.Connection, skill_id: str) -> None:
     conn.execute(
-        """INSERT INTO skills_fts(rowid, id, title, description, tags)
-           SELECT rowid, id, title, description, tags FROM skills WHERE id = ?""",
+        """INSERT INTO skills_fts(rowid, id, title, description, tags, search_hints)
+           SELECT rowid, id, title, description, tags, search_hints FROM skills WHERE id = ?""",
         (skill_id,),
     )
 
@@ -277,7 +290,7 @@ def list_skills(q: str = "", custom: Optional[bool] = None) -> list[dict]:
     conn = get_conn()
     try:
         if q.strip():
-            tokens = _tokenize(q)
+            tokens = tokenize(q)
             if not tokens:
                 rows = []
             else:
@@ -305,61 +318,32 @@ def list_skills(q: str = "", custom: Optional[bool] = None) -> list[dict]:
         conn.close()
 
 
-GENERIC_TAGS = frozenset({
-    "cursor", "workflow", "planning", "skills", "rules", "documentation",
-    "quality", "backend", "frontend", "api", "testing", "devops", "ui",
-})
-
-
-def search_skills(task: str) -> list[tuple[dict, float, list[str]]]:
-    """Return (skill, score, matched_tags) ranked by relevance."""
+def search_skills(task: str) -> list[tuple[dict, float, list[str], list[str]]]:
+    """Return (skill, score, matched_tags, matched_intents) ranked by relevance."""
     ensure_db()
-    tokens = _tokenize(task)
+    tokens = tokenize(task)
     if not tokens:
         return []
 
     conn = get_conn()
     try:
         all_skills = conn.execute("SELECT * FROM skills").fetchall()
-        results: list[tuple[dict, float, list[str]]] = []
+        fts_query = " OR ".join(tokens)
+        results: list[tuple[dict, float, list[str], list[str]]] = []
 
         for row in all_skills:
             skill = _row_to_skill(row)
-            tag_set = {t.lower() for t in skill["tags"]}
-            title_lower = skill["title"].lower()
-            desc_lower = skill["description"].lower()
-
-            score = 0.0
-            matched_tags: list[str] = []
-
-            for token in tokens:
-                if token in tag_set:
-                    if token in GENERIC_TAGS:
-                        score += 2.0
-                    else:
-                        score += 10.0
-                        matched_tags.append(token)
-                elif token in title_lower:
-                    score += 5.0
-                elif token in desc_lower:
-                    score += 2.0
-
-            if score <= 0:
-                continue
-
-            title_hit = any(token in title_lower for token in tokens)
-            if not matched_tags and not title_hit:
-                continue
-
-            fts_query = " OR ".join(tokens)
             fts_row = conn.execute(
                 """SELECT rank FROM skills_fts WHERE skills_fts MATCH ? AND id = ?""",
                 (fts_query, skill["id"]),
             ).fetchone()
-            if fts_row:
-                score += abs(fts_row[0]) * 3.0
-
-            results.append((skill, score, matched_tags))
+            fts_rank = fts_row[0] if fts_row else None
+            score, matched_tags, matched_intents = score_skill(
+                task, skill, fts_rank=fts_rank
+            )
+            if score <= 0:
+                continue
+            results.append((skill, score, matched_tags, matched_intents))
 
         results.sort(key=lambda x: x[1], reverse=True)
         return results
@@ -414,11 +398,13 @@ def _install_ides_for(skill_id: str, *, local: bool, ecosystem: str) -> list[str
 def _row_to_skill(row: sqlite3.Row) -> dict:
     local = bool(row["local"])
     eco = row["ecosystem"]
+    hints_raw = row["search_hints"] if "search_hints" in row.keys() else ""
     return {
         "id": row["id"],
         "title": row["title"],
         "description": row["description"],
         "tags": row["tags"].split(),
+        "search_hints": [h for h in hints_raw.split(HINT_SEP) if h] if hints_raw else [],
         "ecosystem": eco,
         "repo_url": row["repo_url"],
         "source_url": row["source_url"],
@@ -429,12 +415,6 @@ def _row_to_skill(row: sqlite3.Row) -> dict:
         "local": local,
         "install_ides": _install_ides_for(row["id"], local=local, ecosystem=eco),
     }
-
-
-def _tokenize(text: str) -> list[str]:
-    words = re.findall(r"[a-z0-9]+", text.lower())
-    stop = {"a", "an", "the", "and", "or", "for", "to", "in", "on", "with", "using", "build", "make", "add", "create", "implement", "write", "set", "up"}
-    return [w for w in words if w not in stop and len(w) > 1]
 
 
 def slugify_id(text: str) -> str:

@@ -3,6 +3,13 @@
   "title": "Playbook Task",
   "description": "Turn vague engineering goals into playbook-ready task strings with stack terms, scope, and verbs for AI resource discovery.",
   "tags": ["planning", "playbook", "task", "stack", "workflow", "discovery", "agent"],
+  "search_hints": [
+    "phrase task for resource discovery",
+    "find cursor rules for my project",
+    "what skills do I need",
+    "playbook ready task string",
+    "find ai dev resources"
+  ],
   "ecosystem": "cursor",
   "author": "zllabs",
   "license": "MIT",

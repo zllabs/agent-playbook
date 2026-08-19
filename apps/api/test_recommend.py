@@ -27,6 +27,15 @@ assert refiner.local
 assert "create-skill" not in {s.id for s in pb2.skills}, "do not auto-add unrelated neighbors to list"
 print("OK: prompt-refiner only when task matches")
 
+pb_pony = recommend(
+    "Makes your AI agent think like the laziest senior dev in the room. "
+    "The best code is the code you never wrote."
+)
+pony = next((s for s in pb_pony.skills if s.id == "ponytail"), None)
+assert pony, f"ponytail should match intent description, got {[s.id for s in pb_pony.skills]}"
+assert "intent" in pony.reason.lower() or "lazy" in pony.reason.lower() or "Matched" in pony.reason
+print("OK: ponytail matches by intent not name")
+
 # Simulated orphan: prompt-refiner would be dropped when other skills connect
 pb_fake = recommend("Build OAuth authentication using FastAPI")
 assert "prompt-refiner" not in {s.id for s in pb_fake.skills}

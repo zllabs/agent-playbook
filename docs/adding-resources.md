@@ -35,9 +35,15 @@ Edges in `catalog.json` are curated relationships (`requires`, `related_to`). En
   "repo_url": "https://github.com/org/repo",
   "source_url": "https://github.com/org/repo/blob/main/path/to/rule.mdc",
   "author": "org-or-author",
-  "license": "MIT"
+  "license": "MIT",
+  "search_hints": [
+    "optional intent phrase users might say",
+    "another way to describe the same need"
+  ]
 }
 ```
+
+`search_hints` are indexed for recommend but not shown in the UI. Use natural phrases a user might type when they do not know the skill name.
 
 2. Add edges if the skill relates to others already in the catalog.
 3. Restart the API (or rely on reload) — `init_db()` reseeds on startup.

@@ -1,0 +1,24 @@
+{
+  "id": "ponytail",
+  "title": "Ponytail",
+  "description": "Makes your AI agent think like the laziest senior dev in the room. YAGNI, reuse-first, minimal diff — the best code is the code you never wrote.",
+  "tags": ["yagni", "minimal", "lazy", "architecture", "refactoring", "simplicity", "cursor", "rules"],
+  "search_hints": [
+    "lazy senior developer",
+    "laziest senior dev",
+    "best code is the code you never wrote",
+    "minimal diff smallest change",
+    "yagni reuse existing code",
+    "avoid over engineering",
+    "simplest solution that works",
+    "write less code",
+    "no unnecessary abstractions"
+  ],
+  "ecosystem": "cursor",
+  "author": "dietrichgebert",
+  "license": "MIT",
+  "repo_url": "https://github.com/dietrichgebert/ponytail",
+  "source_url": "https://github.com/dietrichgebert/ponytail",
+  "local": true,
+  "install_targets": ["user"]
+}

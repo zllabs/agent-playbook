@@ -44,6 +44,6 @@ skills/
 }
 ```
 
-Optional fields: `repo_url`, `source_url` (defaults to this repo on GitHub under `skills/<id>/`).
+Optional fields: `repo_url`, `source_url` (defaults to this repo on GitHub under `skills/<id>/`), `search_hints` (intent phrases for recommend — not shown in UI), `install_targets` (`user` and/or `project`).
 
 Catalog metadata lives in [data/catalog.json](../data/catalog.json) and points at external hubs listed in [data/sources.json](../data/sources.json) and the root [README](../README.md#references).

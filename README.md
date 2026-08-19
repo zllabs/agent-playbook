@@ -130,6 +130,7 @@ Original rules and skills shipped with this repo — not copies from third-party
 |---------|-------------|--------------|-------------|
 | [prompt-refiner](skills/prompt-refiner/) | [rule.mdc](skills/prompt-refiner/cursor/rule.mdc) | [SKILL.md](skills/prompt-refiner/claude/SKILL.md) | Compile vague requests into structured briefs |
 | [playbook-task](skills/playbook-task/) | [rule.mdc](skills/playbook-task/cursor/rule.mdc) | [SKILL.md](skills/playbook-task/claude/SKILL.md) | Phrase engineering goals as playbook-ready tasks |
+| [ponytail](skills/ponytail/) | [rule.mdc](skills/ponytail/cursor/rule.mdc) | — | Lazy senior dev mode — YAGNI, minimal diff, reuse-first |
 
 Add a new package under `skills/` — see [skills/README.md](skills/README.md).
 
